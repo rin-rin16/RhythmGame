@@ -12,13 +12,12 @@ class DrawableBall:
     '''
     draws a ball in direct place
     '''
-    def __init__(self, x, y, surface, alive, pos):
+    def __init__(self, x, y, surface, pos):
         self.surface = surface
         self.x = x
         self.y = y
         self.r = 10
         self.pos = pos
-        self.is_alive = alive
         if self.pos == 0:
             self.color = green
         if self.pos == 1:
