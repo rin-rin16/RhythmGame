@@ -8,10 +8,10 @@ class Score:
     def __init__(self):
         self.value = 0
 
-    def score_up(self):
+    def up(self):
         self.value += 1
 
-    def score_down(self):
+    def down(self):
         self.value -= 1
 
     def draw(self):
@@ -20,24 +20,36 @@ class Score:
         screen.blit(score, (270, 250))
 
 
-def is_click():
-    if (x - event.pos[0]) ** 2 + (y - event.pos[1]) ** 2 <= r ** 2:
-        return True
+class HitBoxOfBall:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.r = 10
 
+    def is_click(self):
+        if (self.x - event.pos[0]) ** 2 + (self.y - event.pos[1]) ** 2 <= self.r ** 2:
+            return True
 
-def feedback():
-    myfont = pygame.font.SysFont("monospace", 50)
-    score = myfont.render(f'Это сигнал для Егора чтобы он заметил', 1, (255, 255, 255))
-    screen.blit(score, (270, 250))
-    print("щелчок прошел")
+    def feedback(self):
+        myfont = pygame.font.SysFont("monospace", 50)
+        score = myfont.render(f'Это сигнал для Егора чтобы он заметил', 1, (255, 255, 255))
+        screen.blit(score, (270, 250))
+        print("щелчок прошел")
+
 
 
 finished = False
+ball = HitBoxOfBall(x,y)
+score = Score()
+
 
 while not finished:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if is_click():
-                feedback()
+            if ball.is_click():
+                score.up()
+                ball.feedback()
+                # поменять шарам цвета
+                # переместить хит бокс шара к следующему
