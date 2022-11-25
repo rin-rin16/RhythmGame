@@ -3,11 +3,13 @@ import pygame as pg
 red = [255, 0, 0]
 green = [0, 255, 0]
 yellow = [255, 255, 0]
+white = [0, 0, 0]
 class Drawable_ball:
     '''
     draws a ball in direct place
     '''
-    def __init__(self, x, y):
+    def __init__(self, x, y, surface):
+        self.surface = surface
         self.x = x
         self.y = y
         self.r = 10
@@ -30,5 +32,6 @@ class Drawable_ball:
         :return: draws a ball if ball is alive
         '''
         if self.is_alive == True:
-            pg.draw.ball(self.r, (self.x, self.y), self.color)
+            pg.draw.circle(self.surface, self.color, (self.x, self.y), self.r)
+            pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=2)
 
