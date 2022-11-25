@@ -31,4 +31,4 @@ class Ball:
 
 for event in pg.event.get():
     if event.type == pg.MOUSEBUTTONDOWN:
-        ba
+        b
