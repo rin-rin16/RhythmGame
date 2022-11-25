@@ -8,38 +8,35 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 blue = (0, 0, 255)
 orange = (255, 180, 0)
-class Drawable_ball:
+class DrawableBall:
     '''
     draws a ball in direct place
     '''
-    def __init__(self, x, y, surface):
+    def __init__(self, x, y, surface, alive, pos):
         self.surface = surface
         self.x = x
         self.y = y
         self.r = 10
-        self.color = green
-        self.is_alive = True
-    def click(self):
-        '''
-
-        :return: changes ball's color, or kills the ball
-        '''
-        if self.color == red:
-            self.color = yellow
-        if self.color == yellow:
+        self.pos = pos
+        self.is_alive = alive
+        if self.pos == 0:
             self.color = green
-        if self.color == green:
-            self.is_alive = False
+        if self.pos == 1:
+            self.color = yellow
+        if self.pos == 2:
+            self.color = red
 
     def draw_a_ball(self):
         '''
 
         :return: draws a ball if ball is alive
         '''
-        if self.is_alive == True:
-            pg.draw.circle(self.surface, self.color, (self.x, self.y), self.r)
-            pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=2)
 
+        pg.draw.circle(self.surface, self.color, (self.x, self.y), self.r)
+        pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=2)
+
+    def color_getter(self):
+        return self.color
 
 class DisplayText:
     '''
@@ -51,11 +48,11 @@ class DisplayText:
     words_number = len(COOL_WORDS)
     font = pg.font.SysFont('comicsansms', 32)
 
-    def __init__(self, x, y, screen):
+    def __init__(self, x, y, surface):
         self.x = x
         self.y = y
-        self.screen = screen
-        self.lives = 10
+        self.screen = surface
+        self.lives = 100
 
 
     def writer_of_cool_word(self):
