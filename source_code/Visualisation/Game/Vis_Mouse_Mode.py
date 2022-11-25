@@ -8,6 +8,9 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 blue = (0, 0, 255)
 orange = (255, 180, 0)
+
+pg.font.init()
+
 class Drawable_ball:
     '''
     draws a ball in direct place

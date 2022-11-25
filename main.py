@@ -14,6 +14,8 @@ pg.display.flip()
 
 SR.start_time.setter(time.time())
 
+balls = []
+
 running = True
 while running:
     pg.display.update()
@@ -25,3 +27,5 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if event.pos[0] - balls
