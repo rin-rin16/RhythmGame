@@ -24,12 +24,13 @@ class Drawable_ball:
 
         :return: changes ball's color, or kills the ball
         '''
-        if self.color == green:
+        if self.color == red:
             self.color = yellow
         if self.color == yellow:
-            self.color = red
-        if self.color == red:
+            self.color = green
+        if self.color == green:
             self.is_alive = False
+
     def draw_a_ball(self):
         '''
 
@@ -68,3 +69,4 @@ class DisplayText:
 
     def live_down(self):
         self.lives -= 1
+
