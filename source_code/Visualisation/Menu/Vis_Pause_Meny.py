@@ -6,6 +6,7 @@ yellow = (255, 220, 6)
 dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
 
+
 class DrawAMenuButton:
     '''
     draws a beautiful button in some place
@@ -17,13 +18,13 @@ class DrawAMenuButton:
     def draw_continue_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(400, 290, 550, 180))
         font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
-        start = font.render('Continue', 1, pink, light_grey)
-        self.surface.blit(start, (410, 300))
+        Continue = font.render('Continue', 1, pink, light_grey)
+        self.surface.blit(Continue, (410, 300))
 
     def draw_continue_button_pressed(self):
         font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
-        start = font.render('Continue', 1, pink, dark_grey)
-        self.surface.blit(start, (400, 290))
+        Continue = font.render('Continue', 1, pink, dark_grey)
+        self.surface.blit(Continue, (400, 290))
 
     def draw_pause_word(self):
         font = pg.font.Font('Sunset Club Free Trial.ttf', 50)
