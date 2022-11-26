@@ -31,9 +31,17 @@ class DrawAMenuButton:
         self.surface.blit(menu, (580, 100))
 
     def all_menu_drawer_unpressed(self):
+        """
+
+        :return: draws menu in state when continue button unpressed
+        """
         self.draw_pause_word()
         self.draw_continue_button_unpressed()
 
     def all_menu_drawer_pressed(self):
+        """
+
+        :return: draws menu in state when continue button pressed
+        """
         self.draw_pause_word()
         self.draw_continue_button_pressed()
