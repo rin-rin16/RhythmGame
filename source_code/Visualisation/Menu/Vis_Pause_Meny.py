@@ -14,12 +14,12 @@ class DrawAMenuButton:
         self.surface = surface
 
     def draw_continue_button(self):
-        font = pg.font.SysFont('sunsetclubfreetrial', 160)
+        font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
         start = font.render('Continue', 1, pink)
         self.surface.blit(start, (410, 300))
 
     def draw_pause_word(self):
-        font = pg.font.SysFont('sunsetclubfreetrial', 50)
+        font = pg.font.Font('Sunset Club Free Trial.ttf', 50)
         menu = font.render('Pause', 1, yellow, black)
         self.surface.blit(menu, (580, 100))
 
