@@ -10,6 +10,10 @@ light_grey = (90, 90, 90)
 class DrawAMenuButton:
     '''
     draws a beautiful button in some place
+
+    Varning!!! use only all_menu_drawer_unpressed or all_menu_drawer_pressed functions
+
+    they draw all menu
     '''
 
     def __init__(self, surface):
