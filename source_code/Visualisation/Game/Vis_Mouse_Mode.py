@@ -8,6 +8,8 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 blue = (0, 0, 255)
 orange = (255, 180, 0)
+
+
 class DrawableBall:
     '''
     draws a ball in direct place
@@ -27,6 +29,21 @@ class DrawableBall:
 
     def coord_getter(self):         # Убрать, нужно для отладки
         return [self.x, self.y]
+
+    def color_setter(self, pos):
+        """
+
+        :param pos: position in list of balls
+        :return: sets color according to ball's position in list of balls
+        """
+
+        self.pos = pos
+        if self.pos == 0:
+            self.color = green
+        if self.pos == 1:
+            self.color = yellow
+        if self.pos == 2:
+            self.color = red
 
     def draw_a_ball(self):
         '''
