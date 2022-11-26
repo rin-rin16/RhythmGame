@@ -2,7 +2,7 @@ import pygame as pg
 
 black = (0, 0, 0)
 pink = (255, 150, 255)
-yellow = (255, 255, 0)
+yellow = (255, 193, 6)
 
 class DrawAMenuButton:
     '''
