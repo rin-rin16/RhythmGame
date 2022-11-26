@@ -4,6 +4,7 @@ black = (0, 0, 0)
 pink = (255, 150, 255)
 yellow = (255, 193, 6)
 
+
 class DrawAMenuButton:
     '''
     draws a beautiful button in some place
@@ -12,17 +13,16 @@ class DrawAMenuButton:
     def __init__(self, surface):
         self.surface = surface
 
-
     def draw_start_button(self):
-        font = pg.font.SysFont('comicsansms', 32)
-        start = font.render('Start', 1, black, pink)
-        self.surface.blit(start, (580, 300))
+        font = pg.font.SysFont('sunsetclubfreetrial', 160)
+        start = font.render('Start', 1, pink)
+        self.surface.blit(start, (480, 300))
 
-    def draw_Menu_word(self):
-        font = pg.font.SysFont('comicsansms', 32)
+    def draw_menu_word(self):
+        font = pg.font.SysFont('sunsetclubfreetrial', 50)
         menu = font.render('Menu', 1, yellow, black)
         self.surface.blit(menu, (580, 100))
 
     def all_menu_drawer(self):
-        self.draw_Menu_word()
+        self.draw_menu_word()
         self.draw_start_button()
