@@ -27,9 +27,6 @@ class DrawableBall:
         if self.pos == 2:
             self.color = red
 
-    def coord_getter(self):         # Убрать, нужно для отладки
-        return [self.x, self.y]
-
     def color_setter(self, pos):
         """
 
