@@ -1,4 +1,5 @@
 import time as time
+import pygame as pg
 
 class NumVariables:
     """Class of numeric variables"""
@@ -43,3 +44,7 @@ class BullVariables:
 
 start_time = NumVariables()
 TimerBull = BullVariables()
+
+pg.mixer.init()     # Initializing audio player
+pg.mixer.music.load("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
+pg.mixer.music.set_volume(0.5)
