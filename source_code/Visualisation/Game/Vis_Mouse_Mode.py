@@ -27,20 +27,13 @@ class DrawableBall:
         if self.pos == 2:
             self.color = red
 
-    def color_setter(self, pos):
+    def color_setter(self, color):
         """
 
-        :param pos: position in list of balls
+        :param color -- color of the ball
         :return: sets color according to ball's position in list of balls
         """
-
-        self.pos = pos
-        if self.pos == 0:
-            self.color = green
-        if self.pos == 1:
-            self.color = yellow
-        if self.pos == 2:
-            self.color = red
+        self.color = color
 
     def draw_a_ball(self):
         '''

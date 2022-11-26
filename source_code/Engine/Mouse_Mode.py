@@ -81,11 +81,14 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
         #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check():
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
-            draw_balls.setter([
-                draw_balls.getter()[1], draw_balls.getter()[2], Ms_Vis.DrawableBall(
-                balls.getter()[2].coord_getter()[0], balls.getter()[2].coord_getter()[1], screen,
-                balls.getter()[2].pos_getter()
-                )])
+            draw_ball_1 = draw_balls.getter()[1]
+            draw_ball_1.color_setter("green")
+            draw_ball_2 = draw_balls.getter()[2]
+            draw_ball_2.color_setter("yellow")
+            draw_ball_3 = Ms_Vis.DrawableBall(balls.getter()[2].coord_getter()[0], balls.getter()[2].coord_getter()[1],
+                                              screen, balls.getter()[2].pos_getter()
+                                             )
+            draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
 
 
 def Drawer(draw_balls):
