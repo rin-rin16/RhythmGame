@@ -20,7 +20,8 @@ running = True
 
 [balls, draw_balls] = M_Eng.ball_initializer()
 
-print(SR.start_time.getter())
+pg.mixer.music.play()
+
 while running:
     M_Eng.screen.fill((0, 0, 0))
     SR.TimerBull.timer(SR.start_time)
@@ -30,3 +31,5 @@ while running:
         M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
         if event.type == pg.QUIT:
             running = False
+
+pg.mixer.music.stop()
