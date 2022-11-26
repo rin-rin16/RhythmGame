@@ -66,7 +66,7 @@ class VisualisationInChooseSongMenu:
         third_hard_song = font.render('name3', 1, white, black)
         self.surface.blit(third_hard_song, (793-x, 600))
 
-    def all_drawer(self):
+    def all_menu_drawer(self):
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
