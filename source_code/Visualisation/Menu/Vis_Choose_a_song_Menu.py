@@ -36,7 +36,7 @@ class VisualisationInChooseSongMenu:
         self.surface.blit(hard, (580, 500))
 
     def draw_easy_song_names(self):
-        #FIXME: add song names
+        # FIXME: add song names
         font = pg.font.SysFont('comicsansms', 32)
         first_easy_song = font.render('name1', 1, white, black)
         self.surface.blit(first_easy_song, (320, 200))
@@ -56,7 +56,7 @@ class VisualisationInChooseSongMenu:
         self.surface.blit(third_medium_song, (320 + 427, 400))
 
     def draw_hard_song_names(self):
-        #FIXME: add song names
+        # FIXME: add song names
         font = pg.font.SysFont('comicsansms', 32)
         first_hard_song = font.render('name1', 1, white, black)
         self.surface.blit(first_hard_song, (320, 600))
