@@ -18,7 +18,7 @@ class Ball:
         return self._pos
 
     def click_check(self, event):       # Checks, if click hits the only clickable ball, which is the first one in the balls list
-        if (self.x - event.pos[0]) ** 2 + (self.y - event.pos[1]) ** 2 <= self.r ** 2:
+        if (self._x - event.pos[0]) ** 2 + (self._y - event.pos[1]) ** 2 <= self._r ** 2:
             return True
         else: return False
 
@@ -78,7 +78,8 @@ TimerBull = SR.TimerBull
 
 def Event_Holder(event, balls, draw_balls, TimerBull):
     if event.type == pg.MOUSEBUTTONDOWN:
-        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(): #
+        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check():
+        if balls.getter()[0].click_check(event):
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
             draw_ball_1 = draw_balls.getter()[1]
