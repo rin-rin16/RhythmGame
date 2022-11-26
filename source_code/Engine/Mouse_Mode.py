@@ -78,7 +78,7 @@ TimerBull = SR.TimerBull
 
 def Event_Holder(event, balls, draw_balls, TimerBull):
     if event.type == pg.MOUSEBUTTONDOWN:
-        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check():
+        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(): #
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
             draw_ball_1 = draw_balls.getter()[1]
