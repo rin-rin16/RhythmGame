@@ -54,7 +54,7 @@ screen.fill(background_color)
 pg.display.flip()
 
 balls = ListVariables()         # Creating lists of balls
-draw_balls =ListVariables()
+draw_balls = ListVariables()
 
 def ball_initializer():
     ball_1 = Ball()     # Creating initial balls
@@ -89,5 +89,5 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
 
 
 def Drawer(draw_balls):
-    for drawing in draw_balls.getter():
-        drawing.draw_a_ball
+    for ball in draw_balls.getter():
+        ball.draw_a_ball()
