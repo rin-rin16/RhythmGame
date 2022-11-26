@@ -1,3 +1,5 @@
+import time
+
 import pygame as pg
 import numpy as np
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
@@ -23,7 +25,7 @@ class Ball:
         else: return False
 
     def bit_check(self, TimerBull):     # Checks, if click hits the bit
-        if TimerBull.timer():
+        if TimerBull.getter():
             return True
         else:
             return False
@@ -57,6 +59,7 @@ balls = ListVariables()         # Creating lists of balls
 draw_balls = ListVariables()
 
 def ball_initializer():
+
     ball_1 = Ball()     # Creating initial balls
     ball_1.pos_setter(0)
     ball_2 = Ball()
@@ -74,12 +77,9 @@ def ball_initializer():
 
     return balls, draw_balls
 
-TimerBull = SR.TimerBull
-
 def Event_Holder(event, balls, draw_balls, TimerBull):
     if event.type == pg.MOUSEBUTTONDOWN:
-        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check():
-        if balls.getter()[0].click_check(event):
+        if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
             draw_ball_1 = draw_balls.getter()[1]
