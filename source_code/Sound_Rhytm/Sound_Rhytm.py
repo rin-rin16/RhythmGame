@@ -27,7 +27,8 @@ class BullVariables:
         self._bul = arg
 
     def timer(self, start_time):            # Returns True or False depending on current time
-        if ((time.time() - start_time.getter())%1 <= 0.1) or ((time.time() - start_time.getter())%1 >= 0.9):
+        if (((time.time() - start_time.getter() + 0.6) % (60/137) <= 0.15) or      #0.15
+            ((time.time() - start_time.getter() + 0.6) % (60/137) >= 60/137 - 0.1)):
             self._bul = True
         else:
             self._bul = False

@@ -18,7 +18,7 @@ class DrawableBall:
         self.surface = surface
         self.x = x
         self.y = y
-        self.r = 10
+        self.r = 30
         self.pos = pos
         if self.pos == 0:
             self.color = green

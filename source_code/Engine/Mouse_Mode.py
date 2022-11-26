@@ -8,9 +8,9 @@ from source_code.Sound_Rhytm import Sound_Rhytm as SR
 class Ball:
     """Class, responding to calculations with balls"""
     def __init__(self):     # Creates initial balls coordinates
-        self._r = 10
-        self._x = np.random.randint(10, 1270)
-        self._y = np.random.randint(10, 710)
+        self._r = 30
+        self._x = np.random.randint(30, 1250)
+        self._y = np.random.randint(30, 690)
         self._pos = 2
 
     def pos_setter(self, pos):      # Sets ball's position in the balls list
@@ -59,6 +59,10 @@ balls = ListVariables()         # Creating lists of balls
 draw_balls = ListVariables()
 
 def ball_initializer():
+    """
+    Creates initial balls
+    :return: ListVariables of balls and drawable balls
+    """
 
     ball_1 = Ball()     # Creating initial balls
     ball_1.pos_setter(0)
@@ -78,8 +82,18 @@ def ball_initializer():
     return balls, draw_balls
 
 def Event_Holder(event, balls, draw_balls, TimerBull):
+    """
+    Checks if the click hits the beat and the ball, and if so, gives user score
+    :param event: event
+    :param balls: list of balls
+    :param draw_balls: list of drawable balls
+    :param TimerBull: timer, which checks for the beat
+    :return: nothing
+    """
     if event.type == pg.MOUSEBUTTONDOWN:
         if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
+        #if balls.getter()[0].bit_check(TimerBull):
+    #if TimerBull.getter():
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
             draw_ball_1 = draw_balls.getter()[1]
@@ -93,5 +107,10 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
 
 
 def Drawer(draw_balls):
+    """
+    Draws balls from the list
+    :param draw_balls: list of balls to draw
+    :return: nothing
+    """
     for ball in draw_balls.getter():
         ball.draw_a_ball()
