@@ -16,15 +16,14 @@ from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 
 SR.start_time.setter(time.time())
 
-
-
 running = True
 
 [balls, draw_balls] = M_Eng.ball_initializer()
 
+print(SR.start_time.getter())
 while running:
     M_Eng.screen.fill((0, 0, 0))
-    SR.TimerBull.timer()
+    SR.TimerBull.timer(SR.start_time)
     M_Eng.Drawer(draw_balls)
     pg.display.update()
     for event in pg.event.get():
