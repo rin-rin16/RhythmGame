@@ -25,9 +25,11 @@ class DrawableBall:
         if self.pos == 2:
             self.color = red
 
+    def coord_getter(self):         # Убрать, нужно для отладки
+        return [self.x, self.y]
+
     def draw_a_ball(self):
         '''
-
         :return: draws a ball if ball is alive
         '''
 
@@ -36,6 +38,8 @@ class DrawableBall:
 
     def color_getter(self):
         return self.color
+
+pg.font.init()
 
 class DisplayText:
     '''
