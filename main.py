@@ -14,15 +14,20 @@ from source_code.Engine.menu import start_menu
 # screen = pg.display.set_mode((width, height))
 # screen.fill(background_color)
 # pg.display.flip()
+SR.start_time.setter(time.time())
+
+
+
+
 
 SR.start_time.setter(time.time())
 
-running = True
+running = SR.BullVariables()
 clock = pg.time.Clock()
 clock.tick(100)
 [balls, draw_balls] = M_Eng.ball_initializer()
 
-while running:
+while running.getter():
     menu_running = True
     if menu_running:
         M_Eng.screen.fill((0, 0, 0))
@@ -38,9 +43,9 @@ while running:
                     play_button.start_game()
                     menu_running = False
                 if quit_button.is_click(event):
-                    running = False
+                    running.setter(False)
             elif event.type == pg.QUIT:
-                running = False
+                running.setter(False)
 
     if start_menu.trek_choice:
         choice_running = True
@@ -108,7 +113,7 @@ while running:
                 elif event.type == pg.QUIT:
 
                     choice_running = False
-                    running = False
+                    running.setter(False)
 
     if start_menu.trek_number == 1:
 
@@ -123,6 +128,9 @@ while running:
                 M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
                 if event.type == pg.QUIT:
                     game_running = False
-                    running = False
-
+                    running.setter(False)
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running,
+                                  start_menu.trek_number)
+    SR.Track_2_Player.music_player(SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running,
+                                   start_menu.trek_number)
 pg.mixer.music.stop()
