@@ -49,7 +49,7 @@ class BullVariables:
 start_time = NumVariables()
 TimerBull = BullVariables()
 
-def music_player(trek_number, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls):
+def music_player(trek_number, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running):
     pg.mixer.init()  # Initializing audio player
     pg.mixer.music.set_volume(0.5)
     if trek_number == 1:
@@ -64,7 +64,7 @@ def music_player(trek_number, start_time, bpm, fase, lower_bound, upper_bound, d
             for event in pg.event.get():
                 M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
                 if event.type == pg.QUIT:
-                    running = False
+                    running.setter(False)
                     game_running = False
 
 

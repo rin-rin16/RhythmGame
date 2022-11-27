@@ -17,11 +17,11 @@ from source_code.Engine.menu import start_menu as start_menu
 
 SR.start_time.setter(time.time())
 
-running = True
+running = SR.BullVariables()
 
 [balls, draw_balls] = M_Eng.ball_initializer()
 
-while running:
+while running.getter():
     menu_running = True
     if menu_running:
         M_Eng.screen.fill((0, 0, 0))
@@ -37,9 +37,9 @@ while running:
                     play_button.start_game()
                     menu_running = False
                 if quit_button.is_click(event):
-                    running = False
+                    running.setter(False)
             elif event.type == pg.QUIT:
-                running = False
+                running.setter(False)
 
     if start_menu.trek_choice:
         choice_running = True
@@ -67,9 +67,9 @@ while running:
                         start_menu.trek_choice = False
                 elif event.type == pg.QUIT:
                     choice_running = False
-                    running = False
+                    running.setter(False)
 
-    SR.music_player(start_menu.trek_number, SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls)
+    SR.music_player(start_menu.trek_number, SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls, running)
 
 
 
