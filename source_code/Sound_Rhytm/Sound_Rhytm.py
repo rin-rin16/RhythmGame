@@ -73,9 +73,9 @@ class Mouse_Mode_Track_1:
                 SR.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 M_Eng.Drawer(draw_balls)
                 pg.display.update()
-                M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
+                #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
                 for event in pg.event.get():
-                    #M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
+                    M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
