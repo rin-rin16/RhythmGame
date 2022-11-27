@@ -4,7 +4,7 @@ import pandas as pd
 from source_code.Sound_Rhytm import Sound_Rhytm as SR
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
-from source_code.Engine.menu import start_menu
+from source_code.Engine.menu import start_menu as start_menu
 
 #width, height = 1280, 720       # Screen's width and height        # Took this into engine file
 #background_color = (0, 0, 0)
@@ -69,18 +69,8 @@ while running:
                     choice_running = False
                     running = False
 
-    if start_menu.trek_number == 1:
-        pg.mixer.music.play()
-        game_running = True
-        while game_running:
-            M_Eng.screen.fill((0, 0, 0))
-            SR.TimerBull.timer(SR.start_time)
-            M_Eng.Drawer(draw_balls)
-            pg.display.update()
-            for event in pg.event.get():
-                M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
-                if event.type == pg.QUIT:
-                    game_running = False
-                    running = False
+    SR.music_player(start_menu.trek_number, SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls)
+
+
 
 pg.mixer.music.stop()
