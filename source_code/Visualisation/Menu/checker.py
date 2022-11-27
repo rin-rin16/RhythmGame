@@ -3,7 +3,7 @@ import pygame.key
 
 import Vis_Choose_a_song_Menu as csm
 import Vis_Start_Menu as sm
-import Vis_Pause_Meny as pm
+import Vis_Pause_Menu as pm
 
 pg.init()
 
