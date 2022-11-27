@@ -69,7 +69,7 @@ while running.getter():
                     choice_running = False
                     running.setter(False)
 
-    SR.Trak_1_Player.music_player(SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls, running,        # Functions, playing track corresponding to its number
+    SR.Trak_1_Player.music_player(SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls, running,        ## Functions, playing track corresponding to its number
                                   start_menu.trek_number)
     SR.Track_2_Player.music_player(SR.start_time, 60 / 115, 0.22, 0.1, 0.15, draw_balls, balls, running,
                                   start_menu.trek_number)
