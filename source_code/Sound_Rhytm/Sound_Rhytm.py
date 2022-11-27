@@ -45,27 +45,42 @@ class BullVariables:
     def getter(self):
         return self._bul
 
+class Mouse_Mode_Track_1:
+    """Class of functions, which executes mouse mode gameplay for different tracks, corresponding to track number"""
+    def number_checker(self, trek_number):
+        if trek_number == 1:
+            return True
+
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                M_Eng.screen.fill((0, 0, 0))
+                SR.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                M_Eng.Drawer(draw_balls)
+                pg.display.update()
+                for event in pg.event.get():
+                    M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
+
+class Mouse_Mode_Track_2(Mouse_Mode_Track_1):
+    def number_checker(self, trek_number):
+        if trek_number == 2:
+            return True
+
 
 start_time = NumVariables()
 TimerBull = BullVariables()
 
-def music_player(trek_number, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running):
-    pg.mixer.init()  # Initializing audio player
-    pg.mixer.music.set_volume(0.5)
-    if trek_number == 1:
-        pg.mixer.music.load("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
-        pg.mixer.music.play()
-        game_running = True
-        while game_running:
-            M_Eng.screen.fill((0, 0, 0))
-            SR.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
-            M_Eng.Drawer(draw_balls)
-            pg.display.update()
-            for event in pg.event.get():
-                M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
-                if event.type == pg.QUIT:
-                    running.setter(False)
-                    game_running = False
+Trak_1_Player = Mouse_Mode_Track_1()
+Track_2_Player = Mouse_Mode_Track_2()
 
 
 
