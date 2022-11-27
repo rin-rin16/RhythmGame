@@ -106,6 +106,9 @@ while running.getter():
                     choice_running = False
                     running.setter(False)
 
-    SR.music_player(start_menu.trek_number, SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running)
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running,
+                                  start_menu.trek_number)
+    SR.Track_2_Player.music_player(SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running,
+                                   start_menu.trek_number)
 
 pg.mixer.music.stop()
