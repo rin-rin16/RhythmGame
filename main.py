@@ -6,19 +6,19 @@ from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Engine.menu import start_menu as start_menu
 
-#width, height = 1280, 720       # Screen's width and height        # Took this into engine file
-#background_color = (0, 0, 0)
+# width, height = 1280, 720       # Screen's width and height        # Took this into engine file
+# background_color = (0, 0, 0)
 
-#pg.display.init()
+# pg.display.init()
 
-#screen = pg.display.set_mode((width, height))
-#screen.fill(background_color)
-#pg.display.flip()
+# screen = pg.display.set_mode((width, height))
+# screen.fill(background_color)
+# pg.display.flip()
 
 SR.start_time.setter(time.time())
 
 running = SR.BullVariables()
-clock=pg.time.Clock()
+clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
 
 while running.getter():
@@ -47,11 +47,12 @@ while running.getter():
             M_Eng.screen.fill((0, 0, 0))
 
             amount_of_buttons = 5
-            trek_button = [0]*amount_of_buttons
+            trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = start_menu.TrekButton(100, i*100+100, 50, 50, f'trek_button_{i+1}', trek_number=i+1)
+                trek_button[i] = start_menu.TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}',
+                                                       trek_number=i + 1)
                 trek_button[i].write_text_on_button(M_Eng.screen)
-            back_to_menu = start_menu.Button(500,100,50,50,'Back')
+            back_to_menu = start_menu.Button(500, 100, 50, 50, 'Back')
             back_to_menu.write_text_on_button(M_Eng.screen)
             pg.display.update()
 
@@ -59,12 +60,11 @@ while running.getter():
                 if event.type == pg.MOUSEBUTTONDOWN:
                     for i in range(amount_of_buttons):
                         if trek_button[i].is_click(event):
-
                             clock.tick(1)
-                            M_Eng.screen.fill((0,0,0))
+                            M_Eng.screen.fill((0, 0, 0))
                             myfont = pg.font.SysFont("monospace", 30)
                             text = myfont.render('Get Ready', 1, (255, 255, 255))
-                            M_Eng.screen.blit(text, (500,300))
+                            M_Eng.screen.blit(text, (500, 300))
                             pg.display.update()
                             clock.tick(1)
 
@@ -89,7 +89,6 @@ while running.getter():
                             pg.display.update()
                             clock.tick(1)
 
-
                             M_Eng.screen.fill((0, 0, 0))
                             myfont = pg.font.SysFont("monospace", 30)
                             text = myfont.render('GO!', 1, (255, 255, 255))
@@ -97,7 +96,7 @@ while running.getter():
                             pg.display.update()
                             clock.tick(1)
 
-                            start_menu.trek_number = i+1
+                            start_menu.trek_number = i + 1
                             choice_running = False
                     if back_to_menu.is_click(event):
                         menu_running = True
@@ -107,8 +106,6 @@ while running.getter():
                     choice_running = False
                     running.setter(False)
 
-    SR.music_player(start_menu.trek_number, SR.start_time, 60/137, 0.6, 0.1, 0.15, draw_balls, balls, running)
-
-
+    SR.music_player(start_menu.trek_number, SR.start_time, 60 / 137, 0.6, 0.1, 0.15, draw_balls, balls, running)
 
 pg.mixer.music.stop()
