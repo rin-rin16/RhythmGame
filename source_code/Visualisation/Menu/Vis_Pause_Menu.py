@@ -27,7 +27,7 @@ class DrawAMenuButton:
 
     def draw_continue_button_pressed(self):
         font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
-        Continue = font.render('Continue', 1, pink, dark_grey)
+        Continue = font.render('Continue', 1, pink, light_grey)
         self.surface.blit(Continue, (400, 290))
 
     def draw_pause_word(self):
