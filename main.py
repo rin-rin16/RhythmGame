@@ -5,6 +5,7 @@ from source_code.Sound_Rhytm import Sound_Rhytm as SR
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Engine.menu import start_menu as start_menu
+from source_code.Visualisation.Game import Text_Before_Game as TBG
 
 # width, height = 1280, 720       # Screen's width and height        # Took this into engine file
 # background_color = (0, 0, 0)
@@ -22,23 +23,7 @@ clock = pg.time.Clock()
 while running.getter():
     menu_running = True
     if menu_running:
-        M_Eng.screen.fill((0, 0, 0))
-        play_button = start_menu.PlayButton(100, 100, 50, 50, 'play_button')
-        quit_button = start_menu.Button(100, 200, 50, 50, 'quit_button')
-        play_button.write_text_on_button(M_Eng.screen)
-        quit_button.write_text_on_button(M_Eng.screen)
-        pg.display.update()
-
-        for event in pg.event.get():
-            if event.type == pg.MOUSEBUTTONDOWN:
-                if play_button.is_click(event):
-                    play_button.start_game()
-                    menu_running = False
-                if quit_button.is_click(event):
-                    running.setter(False)
-            elif event.type == pg.QUIT:
-                running.setter(False)
-
+        start_menu.make_the_buttons_great_again(running)
     if start_menu.trek_choice:
         choice_running = True
         while choice_running:
@@ -58,42 +43,9 @@ while running.getter():
                 if event.type == pg.MOUSEBUTTONDOWN:
                     for i in range(amount_of_buttons):
                         if trek_button[i].is_click(event):
-                            #clock.tick(1)
-                            #M_Eng.screen.fill((0, 0, 0))
-                            #myfont = pg.font.SysFont("monospace", 30)
-                            #text = myfont.render('Get Ready', 1, (255, 255, 255))
-                            #M_Eng.screen.blit(text, (500, 300))
-                            #pg.display.update()
-                            #clock.tick(1)
-
-                            #M_Eng.screen.fill((0, 0, 0))
-                            #myfont = pg.font.SysFont("monospace", 30)
-                            #text = myfont.render('1', 1, (255, 255, 255))
-                            #M_Eng.screen.blit(text, (500, 300))
-                            #g.display.update()
-                            #clock.tick(1)
-
-                            #M_Eng.screen.fill((0, 0, 0))
-                            #myfont = pg.font.SysFont("monospace", 30)
-                            #ext = myfont.render('2', 1, (255, 255, 255))
-                            #_Eng.screen.blit(text, (500, 300))
-                            #pg.display.update()
-                            #clock.tick(1)
-
-                            #M_Eng.screen.fill((0, 0, 0))
-                            #myfont = pg.font.SysFont("monospace", 30)
-                            #text = myfont.render('3', 1, (255, 255, 255))
-                            #M_Eng.screen.blit(text, (500, 300))
-                            #pg.display.update()
-                            #clock.tick(1)
-
-                            #M_Eng.screen.fill((0, 0, 0))
-                            #myfont = pg.font.SysFont("monospace", 30)
-                            #text = myfont.render('GO!', 1, (255, 255, 255))
-                            #M_Eng.screen.blit(text, (500, 300))
-                            #pg.display.update()
-                            #clock.tick(1)
-
+                            clock.tick(1)
+                            for j in range(0, 5):
+                                TBG.countdown(j)
                             start_menu.trek_number = i + 1
                             choice_running = False
                     if back_to_menu.is_click(event):

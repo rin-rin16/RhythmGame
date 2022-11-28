@@ -1,5 +1,5 @@
 import pygame as pg
-
+from source_code.Engine import Mouse_Mode as M_Eng
 
 class Button:
 
@@ -43,14 +43,19 @@ class TrekButton(Button):
     def get_trek_number(self):
         return self.trek_number
 
-
-'''class QuitButton(Button):
-    def __init__(self, *args):
-        super().__init__(*args)
-
-class BackToMenuButton(Button):
-    def __init__(self, *args):
-        super().__init__(*args)
-'''
-
-
+def make_the_buttons_great_again(running):
+    M_Eng.screen.fill((0, 0, 0))
+    play_button = PlayButton(100, 100, 50, 50, 'play_button')
+    quit_button = Button(100, 200, 50, 50, 'quit_button')
+    play_button.write_text_on_button(M_Eng.screen)
+    quit_button.write_text_on_button(M_Eng.screen)
+    pg.display.update()
+    for event in pg.event.get():
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if play_button.is_click(event):
+                play_button.start_game()
+                menu_running = False
+            if quit_button.is_click(event):
+                running.setter(False)
+        elif event.type == pg.QUIT:
+            running.setter(False)
