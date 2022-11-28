@@ -90,9 +90,9 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
     :param TimerBull: timer, which checks for the beat
     :return: nothing
     """
-    if event.type == pg.MOUSEBUTTONDOWN:
-        if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
-        #if balls.getter()[0].bit_check(TimerBull):
+    if event.type == pg.MOUSEBUTTONDOWN:            # Commented stuff is here for testing reasons
+        #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
+        if balls.getter()[0].bit_check(TimerBull):
     #if TimerBull.getter():
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
@@ -104,6 +104,7 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
                                               screen, balls.getter()[2].pos_getter()
                                              )
             draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
+        #time.sleep(0.3)
 
 
 def Drawer(draw_balls):
