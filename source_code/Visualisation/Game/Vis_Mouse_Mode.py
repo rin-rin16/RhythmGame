@@ -41,7 +41,7 @@ class DrawableBall:
         '''
 
         pg.draw.circle(self.surface, self.color, (self.x, self.y), self.r)
-        pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=2)
+        pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=4)
 
     def color_getter(self):
         return self.color
