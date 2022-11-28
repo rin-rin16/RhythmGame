@@ -39,21 +39,21 @@ class VisualisationInChooseSongMenu:
     def draw_easy_song_names(self):
         # FIXME: add song names
         font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
-        first_easy_song = font.render('name1', 1, white)
+        first_easy_song = font.render('Tandava', 1, white)
         self.surface.blit(first_easy_song, (367-x, 200))
-        second_easy_song = font.render('name2', 1, white)
+        second_easy_song = font.render('Outside \n the Fold ', 1, white)
         self.surface.blit(second_easy_song, (580-x, 200))
-        third_easy_song = font.render('name3', 1, white)
+        third_easy_song = font.render('Gloria filio', 1, white)
         self.surface.blit(third_easy_song, (793-x, 200))
 
     def draw_medium_song_names(self):
         # FIXME: add song names
         font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
-        first_medium_song = font.render('name1', 1, white)
+        first_medium_song = font.render('Memento mori', 1, white)
         self.surface.blit(first_medium_song, (367-x, 400))
-        second_medium_song = font.render('name2', 1, white)
+        second_medium_song = font.render('Esc arcade', 1, white)
         self.surface.blit(second_medium_song, (580-x, 400))
-        third_medium_song = font.render('name3', 1, white)
+        third_medium_song = font.render('Journey from a jar ' '\n' ' to the sky planetarium', 1, white)
         self.surface.blit(third_medium_song, (793-x, 400))
 
     def draw_hard_song_names(self):
