@@ -2,8 +2,8 @@ import pygame as pg
 import time as time
 import pandas as pd
 from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
-from source_code.Sound_Rhytm.Tests.Test_source_code import SR_Vis_Test as SR
-from source_code.Sound_Rhytm.Tests.Test_source_code import MM_Vis_Test as M_Eng
+from source_code.Sound_Rhytm.Tests.Test_source_code import SR_balls as SR
+from source_code.Sound_Rhytm.Tests.Test_source_code import MM_balls as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Engine.menu import start_menu as start_menu
 from source_code.Visualisation.Game import Text_Before_Game as TBG

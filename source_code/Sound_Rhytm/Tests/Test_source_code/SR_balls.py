@@ -29,11 +29,11 @@ class BullVariables:
     def setter(self, arg):
         self._bul = arg
 
-    def timer(self, start_time, bpm, fase, lower_bound = 0.05, upper_bound = 0.05):            # Returns True or False depending on current time
-     #   if (((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or      #0.15
-     #       ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)):
-     #       self._bul = True
-     #   else:
+    def timer(self, start_time, bpm, fase, lower_bound, upper_bound):            # Returns True or False depending on current time
+        if (((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or      #0.15
+            ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)):
+            self._bul = True
+        else:
             self._bul = False
 
     def changer(self):
@@ -69,13 +69,11 @@ class Mouse_Mode_Track_1:
             pg.mixer.music.play()
             game_running = True
             while game_running:
+                M_Eng.screen.fill((0, 0, 0))
                 SR.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                if not SR.TimerBull.getter():
-                    M_Eng.screen.fill((0, 0, 0))
-                else:
-                    M_Eng.screen.fill((150, 150, 0))
+                M_Eng.Drawer(draw_balls)
                 pg.display.update()
-                #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
+                M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
                 for event in pg.event.get():
                     #M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
                     if event.type == pg.QUIT:

@@ -7,32 +7,17 @@ from source_code.Sound_Rhytm import Sound_Rhytm as SR
 
 class Ball:
     """Class, responding to calculations with balls"""
-    def __init__(self):     # Creates initial balls coordinates
-        self._r = 30
-        self._x = np.random.randint(30, 1250)
-        self._y = np.random.randint(30, 690)
+    def __init__(self, color, surface):     # Creates initial balls coordinates
+        self.surface = surface
+        self._r = 250
+        self._x = 640
+        self._y = 330
         self._pos = 2
+        self.color = color
 
-    def pos_setter(self, pos):      # Sets ball's position in the balls list
-        self._pos = pos
-
-    def pos_getter(self):
-        return self._pos
-
-    def click_check(self, event):       # Checks, if click hits the only clickable ball, which is the first one in the balls list
-        if (self._x - event.pos[0]) ** 2 + (self._y - event.pos[1]) ** 2 <= self._r ** 2:
-            return True
-        else: return False
-
-    def bit_check(self, TimerBull):     # Checks, if click hits the bit
-        if TimerBull.getter():
-            return True
-        else:
-            return False
-
-    def coord_getter(self):
-        return [self._x, self._y]
-
+    def draw_a_ball(self):
+        pg.draw.circle(self.surface, self.color, (self._x, self._y), self._r)
+        pg.draw.circle(self.surface, "white", (self._x, self._y), self._r, width=4)
 
 class ListVariables():
     """Class of list variables, used in this program"""
@@ -64,22 +49,13 @@ def ball_initializer():
     :return: ListVariables of balls and drawable balls
     """
 
-    ball_1 = Ball()     # Creating initial balls
-    ball_1.pos_setter(0)
-    ball_2 = Ball()
-    ball_2.pos_setter(1)
-    ball_3 = Ball()
-    ball_3.pos_setter(2)
+    ball_1 = Ball("red", screen)     # Creating initial balls
+    ball_2 = Ball("yellow", screen)
+    ball_3 = Ball("green", screen)
 
     balls.setter([ball_1, ball_2, ball_3])
 
-    draw_ball_1 = Ms_Vis.DrawableBall(ball_1.coord_getter()[0], ball_1.coord_getter()[1], screen, ball_1.pos_getter())
-    draw_ball_2 = Ms_Vis.DrawableBall(ball_2.coord_getter()[0], ball_2.coord_getter()[1], screen, ball_2.pos_getter())
-    draw_ball_3 = Ms_Vis.DrawableBall(ball_3.coord_getter()[0], ball_3.coord_getter()[1], screen, ball_3.pos_getter())
-
-    draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
-
-    return balls, draw_balls
+    return balls
 
 def Event_Holder(event, balls, TimerBull):
     """
@@ -98,11 +74,12 @@ def Event_Holder(event, balls, TimerBull):
         time.sleep(0.3)
 
 
-def Drawer(draw_balls):
+
+
+def Drawer(balls):
     """
     Draws balls from the list
     :param draw_balls: list of balls to draw
     :return: nothing
     """
-    for ball in draw_balls.getter():
-        ball.draw_a_ball()
+    balls.getter[0].draw_a_ball

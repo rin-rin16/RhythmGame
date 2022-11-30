@@ -2,8 +2,8 @@ import pygame as pg
 import time as time
 import pandas as pd
 from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
-from source_code.Sound_Rhytm.Tests.Test_source_code import SR_Vis_Test as SR
-from source_code.Sound_Rhytm.Tests.Test_source_code import MM_Vis_Test as M_Eng
+from source_code.Sound_Rhytm.Tests.Test_source_code import SR_color as SR
+from source_code.Sound_Rhytm.Tests.Test_source_code import MM_color as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Engine.menu import start_menu as start_menu
 from source_code.Visualisation.Game import Text_Before_Game as TBG
@@ -19,7 +19,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 
 running = SR.BullVariables()
 clock = pg.time.Clock()
-[balls, draw_balls] = M_Eng.ball_initializer()
+balls = M_Eng.ball_initializer()
 
 while running.getter():
     menu_running = True
@@ -58,9 +58,9 @@ while running.getter():
                     running.setter(False)
 
     SR.start_time.setter(time.time())
-    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.01, 0.01, draw_balls, balls, running,     # FIXME: подобрать нормальный бит и фазу
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.01, 0.01, balls, running,     # FIXME: подобрать нормальный бит и фазу
                                   start_menu.trek_number)
-    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.01, 0.01, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
+    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.01, 0.01, balls, running,    # FIXME: подобрать нормальный бит и фазу
                                    start_menu.trek_number)
 
 pg.mixer.music.stop()
