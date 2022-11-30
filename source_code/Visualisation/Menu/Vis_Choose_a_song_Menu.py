@@ -8,6 +8,8 @@ yellow = (255, 255, 6)
 white = (255, 255, 255)
 blue = (0, 0, 255)
 orange = (255, 180, 0)
+dark_grey = (50, 50, 50)
+light_grey = (90, 90, 90)
 
 x = 20
 
@@ -36,40 +38,63 @@ class VisualisationInChooseSongMenu:
         hard = font.render('hard', 1, red)
         self.surface.blit(hard, (580, 500))
 
-    def draw_easy_song_names(self):
-        # FIXME: add song names
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
-        first_easy_song = font.render('Tandava', 1, white)
-        self.surface.blit(first_easy_song, (367-x, 200))
-        second_easy_song = font.render('Outside \n the Fold ', 1, white)
-        self.surface.blit(second_easy_song, (580-x, 200))
-        third_easy_song = font.render('Gloria filio', 1, white)
-        self.surface.blit(third_easy_song, (793-x, 200))
+    def draw_a_song_name_unpressed(self, x, y, name, length_name, height_name):
+        font = pg.font.Font('Sunset Club Free Trial.ttf', 40)
+        song_name = font.render(name, 1, white, light_grey)
+        pg.draw.rect(self.surface, color=dark_grey, rect=(x-7, y-7, length_name, height_name))
+        self.surface.blit(song_name, (x, y))
 
-    def draw_medium_song_names(self):
-        # FIXME: add song names
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
-        first_medium_song = font.render('Memento mori', 1, white)
-        self.surface.blit(first_medium_song, (367-x, 400))
-        second_medium_song = font.render('Esc arcade', 1, white)
-        self.surface.blit(second_medium_song, (580-x, 400))
-        third_medium_song = font.render('Journey from a jar ' '\n' ' to the sky planetarium', 1, white)
-        self.surface.blit(third_medium_song, (793-x, 400))
+    def draw_a_song_name_pressed(self, x, y, name, length_name, height_name):
+        font = pg.font.Font('Sunset Club Free Trial.ttf', 40)
+        song_name = font.render(name, 1, white, dark_grey)
+        self.surface.blit(song_name, (x-7, y-7))
 
-    def draw_hard_song_names(self):
-        # FIXME: add song names
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
-        first_hard_song = font.render('name1', 1, white)
-        self.surface.blit(first_hard_song, (367-x, 600))
-        second_hard_song = font.render('name2', 1, white)
-        self.surface.blit(second_hard_song, (580-x, 600))
-        third_hard_song = font.render('name3', 1, white)
-        self.surface.blit(third_hard_song, (793-x, 600))
-
-    def all_menu_drawer(self):
+    def all_menu_drawer_unpressed(self):
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
-        self.draw_easy_song_names()
-        self.draw_medium_song_names()
-        self.draw_hard_song_names()
+        self.draw_a_song_name_unpressed(267, 200, 'Keraunos killer', 235, 48)
+        self.draw_a_song_name_unpressed(540, 200, 'Why not', 128, 48)
+        self.draw_a_song_name_unpressed(720, 200, 'Live another day', 268, 48)
+        self.draw_a_song_name_unpressed(247, 400, 'North memphis', 232, 48)
+        self.draw_a_song_name_unpressed(510, 400, 'Delta alpha', 198, 48)
+        self.draw_a_song_name_unpressed(740, 400, 'Phonky town', 202, 48)
+        self.draw_a_song_name_unpressed(347, 600, 'name1', 107, 48)
+        self.draw_a_song_name_unpressed(560, 600, 'name2', 117, 48)
+        self.draw_a_song_name_unpressed(773, 600, 'name3', 115, 48)
+
+    def all_menu_drawer_pressed(self, pos):
+        """
+
+        :param pos: tuple 1x2, which gives position of a song which should be pressed, returns position in matrix 3x3
+        :return: draws a screen with drawn button pos pressed
+        """
+        song_matrix = [[(267, 200, 'Keraunos killer', 235, 48),
+                                        (540, 200, 'Why not', 128, 48),
+                                        (720, 200, 'Live another day', 268, 48)],
+                                       [(247, 400, 'North memphis', 232, 48),
+                                        (510, 400, 'Delta alpha', 198, 48),
+                                        (740, 400, 'Phonky town', 202, 48)],
+                                       [(347, 600, 'name1', 107, 48),
+                                        (560, 600, 'name2', 117, 48),
+                                        (773, 600, 'name3', 115, 48)]]
+
+
+
+        for i in range(3):
+            for j in range(3):
+                if (i, j) != pos:
+                    self.draw_a_song_name_unpressed(song_matrix[i][j][0], song_matrix[i][j][1], song_matrix[i][j][2], song_matrix[i][j][3], song_matrix[i][j][4])
+        for i in range(3):
+            for j in range(3):
+                if (i, j) == pos:
+                    self.draw_a_song_name_pressed(song_matrix[i][j][0], song_matrix[i][j][1], song_matrix[i][j][2], song_matrix[i][j][3], song_matrix[i][j][4])
+
+
+
+        self.draw_easy_button()
+        self.draw_medium_button()
+        self.draw_hard_button()
+
+
+
