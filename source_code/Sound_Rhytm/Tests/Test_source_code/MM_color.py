@@ -9,7 +9,7 @@ class Ball:
     """Class, responding to calculations with balls"""
     def __init__(self, color, surface):     # Creates initial balls coordinates
         self.surface = surface
-        self._r = 250
+        self._r = 500
         self._x = 640
         self._y = 330
         self._pos = 2
@@ -18,6 +18,9 @@ class Ball:
     def draw_a_ball(self):
         pg.draw.circle(self.surface, self.color, (self._x, self._y), self._r)
         pg.draw.circle(self.surface, "white", (self._x, self._y), self._r, width=4)
+
+    def color_getter(self):
+        return self.color
 
 class ListVariables():
     """Class of list variables, used in this program"""
@@ -50,10 +53,9 @@ def ball_initializer():
     """
 
     ball_1 = Ball("red", screen)     # Creating initial balls
-    ball_2 = Ball("yellow", screen)
     ball_3 = Ball("green", screen)
 
-    balls.setter([ball_1, ball_2, ball_3])
+    balls.setter([ball_1, ball_3])
 
     return balls
 
@@ -70,7 +72,7 @@ def Event_Holder(event, balls, TimerBull):
         #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
         #if balls.getter()[0].bit_check(TimerBull):
     if TimerBull.getter():
-        balls.setter([balls.getter()[1], balls.getter()[2], balls.getter()[0]])
+        balls.setter([balls.getter()[1], balls.getter()[0]])
         time.sleep(0.3)
 
 
@@ -82,4 +84,4 @@ def Drawer(balls):
     :param draw_balls: list of balls to draw
     :return: nothing
     """
-    balls.getter[0].draw_a_ball
+    balls.getter()[0].draw_a_ball()
