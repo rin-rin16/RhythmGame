@@ -1,5 +1,5 @@
 import pygame as pg
-
+from source_code.Engine import Mouse_Mode as M_Eng
 
 class Button:
 
@@ -11,13 +11,13 @@ class Button:
         self.ysize = ysize
 
     def is_click(self, event):
-        if abs(self.x - event.pos[0]) < self.xsize and abs(self.y - event.pos[1]) < self.ysize:
+        if self.x < event.pos[0] < self.x + self.xsize and self.y < event.pos[1] < self.y + self.ysize:
             return True
 
     def write_text_on_button(self,screen):
         myfont = pg.font.SysFont("monospace", 30)
         text = myfont.render(str(self.text), 1, (255, 255, 255))
-        screen.blit(text, (self.x - self.xsize, self.y - self.ysize))
+        screen.blit(text, (self.x, self.y))
 
 
 # start = 0
@@ -43,14 +43,19 @@ class TrekButton(Button):
     def get_trek_number(self):
         return self.trek_number
 
-
-'''class QuitButton(Button):
-    def __init__(self, *args):
-        super().__init__(*args)
-
-class BackToMenuButton(Button):
-    def __init__(self, *args):
-        super().__init__(*args)
-'''
-
-
+def make_the_buttons_great_again(running):
+    M_Eng.screen.fill((0, 0, 0))
+    play_button = PlayButton(100, 100, 50, 50, 'play_button')
+    quit_button = Button(100, 200, 50, 50, 'quit_button')
+    play_button.write_text_on_button(M_Eng.screen)
+    quit_button.write_text_on_button(M_Eng.screen)
+    pg.display.update()
+    for event in pg.event.get():
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if play_button.is_click(event):
+                play_button.start_game()
+                menu_running = False
+            if quit_button.is_click(event):
+                running.setter(False)
+        elif event.type == pg.QUIT:
+            running.setter(False)
