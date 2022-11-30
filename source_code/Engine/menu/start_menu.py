@@ -11,13 +11,13 @@ class Button:
         self.ysize = ysize
 
     def is_click(self, event):
-        if abs(self.x - event.pos[0]) < self.xsize and abs(self.y - event.pos[1]) < self.ysize:
+        if self.x < event.pos[0] < self.x + self.xsize and self.y < event.pos[1] < self.y + self.ysize:
             return True
 
     def write_text_on_button(self,screen):
         myfont = pg.font.SysFont("monospace", 30)
         text = myfont.render(str(self.text), 1, (255, 255, 255))
-        screen.blit(text, (self.x - self.xsize, self.y - self.ysize))
+        screen.blit(text, (self.x, self.y))
 
 
 # start = 0
