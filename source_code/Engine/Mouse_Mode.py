@@ -104,7 +104,7 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
                                               screen, balls.getter()[2].pos_getter()
                                              )
             draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
-        #time.sleep(0.3)
+            #time.sleep(0.3)
 
 
 def Drawer(draw_balls):
