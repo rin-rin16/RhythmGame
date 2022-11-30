@@ -17,7 +17,7 @@ class VisualisationInChooseSongMenu:
     """
     draws beautiful buttons in some place
 
-    Varning! use to draw only function all_drawer!!!!
+    Varning! use to draw only function all_menu_drawer!!!!
     """
 
     def __init__(self, surface):
@@ -79,8 +79,6 @@ class VisualisationInChooseSongMenu:
                                         (560, 600, 'name2', 117, 48),
                                         (773, 600, 'name3', 115, 48)]]
 
-
-
         for i in range(3):
             for j in range(3):
                 if (i, j) != pos:
@@ -89,8 +87,6 @@ class VisualisationInChooseSongMenu:
             for j in range(3):
                 if (i, j) == pos:
                     self.draw_a_song_name_pressed(song_matrix[i][j][0], song_matrix[i][j][1], song_matrix[i][j][2], song_matrix[i][j][3], song_matrix[i][j][4])
-
-
 
         self.draw_easy_button()
         self.draw_medium_button()
