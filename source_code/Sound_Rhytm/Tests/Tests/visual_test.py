@@ -1,6 +1,7 @@
 import pygame as pg
 import time as time
 import pandas as pd
+from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
 from source_code.Sound_Rhytm.Tests.Test_source_code import SR_Vis_Test as SR
 from source_code.Sound_Rhytm.Tests.Test_source_code import MM_Vis_Test as M_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
@@ -57,9 +58,9 @@ while running.getter():
                     running.setter(False)
 
     SR.start_time.setter(time.time())
-    SR.Trak_1_Player.music_player(SR.start_time, 60 / 137, 0.58, 0.1, 0.15, draw_balls, balls, running,     # FIXME: подобрать нормальный бит и фазу
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,     # FIXME: подобрать нормальный бит и фазу
                                   start_menu.trek_number)
-    SR.Track_2_Player.music_player(SR.start_time, 60 / 115, 0.44, 0.1, 0.15, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
+    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
                                    start_menu.trek_number)
 
 pg.mixer.music.stop()
