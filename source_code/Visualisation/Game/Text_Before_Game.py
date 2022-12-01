@@ -6,7 +6,7 @@ clock = pg.time.Clock()
 
 
 def countdown(number):
-    if number == 0:
+    if number == 4:
         clock.tick(1)
         M_Eng.screen.fill((0, 0, 0))
         myfont = pg.font.SysFont("monospace", 30)
@@ -14,7 +14,7 @@ def countdown(number):
         M_Eng.screen.blit(text, (500, 300))
         pg.display.update()
         clock.tick(1)
-    elif number == 4:
+    elif number == 0:
         M_Eng.screen.fill((0, 0, 0))
         myfont = pg.font.SysFont("monospace", 30)
         text = myfont.render('GO!', 1, (255, 255, 255))

@@ -66,6 +66,7 @@ def draw_menu_buttons():
 
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
+    global trek_number
     """ describes the logic of menu buttons """
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
@@ -96,7 +97,7 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                     for i in range(amount_of_buttons):
                         if trek_button[i].is_click(event):
                             clock.tick(1)
-                            for j in range(0, 5):
+                            for j in [4,3,2,1,0]:
                                 TBG.countdown(j)
                             trek_number = i + 1
                             choice_running = False
