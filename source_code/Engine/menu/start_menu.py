@@ -6,6 +6,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 class Button:
 
     def __init__(self, x, y, xsize, ysize, text):
+        """ constructor of class "Button" """
         self.x = x
         self.y = y
         self.text = text
@@ -13,10 +14,12 @@ class Button:
         self.ysize = ysize
 
     def is_click(self, event):
+        """ return True if you click on the Button """
         if self.x < event.pos[0] < self.x + self.xsize and self.y < event.pos[1] < self.y + self.ysize:
             return True
 
     def write_text_on_button(self, screen):
+        """ writing text on the element of class "Button" """
         myfont = pg.font.SysFont("monospace", 30)
         text = myfont.render(str(self.text), 1, (255, 255, 255))
         screen.blit(text, (self.x, self.y))
@@ -30,23 +33,28 @@ trek_number = 0
 
 class PlayButton(Button):
     def __init__(self, *args):
+        """ constructor of class "PlayButton" which the subclass of class "Button" """
         super().__init__(*args)
 
     def start_game(self):
+        """ Using for run game if player click on the element of PlayButton """
         global trek_choice
         trek_choice = True
 
 
 class TrekButton(Button):
     def __init__(self, *args, trek_number):
+        """ constructor of class "TrekButton" which the subclass of class "Button" """
         super().__init__(*args)
         self.trek_number = trek_number
 
     def get_trek_number(self):
+        """ Return number of trek for which the element of TrekButton is responsible"""
         return self.trek_number
 
 
 def draw_menu_buttons():
+    """ the function responsible for drawing the "play" and "exit" buttons """
     global play_button
     global quit_button
     M_Eng.screen.fill((0, 0, 0))
@@ -58,6 +66,7 @@ def draw_menu_buttons():
 
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
+    """ describes the logic of menu buttons """
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
