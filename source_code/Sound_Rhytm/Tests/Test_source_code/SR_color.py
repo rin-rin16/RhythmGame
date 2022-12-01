@@ -91,4 +91,4 @@ start_time = NumVariables()
 TimerBull = BullVariables()
 
 Trak_1_Player = Mouse_Mode_Track_1("../../../../Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
-Track_2_Player = Mouse_Mode_Track_2("../../../..Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
+Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Test/KORDHELL_-_Live_Another_Day_73349846-[AudioTrimmer.com].mp3")

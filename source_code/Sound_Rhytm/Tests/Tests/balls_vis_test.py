@@ -58,9 +58,9 @@ while running.getter():
                     running.setter(False)
 
     SR.start_time.setter(time.time())
-    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.01, 0.01, draw_balls, balls, running,     # FIXME: подобрать нормальный бит и фазу
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.002, 0.002, draw_balls, balls, running,
                                   start_menu.trek_number)
-    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.01, 0.01, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
+    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.002, 0.002, draw_balls, balls, running,
                                    start_menu.trek_number)
 
 pg.mixer.music.stop()
