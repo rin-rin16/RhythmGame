@@ -22,17 +22,17 @@ class DrawAMenuButton:
 
     def draw_continue_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(400, 290, 550, 180))
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         Continue = font.render('Continue', 1, pink, light_grey)
         self.surface.blit(Continue, (410, 300))
 
     def draw_continue_button_pressed(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         Continue = font.render('Continue', 1, pink, light_grey)
         self.surface.blit(Continue, (400, 290))
 
     def draw_pause_word(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 60)
         menu = font.render('Pause', 1, yellow, black)
         self.surface.blit(menu, (580, 100))
 
