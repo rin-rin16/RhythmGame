@@ -1,7 +1,6 @@
 import time as time
 import pygame as pg
 from source_code.Engine.menu import start_menu as start_menu
-from source_code.Sound_Rhytm import Sound_Rhytm as SR
 from source_code.Engine import Mouse_Mode as M_Eng
 
 class NumVariables:
@@ -70,12 +69,12 @@ class Mouse_Mode_Track_1:
             game_running = True
             while game_running:
                 M_Eng.screen.fill((0, 0, 0))
-                SR.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 M_Eng.Drawer(draw_balls)
                 pg.display.update()
                 #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
                 for event in pg.event.get():
-                    M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
+                    M_Eng.Event_Holder(event, balls, draw_balls, TimerBull)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
