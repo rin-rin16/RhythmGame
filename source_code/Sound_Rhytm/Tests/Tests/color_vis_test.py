@@ -37,6 +37,8 @@ while running.getter():
                                    start_menu.trek_number)
     SR.Track_4_Player.music_player(SR.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, balls, running,
                                    start_menu.trek_number)
+    SR.Track_5_Player.music_player(SR.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, balls, running,
+                                   start_menu.trek_number)
 
 
 pg.mixer.music.stop()

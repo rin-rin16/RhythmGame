@@ -99,6 +99,12 @@ class Mouse_Mode_Track_4(Mouse_Mode_Track_1):
             return True
 
 
+class Mouse_Mode_Track_5(Mouse_Mode_Track_1):
+    def number_checker(self, trek_number):
+        if trek_number == 5:
+            return True
+
+
 start_time = NumVariables()
 TimerBull = BullVariables()
 
@@ -109,3 +115,5 @@ Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Phonk/KORDHELL_-_Li
 Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Test/PlayaPhonk_-_Phonky_Town_72969550-[AudioTrimmer.com].mp3")
 #Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
 Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Test/GHOSTFACE_PLAYA_-_Why_Not_74017956-[AudioTrimmer.com].mp3")
+#Track_5_Player = Mouse_Mode_Track_5("../../../../Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
+Track_5_Player = Mouse_Mode_Track_5("../../../../Soundtracks/Test/Delta_Alpha-[AudioTrimmer.com].mp3")
