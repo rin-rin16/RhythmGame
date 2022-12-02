@@ -1,4 +1,5 @@
 import pygame as pg
+import os
 
 black = (0, 0, 0)
 pink = (255, 150, 255)
@@ -24,28 +25,28 @@ class VisualisationInChooseSongMenu:
         self.surface = surface
 
     def draw_easy_button(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         easy = font.render('easy', 1, green)
         self.surface.blit(easy, (580, 100))
 
     def draw_medium_button(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         medium = font.render('medium', 1, yellow)
         self.surface.blit(medium, (580-20, 300))
 
     def draw_hard_button(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 32)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         hard = font.render('hard', 1, red)
         self.surface.blit(hard, (580, 500))
 
     def draw_a_song_name_unpressed(self, x, y, name, length_name, height_name):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 40)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         song_name = font.render(name, 1, white, light_grey)
         pg.draw.rect(self.surface, color=dark_grey, rect=(x-7, y-7, length_name, height_name))
         self.surface.blit(song_name, (x, y))
 
     def draw_a_song_name_pressed(self, x, y, name, length_name, height_name):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 40)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         song_name = font.render(name, 1, white, dark_grey)
         self.surface.blit(song_name, (x-7, y-7))
 
