@@ -1,7 +1,7 @@
 import pygame as pg
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Text_Before_Game as TBG
-
+from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
 
 class Button:
 
@@ -25,7 +25,7 @@ class Button:
         screen.blit(text, (self.x, self.y))
 
 
-# start = 0
+
 menu = True
 trek_choice = False
 trek_number = 0
@@ -52,22 +52,24 @@ class TrekButton(Button):
         """ Return number of trek for which the element of TrekButton is responsible"""
         return self.trek_number
 
-
+surf = M_Eng.screen
+menu_screen = VSM.DrawAMenuButton(surf)
 def draw_menu_buttons():
     """ the function responsible for drawing the "play" and "exit" buttons """
     global play_button
     global quit_button
     M_Eng.screen.fill((0, 0, 0))
-    play_button = PlayButton(100, 100, 50, 50, 'play_button')
+    play_button = PlayButton(480, 200, 320, 180, 'play_button')
     quit_button = Button(100, 200, 50, 50, 'quit_button')
-    play_button.write_text_on_button(M_Eng.screen)
-    quit_button.write_text_on_button(M_Eng.screen)
+    #play_button.write_text_on_button(M_Eng.screen)
+    menu_screen.all_menu_drawer_pressed('none')
+    #quit_button.write_text_on_button(M_Eng.screen)
     pg.display.update()
 
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
-    global trek_number
     """ describes the logic of menu buttons """
+    global trek_number
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
@@ -77,7 +79,6 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                 running.setter(False)
         elif event.type == pg.QUIT:
             running.setter(False)
-
     if trek_choice:
         choice_running = True
         while choice_running:
