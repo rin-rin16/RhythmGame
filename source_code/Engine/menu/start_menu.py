@@ -60,22 +60,28 @@ def draw_menu_buttons():
     global quit_button
     M_Eng.screen.fill((0, 0, 0))
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
-    quit_button = Button(100, 200, 50, 50, 'quit_button')
-    #play_button.write_text_on_button(M_Eng.screen)
+    quit_button = Button(540, 450, 200, 138, 'quit_button')
     menu_screen.all_menu_drawer_pressed('none')
-    #quit_button.write_text_on_button(M_Eng.screen)
     pg.display.update()
 
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
     """ describes the logic of menu buttons """
-    global trek_number
+    trek_number
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
+                M_Eng.screen.fill((0, 0, 0))
+                menu_screen.all_menu_drawer_pressed('start')
+                pg.display.update()
+                clock.tick(0.99)
                 play_button.start_game()
                 menu_running = False
             if quit_button.is_click(event):
+                M_Eng.screen.fill((0, 0, 0))
+                menu_screen.all_menu_drawer_pressed('quit')
+                pg.display.update()
+                clock.tick(0.99)
                 running.setter(False)
         elif event.type == pg.QUIT:
             running.setter(False)
