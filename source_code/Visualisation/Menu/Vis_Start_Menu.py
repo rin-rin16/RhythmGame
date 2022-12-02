@@ -62,3 +62,4 @@ class DrawAMenuButton:
         if button == 'quit':
             self.draw_quit_button_pressed()
             self.draw_start_button_unpressed()
+
