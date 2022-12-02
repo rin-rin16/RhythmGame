@@ -67,7 +67,6 @@ def draw_menu_buttons():
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
     """ describes the logic of menu buttons """
-    trek_number
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
