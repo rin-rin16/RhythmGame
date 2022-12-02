@@ -21,10 +21,10 @@ pause_menu = pm.DrawAMenuButton(screen)
 while not finished:
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
-            pause_menu.all_menu_drawer_unpressed()
+            pause_menu.all_menu_drawer_pressed('none')
             pg.display.update()
         else:
-            pause_menu.all_menu_drawer_unpressed()
+            pause_menu.all_menu_drawer_pressed('none')
             pg.display.update()
 
 
