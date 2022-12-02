@@ -2,7 +2,7 @@ import pygame as pg
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
-
+from source_code.Sound_Rhytm import Sound_Rhytm as SR
 class Button:
 
     def __init__(self, x, y, xsize, ysize, text):
@@ -43,7 +43,7 @@ class PlayButton(Button):
 
 
 class TrekButton(Button):
-    def __init__(self, *args, trek_number):
+    def __init__(self, *args, kwarg):
         """ constructor of class "TrekButton" which the subclass of class "Button" """
         super().__init__(*args)
         self.trek_number = trek_number
@@ -67,6 +67,7 @@ def draw_menu_buttons():
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
     """ describes the logic of menu buttons """
+
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
@@ -91,8 +92,7 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}',
-                                            trek_number=i + 1)
+                trek_button[i] = TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}', kwarg = i+1)
                 trek_button[i].write_text_on_button(M_Eng.screen)
             back_to_menu = Button(500, 100, 50, 50, 'Back')
             back_to_menu.write_text_on_button(M_Eng.screen)
@@ -105,7 +105,7 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                             clock.tick(1)
                             for j in [4,3,2,1,0]:
                                 TBG.countdown(j)
-                            trek_number = i + 1
+                            trek_number.setter(i + 1)
                             choice_running = False
                     if back_to_menu.is_click(event):
                         menu_running = True

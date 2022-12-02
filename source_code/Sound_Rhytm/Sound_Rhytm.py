@@ -1,6 +1,6 @@
 import time as time
 import pygame as pg
-from source_code.Engine.menu import start_menu as start_menu
+#from source_code.Engine.menu import start_menu as start_menu
 from source_code.Engine import Mouse_Mode as M_Eng
 
 class NumVariables:

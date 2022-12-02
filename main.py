@@ -20,8 +20,10 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 running = SR.BullVariables()
 clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
+trek_number = SR.NumVariables()
 
 while running.getter():
+
     menu_running = True
     if menu_running:
         start_menu.draw_menu_buttons()
@@ -29,7 +31,7 @@ while running.getter():
 
     SR.start_time.setter(time.time())
     SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
-                                  start_menu.trek_number)
+                                  trek_number)
     SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,
                                    start_menu.trek_number)
     SR.Track_3_Player.music_player(SR.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, draw_balls, balls, running,
