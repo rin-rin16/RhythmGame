@@ -93,9 +93,16 @@ class Mouse_Mode_Track_3(Mouse_Mode_Track_1):
             return True
 
 
+class Mouse_Mode_Track_4(Mouse_Mode_Track_1):
+    def number_checker(self, trek_number):
+        if trek_number == 4:
+            return True
+
+
 start_time = NumVariables()
 TimerBull = BullVariables()
 
 Trak_1_Player = Mouse_Mode_Track_1("../../../../Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
 Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
+Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
