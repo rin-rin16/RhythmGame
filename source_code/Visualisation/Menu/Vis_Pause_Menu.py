@@ -21,33 +21,44 @@ class DrawAMenuButton:
         self.surface = surface
 
     def draw_continue_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(400, 290, 550, 180))
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        pg.draw.rect(self.surface, color=dark_grey, rect=(380, 230, 550, 180))
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         Continue = font.render('Continue', 1, pink, light_grey)
-        self.surface.blit(Continue, (410, 300))
+        self.surface.blit(Continue, (390, 240))
 
     def draw_continue_button_pressed(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         Continue = font.render('Continue', 1, pink, light_grey)
-        self.surface.blit(Continue, (400, 290))
+        self.surface.blit(Continue, (390, 230))
+    def draw_quit_button_unpressed(self):
+        pg.draw.rect(self.surface, color=dark_grey, rect=(545, 440, 200, 138))
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        start = font.render('Quit', 1, pink, light_grey)
+        self.surface.blit(start, (555, 450))
+
+    def draw_quit_button_pressed(self):
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        start = font.render('Quit', 1, pink, dark_grey)
+        self.surface.blit(start, (545, 440))
 
     def draw_pause_word(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 60)
         menu = font.render('Pause', 1, yellow, black)
         self.surface.blit(menu, (580, 100))
 
-    def all_menu_drawer_unpressed(self):
+    def all_menu_drawer_pressed(self, button: str):
         """
 
-        :return: draws menu in state when continue button unpressed
+        :param button: which button is pressed ['none', 'continue', 'quit']
+        :return: draws given button pressed, other unpressed
         """
         self.draw_pause_word()
-        self.draw_continue_button_unpressed()
-
-    def all_menu_drawer_pressed(self):
-        """
-
-        :return: draws menu in state when continue button pressed
-        """
-        self.draw_pause_word()
-        self.draw_continue_button_pressed()
+        if button == 'none':
+            self.draw_quit_button_unpressed()
+            self.draw_continue_button_unpressed()
+        if button == 'continue':
+            self.draw_quit_button_unpressed()
+            self.draw_continue_button_pressed()
+        if button == 'quit':
+            self.draw_quit_button_pressed()
+            self.draw_continue_button_unpressed()
