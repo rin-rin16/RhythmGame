@@ -22,15 +22,15 @@ while not finished:
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             screen.fill((0, 0, 0))
-            pause_menu.all_menu_drawer_pressed()
+            start_menu.all_menu_drawer_pressed('none')
             pg.display.update()
             clock.tick(0.5)
             screen.fill((0, 0, 0))
-            pause_menu.all_menu_drawer_unpressed()
+            start_menu.all_menu_drawer_pressed('none')
             pg.display.update()
         else:
             screen.fill((0, 0, 0))
-            pause_menu.all_menu_drawer_unpressed()
+            start_menu.all_menu_drawer_pressed('none')
             pg.display.update()
 
 
