@@ -33,5 +33,8 @@ while running.getter():
                                   start_menu.trek_number)
     SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
                                    start_menu.trek_number)
+    SR.Track_3_Player.music_player(SR.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, draw_balls, balls, running,
+                                   start_menu.trek_number)
+
 
 pg.mixer.music.stop()
