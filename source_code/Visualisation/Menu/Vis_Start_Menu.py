@@ -1,3 +1,4 @@
+import os
 import pygame as pg
 
 black = (0, 0, 0)
@@ -21,28 +22,28 @@ class DrawAMenuButton:
 
     def draw_start_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(470, 190, 320, 185))
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Start', 1, pink, light_grey)
         self.surface.blit(start, (480, 200))
 
     def draw_start_button_pressed(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 160)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Start', 1, pink, dark_grey)
         self.surface.blit(start, (470, 190))
 
     def draw_quit_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(530, 440, 200, 138))
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Quit', 1, pink, light_grey)
         self.surface.blit(start, (540, 450))
 
     def draw_quit_button_pressed(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 120)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Quit', 1, pink, dark_grey)
         self.surface.blit(start, (530, 440))
 
     def draw_menu_word(self):
-        font = pg.font.Font('Sunset Club Free Trial.ttf', 50)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         menu = font.render('Menu', 1, yellow, black)
         self.surface.blit(menu, (580, 100))
 
