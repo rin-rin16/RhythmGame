@@ -28,9 +28,12 @@ while running.getter():
     start_menu.logic_of_menu_buttons(start_menu.play_button, start_menu.quit_button, running, start_menu.trek_choice, clock)
 
     SR.start_time.setter(time.time())
-    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,     # FIXME: подобрать нормальный бит и фазу
+    SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
                                   start_menu.trek_number)
-    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,    # FIXME: подобрать нормальный бит и фазу
+    SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,
                                    start_menu.trek_number)
+    SR.Track_3_Player.music_player(SR.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, draw_balls, balls, running,
+                                   start_menu.trek_number)
+
 
 pg.mixer.music.stop()

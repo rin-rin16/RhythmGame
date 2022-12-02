@@ -90,7 +90,7 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
     :param TimerBull: timer, which checks for the beat
     :return: nothing
     """
-    if event.type == pg.MOUSEBUTTONDOWN:            # Commented stuff is here for testing reasons
+    if event.type == pg.MOUSEBUTTONDOWN or event.type == pg.KEYDOWN:            # Commented stuff is here for testing reasons
         #if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
         if balls.getter()[0].bit_check(TimerBull):
     #if TimerBull.getter():
