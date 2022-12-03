@@ -2,6 +2,7 @@ import pygame as pg
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
+from source_code.Classes import Classes as CL
 
 class Button:
 
@@ -27,8 +28,8 @@ class Button:
 
 
 menu = True
-trek_choice = False
-trek_number = 0
+trek_choice = CL.BullVariables(False)
+trek_number = CL.NumVariables()
 
 
 class PlayButton(Button):
@@ -38,8 +39,7 @@ class PlayButton(Button):
 
     def start_game(self):
         """ Using for run game if player click on the element of PlayButton """
-        global trek_choice
-        trek_choice = True
+        trek_choice.setter(True)
 
 
 class TrekButton(Button):
@@ -54,6 +54,7 @@ class TrekButton(Button):
 
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
+
 def draw_menu_buttons():
     """ the function responsible for drawing the "play" and "exit" buttons """
     global play_button
@@ -84,7 +85,7 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                 running.setter(False)
         elif event.type == pg.QUIT:
             running.setter(False)
-    if trek_choice:
+    if trek_choice.getter():
         choice_running = True
         while choice_running:
             M_Eng.screen.fill((0, 0, 0))
@@ -105,12 +106,12 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                             clock.tick(1)
                             for j in [4,3,2,1,0]:
                                 TBG.countdown(j)
-                            trek_number = i + 1
+                            trek_number.setter(i + 1)
                             choice_running = False
                     if back_to_menu.is_click(event):
                         menu_running = True
                         choice_running = False
-                        trek_choice = False
+                        trek_choice.setter(False)
                 elif event.type == pg.QUIT:
                     choice_running = False
                     running.setter(False)
