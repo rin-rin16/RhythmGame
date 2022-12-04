@@ -2,7 +2,8 @@ import pygame as pg
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
-from source_code.Sound_Rhytm import Sound_Rhytm as SR
+from source_code.Classes import Classes as CL
+
 class Button:
 
     def __init__(self, x, y, xsize, ysize, text):
@@ -27,8 +28,8 @@ class Button:
 
 
 menu = True
-trek_choice = False
-trek_number = 0
+trek_choice = CL.BullVariables(False)
+trek_number = CL.NumVariables()
 
 
 class PlayButton(Button):
@@ -38,12 +39,11 @@ class PlayButton(Button):
 
     def start_game(self):
         """ Using for run game if player click on the element of PlayButton """
-        global trek_choice
-        trek_choice = True
+        trek_choice.setter(True)
 
 
 class TrekButton(Button):
-    def __init__(self, *args, kwarg):
+    def __init__(self, *args, trek_number):
         """ constructor of class "TrekButton" which the subclass of class "Button" """
         super().__init__(*args)
         self.trek_number = trek_number
@@ -54,6 +54,7 @@ class TrekButton(Button):
 
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
+
 def draw_menu_buttons():
     """ the function responsible for drawing the "play" and "exit" buttons """
     global play_button
@@ -67,7 +68,6 @@ def draw_menu_buttons():
 
 def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
     """ describes the logic of menu buttons """
-
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             if play_button.is_click(event):
@@ -85,14 +85,15 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                 running.setter(False)
         elif event.type == pg.QUIT:
             running.setter(False)
-    if trek_choice:
+    if trek_choice.getter():
         choice_running = True
         while choice_running:
             M_Eng.screen.fill((0, 0, 0))
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}', kwarg = i+1)
+                trek_button[i] = TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}',
+                                            trek_number=i + 1)
                 trek_button[i].write_text_on_button(M_Eng.screen)
             back_to_menu = Button(500, 100, 50, 50, 'Back')
             back_to_menu.write_text_on_button(M_Eng.screen)
@@ -110,7 +111,7 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                     if back_to_menu.is_click(event):
                         menu_running = True
                         choice_running = False
-                        trek_choice = False
+                        trek_choice.setter(False)
                 elif event.type == pg.QUIT:
                     choice_running = False
                     running.setter(False)
