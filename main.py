@@ -29,7 +29,7 @@ while running.getter():
     start_menu.logic_of_menu_buttons(start_menu.play_button, start_menu.quit_button, running, start_menu.trek_choice, clock)
 
     CL.start_time.setter(time.time())
-    SR.Trak_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
+    SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
                                   start_menu.trek_number.getter())
     SR.Track_2_Player.music_player(CL.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,
                                    start_menu.trek_number.getter())

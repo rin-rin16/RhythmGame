@@ -44,6 +44,28 @@ class BullVariables:
     def getter(self):
         return self._bul
 
+class Ker_Kill(BullVariables):
+    def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
+        if (
+                ((((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or
+                ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound))) and
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 0.5)) or
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 8 - 0.5)) or
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 2 + 0.5)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 2 - 0.5))) or
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 4 + 0.5)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 4 - 0.5))) or
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 6 + 0.5)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 6 - 0.5))) or
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 1 + 0.5)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 1 - 0.5)))
+                )
+            ):
+            self._bul = True
+        else:
+            self._bul = False
+
 
 start_time = NumVariables()
 TimerBull = BullVariables()
+Ker_Kill_Timer = Ker_Kill()

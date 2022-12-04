@@ -30,15 +30,14 @@ while running.getter():
 
     SR.start_time.setter(time.time())
     SR.Trak_1_Player.music_player(SR.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.002, 0.002, balls, running,
-                                  start_menu.trek_number)
+                                  start_menu.trek_number.getter())
     SR.Track_2_Player.music_player(SR.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.002, 0.002, balls, running,
-                                   start_menu.trek_number)
+                                   start_menu.trek_number.getter())
     SR.Track_3_Player.music_player(SR.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, balls, running,
-                                   start_menu.trek_number)
+                                   start_menu.trek_number.getter())
     SR.Track_4_Player.music_player(SR.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, balls, running,
-                                   start_menu.trek_number)
+                                   start_menu.trek_number.getter())
     SR.Track_5_Player.music_player(SR.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, balls, running,
-                                   start_menu.trek_number)
-
+                                   start_menu.trek_number.getter())
 
 pg.mixer.music.stop()
