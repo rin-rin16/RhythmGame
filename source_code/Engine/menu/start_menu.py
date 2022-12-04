@@ -89,10 +89,10 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
         choice_running = True
         while choice_running:
             M_Eng.screen.fill((0, 0, 0))
-            amount_of_buttons = 5
+            amount_of_buttons = 9
             trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 100 + 100, 50, 50, f'trek_button_{i + 1}',
+                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 1}',
                                             trek_number=i + 1)
                 trek_button[i].write_text_on_button(M_Eng.screen)
             back_to_menu = Button(500, 100, 50, 50, 'Back')
