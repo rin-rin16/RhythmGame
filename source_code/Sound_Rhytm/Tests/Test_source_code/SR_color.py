@@ -172,6 +172,28 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                         game_running = False
 
 
+class Why_Not_Player(Mouse_Mode_Track_4):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, balls, running, trek_number):
+        """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load(self.track_name)
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                M_Eng.screen.fill((0, 0, 0))
+                CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                M_Eng.Drawer(balls)
+                pg.display.update()
+                M_Eng.Event_Holder("q", balls, CL.Why_Not_Timer)        # Commented stuff is here for testing
+                for event in pg.event.get():
+                    #M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
+
 
 start_time = NumVariables()
 TimerBull = BullVariables()
@@ -181,7 +203,7 @@ Track_2_Player = Live_Another_Day_Player("../../../../Soundtracks/Phonk/KORDHELL
 #Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Test/KORDHELL_-_Live_Another_Day_73349846-[AudioTrimmer.com].mp3")
 Track_3_Player = Phonk_Town_Player("../../../../Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
 #Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Test/PlayaPhonk_-_Phonky_Town_72969550-[AudioTrimmer.com].mp3")
-Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
+Track_4_Player = Why_Not_Player("../../../../Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
 #Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Test/GHOSTFACE_PLAYA_-_Why_Not_74017956-[AudioTrimmer.com].mp3")
 Track_5_Player = Mouse_Mode_Track_5("../../../../Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
 #Track_5_Player = Mouse_Mode_Track_5("../../../../Soundtracks/Test/Delta_Alpha-[AudioTrimmer.com].mp3")
