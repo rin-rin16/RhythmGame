@@ -103,15 +103,62 @@ class Live_An_Day(BullVariables):
                  )
 
                 and
-                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 7.5 + upper_bound)) and
-                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 7.5 - lower_bound))))
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 7.5 + 0.12)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 7.5 - 0.07))))
             ):
             self._bul = True
         else:
             self._bul = False
 
 
+class Phonk_Town(BullVariables):
+    def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
+        if  (   not (((time.time() - start_time.getter() + fase) <= 15.7 and
+                 (time.time() - start_time.getter() + fase) >= 13.5)
+                    or
+                     ((time.time() - start_time.getter() + fase) <= 46.5 and
+                      (time.time() - start_time.getter() + fase) >= 44.25)
+                     or
+                     ((time.time() - start_time.getter() + fase) <= 92.5 and
+                      (time.time() - start_time.getter() + fase) >= 91.25)
+                    )
+                and
+                (time.time() - start_time.getter() + fase) <= 136.5
+
+                and
+
+                (((((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or
+                ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)))
+
+                or
+
+                ((((((time.time() - start_time.getter() + fase) / (bpm)) % 16 <= 0.5 + upper_bound)) and
+                  ((((time.time() - start_time.getter() + fase) / (bpm)) % 16 >= 0.5 - lower_bound))))
+                and not False
+
+                )
+            ):
+            self._bul = True
+        elif (
+                    ((time.time() - start_time.getter() + fase) <= 46.5 and
+                    (time.time() - start_time.getter() + fase) >= 44.25)
+
+                and
+                    ((((((time.time() - start_time.getter() + fase) / (bpm)) % 16 <= 14 + upper_bound)) and
+                  ((((time.time() - start_time.getter() + fase) / (bpm)) % 16 >= 14 - lower_bound)))
+                    or
+                     (((((time.time() - start_time.getter() + fase) / (bpm)) % 16 <= 0 + upper_bound)) or
+                      ((((time.time() - start_time.getter() + fase) / (bpm)) % 16 >= 16 - lower_bound)))
+                    )
+            ):
+            self._bul = True
+        else:
+            self._bul = False
+
+
+
 start_time = NumVariables()
 TimerBull = BullVariables()
 Ker_Kill_Timer = Ker_Kill()
 Live_An_Day_Timer = Live_An_Day()
+Phonky_Town_Timer = Phonk_Town()

@@ -147,12 +147,33 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
                         game_running = False
 
 
+class Phonk_Town_Player(Mouse_Mode_Track_3):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+        """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load(self.track_name)
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                M_Eng.screen.fill((0, 0, 0))
+                CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                M_Eng.Drawer(draw_balls)
+                pg.display.update()
+                for event in pg.event.get():
+                    M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
+
 
 start_time = NumVariables()
 TimerBull = BullVariables()
 
 Track_1_Player = Ker_Kill_Player("../../../../Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_2_Player = Live_Another_Day_Player("../../../../Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
-Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
+Track_3_Player = Phonk_Town_Player("../../../../Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
 Track_4_Player = Mouse_Mode_Track_4("../../../../Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
 Track_5_Player = Mouse_Mode_Track_5("../../../../Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
