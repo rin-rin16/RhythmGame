@@ -128,12 +128,34 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                         game_running = False
 
 
+class Live_Another_Day_Player(Mouse_Mode_Track_2):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, balls, running, trek_number):
+        """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load(self.track_name)
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                M_Eng.screen.fill((0, 0, 0))
+                CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                M_Eng.Drawer(balls)
+                pg.display.update()
+                M_Eng.Event_Holder("q", balls, CL.Live_An_Day_Timer)        # Commented stuff is here for testing
+                for event in pg.event.get():
+                    #M_Eng.Event_Holder(event, balls, draw_balls, SR.TimerBull)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
+
 
 start_time = NumVariables()
 TimerBull = BullVariables()
 
 Trak_1_Player = Ker_Kill_Player("../../../../Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
-Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
+Track_2_Player = Live_Another_Day_Player("../../../../Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
 #Track_2_Player = Mouse_Mode_Track_2("../../../../Soundtracks/Test/KORDHELL_-_Live_Another_Day_73349846-[AudioTrimmer.com].mp3")
 #Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
 Track_3_Player = Mouse_Mode_Track_3("../../../../Soundtracks/Test/PlayaPhonk_-_Phonky_Town_72969550-[AudioTrimmer.com].mp3")

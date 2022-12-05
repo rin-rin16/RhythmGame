@@ -73,7 +73,7 @@ def Event_Holder(event, balls, TimerBull):
         #if balls.getter()[0].bit_check(TimerBull):
     if TimerBull.getter():
         balls.setter([balls.getter()[1], balls.getter()[0]])
-        time.sleep(0.3)
+        time.sleep(0.1)
 
 
 

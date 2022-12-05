@@ -48,15 +48,26 @@ class Ker_Kill(BullVariables):
     def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
         if (
                 ((((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or
-                ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound))) and
+                ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)))
+
+                and
+
                 (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 0.5)) or
-                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 8 - 0.5)) or
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 8 - 0.5))
+
+                 or
                 (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 2 + 0.5)) and
-                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 2 - 0.5))) or
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 2 - 0.5)))
+
+                 or
                 (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 4 + 0.5)) and
-                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 4 - 0.5))) or
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 4 - 0.5)))
+
+                 or
                 (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 6 + 0.5)) and
-                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 6 - 0.5))) or
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 6 - 0.5)))
+
+                 or
                 (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 1 + 0.5)) and
                 ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 1 - 0.5)))
                 )
@@ -66,6 +77,41 @@ class Ker_Kill(BullVariables):
             self._bul = False
 
 
+class Live_An_Day(BullVariables):
+    def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
+        if (
+                ((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or
+                ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)
+
+                or
+
+                ((((time.time() - start_time.getter() + fase) <= 97)
+                and
+                ((time.time() - start_time.getter() + fase) >= 22))
+
+                and
+                ((((time.time() - start_time.getter() + fase) <= 25))
+                or
+                 ((((time.time() - start_time.getter() + fase) >= 32)) and
+                  ((time.time() - start_time.getter() + fase) <= 46))
+                or
+                 ((((time.time() - start_time.getter() + fase) >= 72)) and
+                  ((time.time() - start_time.getter() + fase) <= 76))
+                or
+                 ((((time.time() - start_time.getter() + fase) >= 80)) and
+                  ((time.time() - start_time.getter() + fase) <= 98))
+                 )
+
+                and
+                (((((time.time() - start_time.getter() + fase) / (bpm)) % 8 <= 7.5 + upper_bound)) and
+                ((((time.time() - start_time.getter() + fase) / (bpm)) % 8 >= 7.5 - lower_bound))))
+            ):
+            self._bul = True
+        else:
+            self._bul = False
+
+
 start_time = NumVariables()
 TimerBull = BullVariables()
 Ker_Kill_Timer = Ker_Kill()
+Live_An_Day_Timer = Live_An_Day()
