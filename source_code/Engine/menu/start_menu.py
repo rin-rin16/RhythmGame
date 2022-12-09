@@ -67,7 +67,7 @@ menu_screen.all_menu_drawer_pressed('none')
 pg.display.update()"""
 
 
-def logic_of_menu_buttons(running, trek_choice, clock, pressing_start):
+def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit):
     """ describes the logic of menu buttons """
     global play_button
     global quit_button
@@ -75,7 +75,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start):
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
     quit_button = Button(540, 450, 200, 138, 'quit_button')
     for event in pg.event.get():
-        if pressing_start.getter() == False:
+        if pressing_start.getter() == False and pressing_quit.getter() == False:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if play_button.is_click(event):
                     M_Eng.screen.fill((0, 0, 0))
@@ -90,19 +90,23 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start):
                     menu_screen.all_menu_drawer_pressed('quit')
                     pg.display.update()
                     clock.tick(0.99)
-                    running.setter(False)
+                    pressing_quit.setter(True)
             if event.type == pg.QUIT:
                 running.setter(False)
             else:
-                if pressing_start.getter() == False:
+                if pressing_start.getter() == False and pressing_quit.getter() == False:
                     menu_screen.all_menu_drawer_pressed('none')
         else:
             if event.type == pg.MOUSEBUTTONUP:
-                play_button.start_game()
-                menu_running = False
-                pressing_start.setter(False)
+                if play_button.is_click(event):
+                    play_button.start_game()
+                    menu_running = False
+                    pressing_start.setter(False)
+                elif quit_button.is_click(event):
+                    running.setter(False)
+                    pressing_quit.setter(False)
     if pg.event.get() == []:
-        if pressing_start.getter() == False:
+        if pressing_start.getter() == False and pressing_quit.getter() == False:
             menu_screen.all_menu_drawer_pressed('none')
             pg.display.update()
     if trek_choice.getter():

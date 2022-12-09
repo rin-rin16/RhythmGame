@@ -24,11 +24,11 @@ counter = vmm.Counter(screen)
 while not finished:
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
-            pause_menu.all_menu_drawer_pressed('none')
+            cs_menu.all_menu_drawer_pressed('none')
             pg.display.update()
             counter.draw_counter(10)
         else:
-            pause_menu.all_menu_drawer_pressed('none')
+            cs_menu.all_menu_drawer_pressed('none')
             pg.display.update()
             counter.draw_counter(100)
 
