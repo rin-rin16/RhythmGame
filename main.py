@@ -11,14 +11,14 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 
 
 running = CL.BullVariables()
+pressing_start = CL.BullVariables(False)
+pressing_quit = CL.BullVariables(False)
 clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
 
 while running.getter():
     menu_running = True
-    if menu_running:
-        start_menu.draw_menu_buttons()
-    start_menu.logic_of_menu_buttons(start_menu.play_button, start_menu.quit_button, running, start_menu.trek_choice, clock)
+    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit)
 
     mode_tracker = 1
 

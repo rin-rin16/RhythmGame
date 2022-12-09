@@ -55,36 +55,60 @@ class TrekButton(Button):
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 
-def draw_menu_buttons():
-    """ the function responsible for drawing the "play" and "exit" buttons """
+
+"""def draw_menu_buttons():"""
+""" the function responsible for drawing the "play" and "exit" buttons """
+"""global play_button
+global quit_button
+M_Eng.screen.fill((0, 0, 0))
+play_button = PlayButton(480, 200, 320, 180, 'play_button')
+quit_button = Button(540, 450, 200, 138, 'quit_button')
+menu_screen.all_menu_drawer_pressed('none')
+pg.display.update()"""
+
+
+def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit):
+    """ describes the logic of menu buttons """
     global play_button
     global quit_button
     M_Eng.screen.fill((0, 0, 0))
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
     quit_button = Button(540, 450, 200, 138, 'quit_button')
-    menu_screen.all_menu_drawer_pressed('none')
-    pg.display.update()
-
-
-def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
-    """ describes the logic of menu buttons """
     for event in pg.event.get():
-        if event.type == pg.MOUSEBUTTONDOWN:
-            if play_button.is_click(event):
-                M_Eng.screen.fill((0, 0, 0))
-                menu_screen.all_menu_drawer_pressed('start')
-                pg.display.update()
-                clock.tick(0.99)
-                play_button.start_game()
-                menu_running = False
-            if quit_button.is_click(event):
-                M_Eng.screen.fill((0, 0, 0))
-                menu_screen.all_menu_drawer_pressed('quit')
-                pg.display.update()
-                clock.tick(0.99)
+        if pressing_start.getter() == False and pressing_quit.getter() == False:
+            if event.type == pg.MOUSEBUTTONDOWN:
+                if play_button.is_click(event):
+                    M_Eng.screen.fill((0, 0, 0))
+                    menu_screen.all_menu_drawer_pressed('start')
+                    pg.display.update()
+                    clock.tick(0.99)
+                    pressing_start.setter(True)
+                    # play_button.start_game()
+                    menu_running = False
+                if quit_button.is_click(event):
+                    M_Eng.screen.fill((0, 0, 0))
+                    menu_screen.all_menu_drawer_pressed('quit')
+                    pg.display.update()
+                    clock.tick(0.99)
+                    pressing_quit.setter(True)
+            if event.type == pg.QUIT:
                 running.setter(False)
-        elif event.type == pg.QUIT:
-            running.setter(False)
+            else:
+                if pressing_start.getter() == False and pressing_quit.getter() == False:
+                    menu_screen.all_menu_drawer_pressed('none')
+        else:
+            if event.type == pg.MOUSEBUTTONUP:
+                if play_button.is_click(event):
+                    play_button.start_game()
+                    menu_running = False
+                    pressing_start.setter(False)
+                elif quit_button.is_click(event):
+                    running.setter(False)
+                    pressing_quit.setter(False)
+    if pg.event.get() == []:
+        if pressing_start.getter() == False and pressing_quit.getter() == False:
+            menu_screen.all_menu_drawer_pressed('none')
+            pg.display.update()
     if trek_choice.getter():
         choice_running = True
         while choice_running:
@@ -115,3 +139,32 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                 elif event.type == pg.QUIT:
                     choice_running = False
                     running.setter(False)
+                pause(event,clock,running)
+
+def pause(event,clock,running):
+    if event.type == pg.KEYDOWN:
+        if event.key == pg.K_ESCAPE:
+            run_pause = True
+            while run_pause:
+                M_Eng.screen.fill((0, 0, 0))
+                resume = Button(200,200,50,50,'Resume')
+                resume.write_text_on_button(M_Eng.screen)
+                to_menu = Button(200, 300, 50, 50, 'Exit_to_menu')
+                to_menu.write_text_on_button(M_Eng.screen)
+                pg.display.update()
+                clock.tick(100)
+                for action in pg.event.get():
+                    if action.type == pg.QUIT:
+                        running.setter(False)
+                        #FIXME не закрывается при нажатии на крестик :(
+                    elif action.type == pg.MOUSEBUTTONDOWN:
+                        if resume.is_click(action):
+                            run_pause = False
+                            #FIXME должна продолжаться игра ( по идее если сунуть эту функцию туда куда надо,
+                            # то все должно быть окей: меню паузы закроется и продолжится игра,
+                            # но как это будет на практике хз если честно)
+
+                        if to_menu.is_click(action):
+                            run_pause = False
+                            #FIXME должно открываться меню выбора трека (возможно стоит заново вызывать функцию отображения меню выбора,
+                            # либо как-то выходить из этого цикла и запуска меню выбора, путем деланья trek_choice трушным
