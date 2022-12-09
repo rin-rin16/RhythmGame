@@ -55,36 +55,56 @@ class TrekButton(Button):
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 
-def draw_menu_buttons():
-    """ the function responsible for drawing the "play" and "exit" buttons """
+
+"""def draw_menu_buttons():"""
+""" the function responsible for drawing the "play" and "exit" buttons """
+"""global play_button
+global quit_button
+M_Eng.screen.fill((0, 0, 0))
+play_button = PlayButton(480, 200, 320, 180, 'play_button')
+quit_button = Button(540, 450, 200, 138, 'quit_button')
+menu_screen.all_menu_drawer_pressed('none')
+pg.display.update()"""
+
+
+def logic_of_menu_buttons(running, trek_choice, clock, pressing_start):
+    """ describes the logic of menu buttons """
     global play_button
     global quit_button
     M_Eng.screen.fill((0, 0, 0))
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
     quit_button = Button(540, 450, 200, 138, 'quit_button')
-    menu_screen.all_menu_drawer_pressed('none')
-    pg.display.update()
-
-
-def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock):
-    """ describes the logic of menu buttons """
     for event in pg.event.get():
-        if event.type == pg.MOUSEBUTTONDOWN:
-            if play_button.is_click(event):
-                M_Eng.screen.fill((0, 0, 0))
-                menu_screen.all_menu_drawer_pressed('start')
-                pg.display.update()
-                clock.tick(0.99)
+        if pressing_start.getter() == False:
+            if event.type == pg.MOUSEBUTTONDOWN:
+                if play_button.is_click(event):
+                    M_Eng.screen.fill((0, 0, 0))
+                    menu_screen.all_menu_drawer_pressed('start')
+                    pg.display.update()
+                    clock.tick(0.99)
+                    pressing_start.setter(True)
+                    # play_button.start_game()
+                    menu_running = False
+                if quit_button.is_click(event):
+                    M_Eng.screen.fill((0, 0, 0))
+                    menu_screen.all_menu_drawer_pressed('quit')
+                    pg.display.update()
+                    clock.tick(0.99)
+                    running.setter(False)
+            if event.type == pg.QUIT:
+                running.setter(False)
+            else:
+                if pressing_start.getter() == False:
+                    menu_screen.all_menu_drawer_pressed('none')
+        else:
+            if event.type == pg.MOUSEBUTTONUP:
                 play_button.start_game()
                 menu_running = False
-            if quit_button.is_click(event):
-                M_Eng.screen.fill((0, 0, 0))
-                menu_screen.all_menu_drawer_pressed('quit')
-                pg.display.update()
-                clock.tick(0.99)
-                running.setter(False)
-        elif event.type == pg.QUIT:
-            running.setter(False)
+                pressing_start.setter(False)
+    if pg.event.get() == []:
+        if pressing_start.getter() == False:
+            menu_screen.all_menu_drawer_pressed('none')
+            pg.display.update()
     if trek_choice.getter():
         choice_running = True
         while choice_running:
