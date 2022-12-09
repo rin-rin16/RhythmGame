@@ -115,3 +115,32 @@ def logic_of_menu_buttons(play_button, quit_button, running, trek_choice, clock)
                 elif event.type == pg.QUIT:
                     choice_running = False
                     running.setter(False)
+                pause(event,clock,running)
+
+def pause(event,clock,running):
+    if event.type == pg.KEYDOWN:
+        if event.key == pg.K_ESCAPE:
+            run_pause = True
+            while run_pause:
+                M_Eng.screen.fill((0, 0, 0))
+                resume = Button(200,200,50,50,'Resume')
+                resume.write_text_on_button(M_Eng.screen)
+                to_menu = Button(200, 300, 50, 50, 'Exit_to_menu')
+                to_menu.write_text_on_button(M_Eng.screen)
+                pg.display.update()
+                clock.tick(100)
+                for action in pg.event.get():
+                    if action.type == pg.QUIT:
+                        running.setter(False)
+                        #FIXME не закрывается при нажатии на крестик :(
+                    elif action.type == pg.MOUSEBUTTONDOWN:
+                        if resume.is_click(action):
+                            run_pause = False
+                            #FIXME должна продолжаться игра ( по идее если сунуть эту функцию туда куда надо,
+                            # то все должно быть окей: меню паузы закроется и продолжится игра,
+                            # но как это будет на практике хз если честно)
+
+                        if to_menu.is_click(action):
+                            run_pause = False
+                            #FIXME должно открываться меню выбора трека (возможно стоит заново вызывать функцию отображения меню выбора,
+                            # либо как-то выходить из этого цикла и запуска меню выбора, путем деланья trek_choice трушным
