@@ -9,14 +9,6 @@ from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Engine.menu import start_menu as start_menu
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 
-# width, height = 1280, 720       # Screen's width and height        # Took this into engine file
-# background_color = (0, 0, 0)
-
-# pg.display.init()
-
-# screen = pg.display.set_mode((width, height))
-# screen.fill(background_color)
-# pg.display.flip()
 
 running = CL.BullVariables()
 clock = pg.time.Clock()
@@ -28,16 +20,20 @@ while running.getter():
         start_menu.draw_menu_buttons()
     start_menu.logic_of_menu_buttons(start_menu.play_button, start_menu.quit_button, running, start_menu.trek_choice, clock)
 
+    mode_tracker = 1
+
     CL.start_time.setter(time.time())
-    SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
-                                  start_menu.trek_number.getter())
-    SR.Track_2_Player.music_player(CL.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,
-                                   start_menu.trek_number.getter())
-    SR.Track_3_Player.music_player(CL.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, draw_balls, balls, running,
-                                   start_menu.trek_number.getter())
-    SR.Track_4_Player.music_player(CL.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, draw_balls, balls, running,
-                                   start_menu.trek_number.getter())
-    SR.Track_5_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, draw_balls, balls, running,
-                                   start_menu.trek_number.getter())
+
+    if mode_tracker == 1:
+        SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
+                                      start_menu.trek_number.getter())
+        SR.Track_2_Player.music_player(CL.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, draw_balls, balls, running,
+                                       start_menu.trek_number.getter())
+        SR.Track_3_Player.music_player(CL.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, draw_balls, balls, running,
+                                       start_menu.trek_number.getter())
+        SR.Track_4_Player.music_player(CL.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, draw_balls, balls, running,
+                                       start_menu.trek_number.getter())
+        SR.Track_5_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, draw_balls, balls, running,
+                                       start_menu.trek_number.getter())
 
 pg.mixer.music.stop()
