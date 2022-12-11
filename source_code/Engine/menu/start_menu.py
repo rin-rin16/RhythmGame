@@ -37,7 +37,7 @@ class PlayButton(Button):
         """ constructor of class "PlayButton" which the subclass of class "Button" """
         super().__init__(*args)
 
-    def start_game(self,mode):
+    def start_game(self, mode):
         """ Using for run game if player click on the element of PlayButton """
         trek_choice.setter(mode)
 
@@ -67,7 +67,7 @@ menu_screen.all_menu_drawer_pressed('none')
 pg.display.update()"""
 
 
-def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit,mode_type):
+def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type):
     """ describes the logic of menu buttons """
     global play_button
     global quit_button
@@ -77,7 +77,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
     for event in pg.event.get():
         if not pressing_start.getter() and not pressing_quit.getter():
             if event.type == pg.MOUSEBUTTONDOWN:
-                if play_button.is_click(event):                                      #PLAY/QUIT menu
+                if play_button.is_click(event):  # PLAY/QUIT menu
                     M_Eng.screen.fill((0, 0, 0))
                     menu_screen.all_menu_drawer_pressed('start')
                     pg.display.update()
@@ -96,7 +96,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                 if not pressing_start.getter() and not pressing_quit.getter():
                     menu_screen.all_menu_drawer_pressed('none')
         else:
-            if event.type == pg.MOUSEBUTTONUP:                                         #MM/KM menu
+            if event.type == pg.MOUSEBUTTONUP:  # MM/KM menu
                 if play_button.is_click(event):
                     mm_button = Button(480, 200, 320, 180, 'mouse_mode')
                     km_button = Button(540, 450, 200, 138, 'keyboard_mode')
@@ -104,13 +104,13 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     km_button.write_text_on_button(M_Eng.screen)
                     pg.display.update()
                     mode_choice = True
-                    #mode = 0
+                    # mode = 0
                     while mode_choice:
                         for event in pg.event.get():
                             if event.type == pg.MOUSEBUTTONDOWN:
                                 if mm_button.is_click(event):
                                     mode_type.setter(1)
-                                    #mode = 1
+                                    # mode = 1
                                     mode_choice = False
                                 elif km_button.is_click(event):
                                     mode_type.setter(2)
@@ -118,22 +118,22 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             elif event.type == pg.QUIT:
                                 mode_choice = False
                                 running.setter(False)
-                        if mode_type.getter() == 1:    #mode == 1:
+                        if mode_type.getter() == 1:  # mode == 1:
                             play_button.start_game(1)
                             menu_running = False
                             pressing_start.setter(False)
                         elif mode_type.getter() == 2:
                             play_button.start_game(2)
                             menu_running = False
-                            pressing_start.setter(False)# здесь будет меню выбора трека для клавиатура_режим
+                            pressing_start.setter(False)  # здесь будет меню выбора трека для клавиатура_режим
                 elif quit_button.is_click(event):
                     running.setter(False)
                     pressing_quit.setter(False)
     if not pg.event.get():
-        if pressing_start.getter() == False and pressing_quit.getter() == False:
+        if not pressing_start.getter() and not pressing_quit.getter():
             menu_screen.all_menu_drawer_pressed('none')
             pg.display.update()
-    if trek_choice.getter()==1:                                                            #MM Trek Choicing menu
+    if trek_choice.getter() == 1:  # MM Trek Choicing menu
         choice_running = True
         while choice_running:
             M_Eng.screen.fill((0, 0, 0))
