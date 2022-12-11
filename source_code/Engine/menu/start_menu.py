@@ -164,6 +164,37 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     running.setter(False)
                 pause(event, clock, running)
 
+    if trek_choice.getter() == 2:  # KM Trek Choicing menu
+        choice_running = True
+        while choice_running:
+            M_Eng.screen.fill((0, 0, 0))
+            amount_of_buttons = 5
+            trek_button = [0] * amount_of_buttons
+            for i in range(amount_of_buttons):
+                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}',
+                                            trek_number=i + 6)
+                trek_button[i].write_text_on_button(M_Eng.screen)
+            back_to_menu = Button(500, 100, 50, 50, 'Back')
+            back_to_menu.write_text_on_button(M_Eng.screen)
+            pg.display.update()
+            for event in pg.event.get():
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    for i in range(amount_of_buttons):
+                        if trek_button[i].is_click(event):
+                            clock.tick(1)
+                            for j in [4, 3, 2, 1, 0]:
+                                TBG.countdown(j)
+                            trek_number.setter(i + 6)
+                            choice_running = False
+                    if back_to_menu.is_click(event):
+                        menu_running = True
+                        choice_running = False
+                        trek_choice.setter(0)
+                elif event.type == pg.QUIT:
+                    choice_running = False
+                    running.setter(False)
+                pause(event, clock, running)
+
 
 def pause(event, clock, running):
     if event.type == pg.KEYDOWN:
