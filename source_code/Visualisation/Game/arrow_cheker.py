@@ -7,10 +7,10 @@ screen = pg.display.set_mode((1280, 720))
 
 finished = False
 
-arrow = vkm.DrawableArrowDown(screen, 400, 400, 10, 'normal')
+arrow = vkm.DrawableArrowRight(screen, 400, 400, 40, 'normal')
 
 while not finished:
-    arrow.draw_down_arrow()
+    arrow.draw_right_arrow()
     pg.display.update()
 
 
