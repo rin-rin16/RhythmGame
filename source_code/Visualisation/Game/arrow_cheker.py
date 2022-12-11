@@ -7,10 +7,10 @@ screen = pg.display.set_mode((1280, 720))
 
 finished = False
 
-arrow = vkm.DrawableArrowLeft(screen, 400, 400, 10, 'normal')
+arrow = vkm.DrawableArrowDown(screen, 400, 400, 10, 'normal')
 
 while not finished:
-    arrow.draw_left_arrow()
+    arrow.draw_down_arrow()
     pg.display.update()
 
 
@@ -18,6 +18,11 @@ while not finished:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             finished = True
+
+    keys = pg.key.get_pressed()
+    if keys[pg.K_ESCAPE]:
+        finished = True
+
 
 
 pg.quit()
