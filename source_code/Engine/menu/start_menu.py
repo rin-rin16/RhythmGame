@@ -184,8 +184,6 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     choice_running = False
                     running.setter(False)
                 pause(event, clock, running)
-
-
 def pause(event, clock, running):
     if event.type == pg.KEYDOWN:
         if event.key == pg.K_ESCAPE:
