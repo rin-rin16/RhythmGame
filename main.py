@@ -13,6 +13,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 running = CL.BullVariables()
 pressing_start = CL.BullVariables(False)
 pressing_quit = CL.BullVariables(False)
+pressing_song_name = CL.NumVariables(0)
 clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
 mode_type = CL.NumVariables()
