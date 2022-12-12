@@ -126,7 +126,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             play_button.start_game(2)
                             menu_running = False
                             pressing_start.setter(False)  # здесь будет меню выбора трека для клавиатура_режим
-                elif quit_button.is_click(event):
+                else:
                     running.setter(False)
                     pressing_quit.setter(False)
     if not pg.event.get():
