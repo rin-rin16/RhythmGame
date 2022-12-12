@@ -12,6 +12,7 @@ class Mouse_Mode_Track_1:
         """Defines the name of the track which will be played"""
         self.track_name = track_name
 
+
     def number_checker(self, trek_number):
         """
         Activates music_player function only for corresponding track number

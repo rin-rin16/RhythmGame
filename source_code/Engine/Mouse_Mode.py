@@ -3,6 +3,7 @@ import time
 import pygame as pg
 import numpy as np
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
+from source_code.Visualisation.Background import Background as bg
 from source_code.Sound_Rhytm import Sound_Rhytm as SR
 
 class Ball:
@@ -113,5 +114,6 @@ def Drawer(draw_balls):
     :param draw_balls: list of balls to draw
     :return: nothing
     """
+    bg.background_fill(screen)
     for ball in draw_balls.getter():
         ball.draw_a_ball()
