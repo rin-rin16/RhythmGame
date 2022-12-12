@@ -97,7 +97,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     menu_screen.all_menu_drawer_pressed('none')
         else:
             if event.type == pg.MOUSEBUTTONUP:  # MM/KM menu
-                if play_button.is_click(event):
+                if pressing_start.getter():
                     mm_button = Button(480, 200, 320, 180, 'mouse_mode')
                     km_button = Button(540, 450, 200, 138, 'keyboard_mode')
                     mm_button.write_text_on_button(M_Eng.screen)
