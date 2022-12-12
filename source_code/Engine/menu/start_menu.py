@@ -81,14 +81,14 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     M_Eng.screen.fill((0, 0, 0))
                     menu_screen.all_menu_drawer_pressed('start')
                     pg.display.update()
-                    clock.tick(0.99)
+                    # clock.tick(0.99)
                     pressing_start.setter(True)
                     menu_running = False
                 if quit_button.is_click(event):
                     M_Eng.screen.fill((0, 0, 0))
                     menu_screen.all_menu_drawer_pressed('quit')
                     pg.display.update()
-                    clock.tick(0.99)
+                    # clock.tick(0.99)
                     pressing_quit.setter(True)
             if event.type == pg.QUIT:
                 running.setter(False)
