@@ -43,7 +43,7 @@ class PlayButton(Button):
 
 
 class TrekButton(Button):
-    def __init__(self, *args, trek_number):
+    def __init__(self, *args,trek_number):
         """ constructor of class "TrekButton" which the subclass of class "Button" """
         super().__init__(*args)
         self.trek_number = trek_number
@@ -70,8 +70,6 @@ pg.display.update()"""
 
 def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type):
     """ describes the logic of menu buttons """
-    global play_button
-    global quit_button
     M_Eng.screen.fill((0, 0, 0))
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
     quit_button = Button(540, 450, 200, 138, 'quit_button')
@@ -141,8 +139,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
             """for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 1}',
-                                            trek_number=i + 1)
+                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 1}',)
                 trek_button[i].write_text_on_button(M_Eng.screen)"""
             trek_button[0] = TrekButton(267, 200, 502-267, 48, '',
                                             trek_number=1)
@@ -183,8 +180,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}',
-                                            trek_number=i + 6)
+                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}',)
                 trek_button[i].write_text_on_button(M_Eng.screen)
             back_to_menu = Button(500, 100, 50, 50, 'Back')
             back_to_menu.write_text_on_button(M_Eng.screen)
