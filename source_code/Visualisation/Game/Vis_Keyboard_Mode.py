@@ -184,3 +184,4 @@ class DrawableArrowLeft(DrawableArrow):
         pg.draw.rect(self.surface, color_bar, (self.x - (7.35) * self.scale, self.y - 0.3 * self.scale,
                                                (15.1) * self.scale,    0.6 * self.scale))
 
+
