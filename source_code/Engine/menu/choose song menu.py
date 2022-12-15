@@ -1,5 +1,5 @@
 import pygame as pg
-from source_code.Sound_Rhytm import Sound_Rhytm as sr
+from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as sr
 import start_menu as start_m
 import numpy as np
 

@@ -44,6 +44,22 @@ class BullVariables:
     def getter(self):
         return self._bul
 
+    def time_getter(self, start_time):
+        return time.time() - start_time.getter()
+
+
+class ListVariables():
+    """Class of list variables, used in this program"""
+    def __init__(self):
+        self.list = []
+
+    def setter(self, arg):
+        self.list = arg
+
+    def getter(self):
+        return self.list
+
+
 class Ker_Kill(BullVariables):
     def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
         if (
@@ -243,6 +259,7 @@ class Why_Not(BullVariables):
             self._bul = False
 
 
+timer = BullVariables()
 start_time = NumVariables()
 TimerBull = BullVariables()
 Ker_Kill_Timer = Ker_Kill()

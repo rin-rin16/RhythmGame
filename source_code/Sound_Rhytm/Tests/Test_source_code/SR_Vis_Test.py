@@ -1,7 +1,7 @@
 import time as time
 import pygame as pg
 from source_code.Engine.menu import start_menu as start_menu
-from source_code.Sound_Rhytm import Sound_Rhytm as SR
+from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Sound_Rhytm.Tests.Test_source_code import MM_Vis_Test as M_Eng
 
 class NumVariables:
