@@ -59,7 +59,8 @@ menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu_screen = VCSM.VisualisationInChooseSongMenu(surf)
 choose_mode_menu = VCMM.DrawAMenuButton(surf)
 
-def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type):
+
+def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choice):
     """ describes the logic of menu buttons """
     M_Eng.screen.fill((0, 0, 0))
     play_button = PlayButton(480, 200, 320, 180, 'play_button')
@@ -83,34 +84,38 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                 if not pressing_start.getter() and not pressing_quit.getter():
                     menu_screen.all_menu_drawer_pressed('none')
         else:
-            if event.type == pg.MOUSEBUTTONUP:  # MM/KM menu
+            if event.type == pg.MOUSEBUTTONUP:
                 if pressing_start.getter():
-                    mm_button = Button(495, 220, 284, 135, '')
-                    km_button = Button(420, 450, 440, 134, '')
-                    choose_mode_menu.all_menu_drawer_pressed('none')
-                    pg.display.update()
-                    mode_choice = True
-                    while mode_choice:
-                        for event in pg.event.get():
-                            if event.type == pg.MOUSEBUTTONDOWN:
-                                if mm_button.is_click(event):
-                                    mode_type.setter(1)
-                                    mode_choice = False
-                                elif km_button.is_click(event):
-                                    mode_type.setter(2)
-                                    mode_choice = False
-                            elif event.type == pg.QUIT:
-                                mode_choice = False
-                                running.setter(False)
-                        if mode_type.getter() == 1:
-                            play_button.start_game(1)
-                            pressing_start.setter(False)
-                        elif mode_type.getter() == 2:
-                            play_button.start_game(2)
-                            pressing_start.setter(False)
+                    mode_choice.setter(True)
+
                 else:
                     running.setter(False)
                     pressing_quit.setter(False)
+    if mode_choice.getter():  # MM/KM menu
+        mm_button = Button(495, 220, 284, 135, '')
+        km_button = Button(420, 450, 440, 134, '')
+        back_to_menu = Button(900, 50, 150, 78, '')
+        back_to_menu.write_text_on_button(M_Eng.screen)
+        choose_mode_menu.all_menu_drawer_pressed('none')
+        pg.display.update()
+        while mode_choice:
+            for event in pg.event.get():
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    if mm_button.is_click(event):
+                        mode_type.setter(1)
+                        mode_choice = False
+                    elif km_button.is_click(event):
+                        mode_type.setter(2)
+                        mode_choice = False
+                elif event.type == pg.QUIT:
+                    mode_choice = False
+                    running.setter(False)
+            if mode_type.getter() == 1:
+                play_button.start_game(1)
+                pressing_start.setter(False)
+            elif mode_type.getter() == 2:
+                play_button.start_game(2)
+                pressing_start.setter(False)
     if not pg.event.get():
         if not pressing_start.getter() and not pressing_quit.getter():
             menu_screen.all_menu_drawer_pressed('none')
@@ -139,6 +144,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                                 TBG.countdown(j)
                             trek_number.setter(i + 1)
                             choice_running = False
+                            mode_choice.setter(False)
                     if back_to_menu.is_click(event):
                         choice_running = False
                         trek_choice.setter(0)
