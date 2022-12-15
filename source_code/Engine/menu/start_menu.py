@@ -5,6 +5,7 @@ from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
 from source_code.Classes import Classes as CL
 from source_code.Visualisation.Menu import Vis_Choose_a_song_Menu as VCSM
 
+
 class Button:
 
     def __init__(self, x, y, xsize, ysize, text):
@@ -56,17 +57,6 @@ surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu_screen = VCSM.VisualisationInChooseSongMenu(surf)
 
-"""def draw_menu_buttons():"""
-""" the function responsible for drawing the "play" and "exit" buttons """
-"""global play_button
-global quit_button
-M_Eng.screen.fill((0, 0, 0))
-play_button = PlayButton(480, 200, 320, 180, 'play_button')
-quit_button = Button(540, 450, 200, 138, 'quit_button')
-menu_screen.all_menu_drawer_pressed('none')
-pg.display.update()"""
-
-
 def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type):
     """ describes the logic of menu buttons """
     M_Eng.screen.fill((0, 0, 0))
@@ -116,7 +106,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             pressing_start.setter(False)
                         elif mode_type.getter() == 2:
                             play_button.start_game(2)
-                            pressing_start.setter(False)  # здесь будет меню выбора трека для клавиатура_режим
+                            pressing_start.setter(False)
                 else:
                     running.setter(False)
                     pressing_quit.setter(False)
@@ -130,11 +120,11 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             M_Eng.screen.fill((0, 0, 0))
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            trek_button[0] = TrekButton(267, 200, 502-267, 48, '')
-            trek_button[1] = TrekButton(720, 200, 988-720, 48, '')
-            trek_button[2] = TrekButton(740, 400, 942-740, 48, '')
-            trek_button[3] = TrekButton(540, 200, 668-540, 48, '')
-            trek_button[4] = TrekButton(510, 400, 942-510, 48, '')
+            trek_button[0] = TrekButton(267, 200, 502 - 267, 48, '')
+            trek_button[1] = TrekButton(720, 200, 988 - 720, 48, '')
+            trek_button[2] = TrekButton(740, 400, 942 - 740, 48, '')
+            trek_button[3] = TrekButton(540, 200, 668 - 540, 48, '')
+            trek_button[4] = TrekButton(510, 400, 942 - 510, 48, '')
             choose_song_menu_screen.all_menu_drawer_unpressed()
             back_to_menu = Button(900, 50, 150, 78, '')
             back_to_menu.write_text_on_button(M_Eng.screen)
@@ -163,7 +153,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
             for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}',)
+                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}', )
                 trek_button[i].write_text_on_button(M_Eng.screen)
             back_to_menu = Button(500, 100, 50, 50, 'Back')
             back_to_menu.write_text_on_button(M_Eng.screen)
@@ -213,5 +203,3 @@ def pause(event, clock, running):
                             run_pause = False
                             # FIXME должно открываться меню выбора трека (возможно стоит заново вызывать функцию отображения меню выбора,
                             # либо как-то выходить из этого цикла и запуска меню выбора, путем деланья trek_choice трушным
-
-
