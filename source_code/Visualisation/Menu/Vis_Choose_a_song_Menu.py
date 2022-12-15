@@ -26,11 +26,16 @@ class VisualisationInChooseSongMenu:
     def __init__(self, surface):
         self.surface = surface
 
-    def draw_back_button(self):
+    def draw_back_button_unpressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
         easy = font.render('Back', 1, cyan, light_grey)
         pg.draw.rect(self.surface, color=dark_grey, rect=(1100-7, 600-7, 150, 78))
         self.surface.blit(easy, (1100, 600))
+
+    def draw_back_button_pressed(self):
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
+        easy = font.render('Back', 1, cyan, light_grey)
+        self.surface.blit(easy, (1100-7, 600-7))
 
     def draw_easy_button(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 40)
@@ -59,7 +64,7 @@ class VisualisationInChooseSongMenu:
         self.surface.blit(song_name, (x-7, y-7))
 
     def all_menu_drawer_unpressed(self):
-        self.draw_back_button()
+        self.draw_back_button_unpressed()
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
@@ -92,7 +97,10 @@ class VisualisationInChooseSongMenu:
                 if (i, song[5]) == pos:
                     self.draw_a_song_name_pressed(song[0], song[1], song[2], song[3], song[4])
 
-        self.draw_back_button()
+        if pos == (2, 1):
+            self.draw_back_button_pressed()
+        else:
+            self.draw_a_song_name_unpressed()
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
