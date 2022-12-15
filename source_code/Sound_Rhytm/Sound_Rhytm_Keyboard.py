@@ -5,6 +5,7 @@ from source_code.Classes import Classes as CL
 from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Engine import Keyboard_Mode as K_Eng
 from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
+from source_code.Visualisation.Game import Vis_score as VSS
 
 
 class Keyboard_Mode_Track_1:
@@ -34,6 +35,7 @@ class Keyboard_Mode_Track_1:
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -82,6 +84,7 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Ker_Kill_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -105,6 +108,7 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -128,6 +132,7 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -151,6 +156,7 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -161,6 +167,8 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
                         running.setter(False)
                         game_running = False
 
+
+drawable_counter = VSS.DrawCounter(K_Eng.screen)
 
 Track_6_Player = Ker_Kill_Player("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_7_Player = Live_Another_Day_Player("Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
