@@ -84,9 +84,9 @@ class VisualisationInChooseSongMenu:
         """
         song_tuple = [(343, 200, 'Keraunos killer',  235, 48, 0),
                       (638, 200, 'Live another day', 268, 48, 1),
-                      (378, 400, 'Delta alpha',      198, 48, 2),
-                      (638, 400, 'Phonky town',      202, 48, 3),
-                      (540, 600, 'Why not.',         130, 48, 4)]
+                      (378, 400, 'Delta alpha',      198, 48, 4),
+                      (638, 400, 'Phonky town',      202, 48, 2),
+                      (540, 600, 'Why not.',         130, 48, 3)]
 
         '''for i in range(3):
             for song in song_matrix[i]:
