@@ -178,11 +178,13 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             M_Eng.screen.fill((0, 0, 0))
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            for i in range(amount_of_buttons):
-                trek_button[i] = TrekButton(100, i * 70 + 70, 50, 50, f'trek_button_{i + 6}', )
-                trek_button[i].write_text_on_button(M_Eng.screen)
-            back_to_menu = Button(500, 100, 50, 50, 'Back')
-            back_to_menu.write_text_on_button(M_Eng.screen)
+            trek_button[0] = TrekButton(343, 200, 235, 48, '')
+            trek_button[1] = TrekButton(638, 200, 268, 48, '')
+            trek_button[2] = TrekButton(638, 400, 202, 48, '')
+            trek_button[3] = TrekButton(540, 600, 130, 48, '')
+            trek_button[4] = TrekButton(378, 400, 130, 48, '')
+            choose_song_menu_screen.all_menu_drawer_pressed('none')
+            back_to_menu = Button(1100 - 7, 600 - 7, 150, 78, '')
             pg.display.update()
             for event in pg.event.get():
                 if event.type == pg.MOUSEBUTTONDOWN:
