@@ -79,7 +79,7 @@ class VisualisationInChooseSongMenu:
     def all_menu_drawer_pressed(self, pos):
         """
 
-        :param pos: number which shows position of song in song_tuple
+        :param pos: number which shows position of song in song_tuple or back, if it is button back
         :return: draws a screen with drawn button pos pressed
         """
         song_tuple = [(343, 200, 'Keraunos killer',  235, 48, 0),
@@ -98,7 +98,7 @@ class VisualisationInChooseSongMenu:
             else:
                 self.draw_a_song_name_pressed(song_tuple[i][0], song_tuple[i][1], song_tuple[i][2], song_tuple[i][3], song_tuple[i][4])
 
-        if pos == 6:
+        if pos == 'back':
             self.draw_back_button_pressed()
         else:
             self.draw_back_button_unpressed()
