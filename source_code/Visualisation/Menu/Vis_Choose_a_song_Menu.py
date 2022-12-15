@@ -34,7 +34,7 @@ class VisualisationInChooseSongMenu:
 
     def draw_back_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
-        easy = font.render('Back', 1, cyan, light_grey)
+        easy = font.render('Back', 1, cyan, dark_grey)
         self.surface.blit(easy, (1100-7, 600-7))
 
     def draw_easy_button(self):
