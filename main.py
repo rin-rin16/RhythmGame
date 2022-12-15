@@ -18,10 +18,10 @@ pressing_song_name = CL.NumVariables(0)
 clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
 mode_type = CL.NumVariables()
-
+mode_choise = CL.BullVariables(False)
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type)
+    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type,mode_choise)
 
     mode_tracker = 1
 
