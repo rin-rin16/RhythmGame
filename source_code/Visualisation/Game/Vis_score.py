@@ -1,9 +1,11 @@
 import pygame as pg
-import Vis_Mouse_Mode as VSM
+from source_code.Visualisation.Game import Vis_Mouse_Mode as VSM
+import os
+
 
 class DrawCounter:
     """ drawing score counter on the screen"""
-    font = pg.font.SysFont('geneva', 80)
+    font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
 
     def __init__(self, surface):
         self.surface = surface

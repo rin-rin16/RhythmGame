@@ -11,6 +11,7 @@ from source_code.Engine.menu import start_menu as start_menu
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Classes import timer_creator as tcr
 from source_code.Sound_Rhytm import Sound_Rhytm_Keyboard as KR
+from source_code.Visualisation.Game import Vis_score as VS
 
 pg.display.set_caption('RhytmGame')
 
@@ -31,7 +32,6 @@ play_quit_menu = CL.BullVariables(True)
 while running.getter():
     menu_running = True
     start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choise, play_quit_menu)
-
     CL.start_time.setter(time.time())
 
     SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
