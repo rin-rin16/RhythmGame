@@ -40,18 +40,18 @@ class DrawAMenuButton:
     def draw_keyboard_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Keyboard', True, pink, dark_grey)
-        self.surface.blit(start, (400-10, 430))
+        self.surface.blit(start, (420-10, 430))
 
     def draw_back_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(1070 - 10, 600-10, 170, 95))
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
+        pg.draw.rect(self.surface, color=dark_grey, rect=(1100 - 10, 600-10, 150, 78))
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
         start = font.render('Back', True, cyan, light_grey)
-        self.surface.blit(start, (1070, 600))
+        self.surface.blit(start, (1100, 600))
 
     def draw_back_button_pressed(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
         start = font.render('Back', True, cyan, dark_grey)
-        self.surface.blit(start, (1070 - 10, 600-10))
+        self.surface.blit(start, (1100 - 10, 600-10))
 
     def draw_choose_mode_word(self):
         bad_font = pg.font.SysFont('marion', 50)
