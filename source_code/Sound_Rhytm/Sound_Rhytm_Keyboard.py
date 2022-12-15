@@ -34,7 +34,8 @@ class Keyboard_Mode_Track_1:
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.Drawer(arrow_list)
+                K_Eng.Arr_Drawer(arrow_list)
+                K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
                 #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
@@ -81,7 +82,7 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Ker_Kill_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.Drawer(arrow_list)
+                K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
                 for event in pg.event.get():
@@ -103,7 +104,7 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.Drawer(arrow_list)
+                K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer, sb.L_A_D)
                 pg.display.update()
                 for event in pg.event.get():
@@ -125,7 +126,7 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.Drawer(arrow_list)
+                K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
                 for event in pg.event.get():
@@ -147,7 +148,7 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.Drawer(arrow_list)
+                K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
                 for event in pg.event.get():
