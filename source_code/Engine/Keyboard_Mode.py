@@ -55,7 +55,7 @@ def Event_Holder(event, arrow_list, bit_checker):       # bit_checker = Timer_Bu
             if event.key == pg.K_d or event.key == pg.K_RIGHT and arrow_list[i].direction_getter() == "Right":
                 arrow_list[i].not_draw()
 
-def Drawer(arrow_list):
+def Drawer(arrow_list): #
     for i in range(len(arrow_list)):
         if arrow_list[i].drawable_getter():
             arrow_list[i].draw_arrow()
