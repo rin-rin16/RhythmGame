@@ -21,7 +21,7 @@ class DrawAMenuButton:
         self.surface = surface
 
     def draw_mouse_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(485, 200, 284, 135))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(488, 203, 284, 135))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Mouse', True, pink, light_grey)
         self.surface.blit(start, (495, 210))
