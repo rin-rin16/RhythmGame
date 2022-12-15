@@ -4,6 +4,7 @@ from source_code.Engine.menu import start_menu as start_menu
 from source_code.Classes import Classes as CL
 from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Engine import Keyboard_Mode as K_Eng
+from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
 
 
 class Keyboard_Mode_Track_1:
@@ -22,7 +23,7 @@ class Keyboard_Mode_Track_1:
         if trek_number == 6:
             return True
 
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -34,11 +35,11 @@ class Keyboard_Mode_Track_1:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 K_Eng.drawer(arrow_list)
-                K_Eng.arrow_mover(arrow_list, CL.timer)
+                K_Eng.arrow_mover(arrow_list, CL.timer, sb.D_A[0])
                 pg.display.update()
                 #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
                 for event in pg.event.get():
-                    K_Eng.Event_Holder(event, arrow_list, CL.TimerBull)
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, start_time)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
@@ -69,7 +70,7 @@ class Keyboard_Mode_Track_5(Keyboard_Mode_Track_1):
 
 
 class Ker_Kill_Player(Keyboard_Mode_Track_1):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -81,17 +82,17 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Ker_Kill_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 K_Eng.Drawer(arrow_list)
-                K_Eng.arrow_mover(arrow_list, CL.timer)
+                K_Eng.arrow_mover(arrow_list, CL.timer, sb.K_K[0])
                 pg.display.update()
                 for event in pg.event.get():
-                    K_Eng.Event_Holder(event, arrow_list, CL.Ker_Kill_Timer)
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, start_time)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
 
 
 class Live_Another_Day_Player(Keyboard_Mode_Track_2):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -103,17 +104,17 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 K_Eng.Drawer(arrow_list)
-                K_Eng.arrow_mover(arrow_list, CL.timer)
+                K_Eng.arrow_mover(arrow_list, CL.timer, sb.L_A_D)
                 pg.display.update()
                 for event in pg.event.get():
-                    K_Eng.Event_Holder(event, arrow_list, CL.Live_An_Day_Timer)
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, start_time)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
 
 
 class Phonk_Town_Player(Keyboard_Mode_Track_3):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -125,17 +126,17 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 K_Eng.Drawer(arrow_list)
-                K_Eng.arrow_mover(arrow_list, CL.timer)
+                K_Eng.arrow_mover(arrow_list, CL.timer, sb.P_T[0])
                 pg.display.update()
                 for event in pg.event.get():
-                    K_Eng.Event_Holder(event, arrow_list, CL.Phonky_Town_Timer)
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, start_time)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
 
 
 class Why_Not_Player(Keyboard_Mode_Track_4):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -147,10 +148,10 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 K_Eng.Drawer(arrow_list)
-                K_Eng.arrow_mover(arrow_list, CL.timer)
+                K_Eng.arrow_mover(arrow_list, CL.timer, sb.Y_N[0])
                 pg.display.update()
                 for event in pg.event.get():
-                    K_Eng.Event_Holder(event, arrow_list, CL.Why_Not_Timer)
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, start_time)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
