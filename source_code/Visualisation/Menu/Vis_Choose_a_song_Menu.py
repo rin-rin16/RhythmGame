@@ -81,7 +81,7 @@ class VisualisationInChooseSongMenu:
                         (638, 200, 'Live another day', 268, 48, 1)],
                        [(378, 400, 'Delta alpha',      198, 48, 0),
                         (638, 400, 'Phonky town',      202, 48, 1)],
-                       [(540, 600, 'Why not.',          130, 48, 0)]]
+                       [(540, 600, 'Why not.',         130, 48, 0)]]
 
         for i in range(3):
             for song in song_matrix[i]:
