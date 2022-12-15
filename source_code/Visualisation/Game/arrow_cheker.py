@@ -10,17 +10,18 @@ screen = pg.display.set_mode((1280, 720))
 
 finished = False
 
-arrow = vkm.DrawableArrowRight(screen, 400, 400, 10, 'normal')
+target = vkm.DrawableRightTarget(screen, 400, 400, 10, 'normal')
 score_draw = VS.DrawCounter(screen)
 
 while not finished:
 
-    for event in pg.event.get():
-        if event.type == pg.MOUSEBUTTONDOWN:
-            score.up(score.counter)
-            screen.fill((0,0,0))
-            score_draw.draw_counter(score.counter.getter())
+    screen.fill((0, 0, 0))
+    target.draw_right_arrow()
     pg.display.update()
+
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            finished = True
 
 
 pg.quit()
