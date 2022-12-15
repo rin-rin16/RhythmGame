@@ -1,5 +1,6 @@
 import pygame as pg
 import numpy as np
+import os
 
 red = (255, 0, 0)
 green = (0, 255, 0)
@@ -8,6 +9,8 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 blue = (0, 0, 255)
 orange = (255, 180, 0)
+dark_grey = (50, 50, 50)
+
 
 
 class DrawableBall:
@@ -42,6 +45,19 @@ class DrawableBall:
 
         pg.draw.circle(self.surface, self.color, (self.x, self.y), self.r)
         pg.draw.circle(self.surface, white, (self.x, self.y), self.r, width=4)
+        if self.color == "green" or self.color == green:
+            font = pg.font.SysFont('comicsanse', 80)
+            number = font.render('1', True, dark_grey)
+            self.surface.blit(number, (self.x-15, self.y-25))
+        if self.color == 'yellow' or self.color == yellow:
+            font = pg.font.SysFont('comicsanse', 80)
+            number = font.render('2', True, dark_grey)
+            self.surface.blit(number, (self.x-15, self.y-25))
+        if self.color == red:
+            font = pg.font.SysFont('comicsanse', 80)
+            number = font.render('3', True, dark_grey)
+            self.surface.blit(number, (self.x-15, self.y-25))
+        print(self.color)
 
     def color_getter(self):
         return self.color

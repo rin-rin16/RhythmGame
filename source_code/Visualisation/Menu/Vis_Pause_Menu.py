@@ -28,8 +28,8 @@ class DrawAMenuButton:
 
     def draw_continue_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
-        continue_word = font.render('Continue', True, pink, light_grey)
-        self.surface.blit(continue_word, (390, 230))
+        continue_word = font.render('Continue', True, pink, dark_grey)
+        self.surface.blit(continue_word, (380, 230))
 
     def draw_menu_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(520, 470, 265, 138))
