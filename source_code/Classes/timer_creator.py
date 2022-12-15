@@ -192,4 +192,3 @@ for i in arr_D_A:
     if (((i + sb.D_A[1]) % (60 / sb.D_A[0]) <= 0.005) or
             ((i + sb.D_A[1]) % (60 / sb.D_A[0]) >= 60 / sb.D_A[0] - 0.005)):
         l_D_A.append(i)
-print(l_D_A)
