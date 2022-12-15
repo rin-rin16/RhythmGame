@@ -43,7 +43,7 @@ class DrawAMenuButton:
         self.surface.blit(start, (420-10, 430))
 
     def draw_back_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(1100 - 10, 600-10, 150, 78))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(1100 - 7, 600-7, 150, 78))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
         start = font.render('Back', True, cyan, light_grey)
         self.surface.blit(start, (1100, 600))
