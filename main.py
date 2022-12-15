@@ -19,7 +19,7 @@ clock = pg.time.Clock()
 mode_type = CL.NumVariables()
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit,mode_type)
+    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type)
 
     mode_tracker = 1
 

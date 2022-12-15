@@ -38,7 +38,7 @@ def countdown(number):
     else:
         M_Eng.screen.fill((0, 0, 0))
         myfont = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 100)
-        text = myfont.render(f'{number}!', 1, colors[number-1])
+        text = myfont.render(f'{number}', 1, colors[number-1])
         M_Eng.screen.blit(text, (600, 300))
         pg.display.update()
         clock.tick(1)

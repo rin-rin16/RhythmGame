@@ -192,9 +192,9 @@ def pause(event, clock, running):
             run_pause = True
             while run_pause:
                 M_Eng.screen.fill((0, 0, 0))
-                resume = Button(200, 200, 50, 50, 'Resume')
+                resume = Button(390, 240, 550, 180, '')
                 resume.write_text_on_button(M_Eng.screen)
-                to_menu = Button(200, 300, 50, 50, 'Exit_to_menu')
+                to_menu = Button(530, 480, 265, 138, '')
                 to_menu.write_text_on_button(M_Eng.screen)
                 pg.display.update()
                 clock.tick(100)
