@@ -57,7 +57,6 @@ class DrawableBall:
             font = pg.font.SysFont('comicsanse', 80)
             number = font.render('3', True, dark_grey)
             self.surface.blit(number, (self.x-15, self.y-25))
-        print(self.color)
 
     def color_getter(self):
         return self.color
