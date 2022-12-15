@@ -33,6 +33,7 @@ class DrawableArrow:
         self.drawable = True
         self.is_target = False
         self.direction = None
+        self.start_x = x
 
     def set_condition(self, condition):
         self.condition = condition
@@ -40,13 +41,16 @@ class DrawableArrow:
     def direction_getter(self):
         return self.direction
 
-    def x_changer(self, deltax = 0):
+    def start_x_getter(self):
+        return self.start_x
+
+    def x_changer(self, x):
         """
 
-        :param deltax: change of coordinate
-        :return: self.x += deltax
+        :param x: sets x as x coord
+        :return: self.x = x
         """
-        self.x = self.x + deltax
+        self.x = x
 
     def not_draw(self):
         self.drawable = False
@@ -264,4 +268,5 @@ class DrawableDownTarget(DrawableArrowDown):
 
     def draw_target(self):
         self.draw_arrow()
+
 
