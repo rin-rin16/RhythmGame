@@ -100,7 +100,7 @@ class VisualisationInChooseSongMenu:
         if pos == (2, 1):
             self.draw_back_button_pressed()
         else:
-            self.draw_a_song_name_unpressed()
+            self.draw_back_button_unpressed()
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
