@@ -105,8 +105,3 @@ class VisualisationInChooseSongMenu:
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
-
-
-
-
-
