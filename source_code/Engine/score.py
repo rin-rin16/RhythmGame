@@ -5,6 +5,4 @@ counter = CL.NumVariables(0)
 
 def up(counter):
     """ make score counter bigger on 1 point """
-    counter += 1
-
-
+    counter.adder(1)
