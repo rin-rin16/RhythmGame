@@ -269,3 +269,4 @@ class DrawableDownTarget(DrawableArrowDown):
     def draw_target(self):
         self.draw_arrow()
 
+
