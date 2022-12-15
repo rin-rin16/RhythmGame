@@ -5,7 +5,7 @@ import os
 
 class DrawCounter:
     """ drawing score counter on the screen"""
-    font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 70)
+    font = pg.font.SysFont('geneva', 70)
 
     def __init__(self, surface):
         self.surface = surface
