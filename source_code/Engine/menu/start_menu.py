@@ -98,17 +98,19 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         back_to_menu.write_text_on_button(M_Eng.screen)
         choose_mode_menu.all_menu_drawer_pressed('none')
         pg.display.update()
-        while mode_choice:
+        while mode_choice.getter():
             for event in pg.event.get():
                 if event.type == pg.MOUSEBUTTONDOWN:
                     if mm_button.is_click(event):
                         mode_type.setter(1)
-                        mode_choice = False
+                        mode_choice.setter(False)
                     elif km_button.is_click(event):
                         mode_type.setter(2)
-                        mode_choice = False
+                        mode_choice.setter(False)
+                    elif back_to_menu.is_click(event):
+                        pass
                 elif event.type == pg.QUIT:
-                    mode_choice = False
+                    mode_choice.setter(False)
                     running.setter(False)
             if mode_type.getter() == 1:
                 play_button.start_game(1)
