@@ -4,6 +4,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
 from source_code.Classes import Classes as CL
 from source_code.Visualisation.Menu import Vis_Choose_a_song_Menu as VCSM
+from source_code.Visualisation.Menu import Vis_Choose_mode_menu as VCMM
 
 
 class Button:
@@ -56,6 +57,7 @@ class TrekButton(Button):
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu_screen = VCSM.VisualisationInChooseSongMenu(surf)
+choose_mode_menu = VCMM.DrawAMenuButton(surf)
 
 def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type):
     """ describes the logic of menu buttons """
@@ -83,10 +85,9 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         else:
             if event.type == pg.MOUSEBUTTONUP:  # MM/KM menu
                 if pressing_start.getter():
-                    mm_button = Button(480, 200, 320, 180, 'mouse_mode')
-                    km_button = Button(540, 450, 200, 138, 'keyboard_mode')
-                    mm_button.write_text_on_button(M_Eng.screen)
-                    km_button.write_text_on_button(M_Eng.screen)
+                    mm_button = Button(495, 220, 284, 135, '')
+                    km_button = Button(420, 450, 440, 134, '')
+                    choose_mode_menu.all_menu_drawer_pressed('none')
                     pg.display.update()
                     mode_choice = True
                     while mode_choice:
