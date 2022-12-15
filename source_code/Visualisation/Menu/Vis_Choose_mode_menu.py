@@ -71,9 +71,11 @@ class DrawAMenuButton:
         if button == 'mouse':
             self.draw_keyboard_button_unpressed()
             self.draw_mouse_button_pressed()
+            self.draw_back_button_unpressed()
         if button == 'keyboard':
             self.draw_keyboard_button_pressed()
             self.draw_mouse_button_unpressed()
+            self.draw_back_button_unpressed()
 
 
 
