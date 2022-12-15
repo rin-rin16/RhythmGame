@@ -79,33 +79,29 @@ class VisualisationInChooseSongMenu:
     def all_menu_drawer_pressed(self, pos):
         """
 
-        :param pos: tuple 1x2, which gives position of a song which should be pressed, returns position in matrix 3x3
+        :param pos: number which shows position of song in song_tuple
         :return: draws a screen with drawn button pos pressed
         """
-        song_matrix = [[(343, 200, 'Keraunos killer',  235, 48, 0),
-                        (638, 200, 'Live another day', 268, 48, 1)],
-                       [(378, 400, 'Delta alpha',      198, 48, 0),
-                        (638, 400, 'Phonky town',      202, 48, 1)],
-                       [(540, 600, 'Why not.',         130, 48, 0)]]
+        song_tuple = [(343, 200, 'Keraunos killer',  235, 48, 0),
+                      (638, 200, 'Live another day', 268, 48, 1),
+                      (378, 400, 'Delta alpha',      198, 48, 2),
+                      (638, 400, 'Phonky town',      202, 48, 3),
+                      (540, 600, 'Why not.',         130, 48, 4)]
 
-        for i in range(3):
+        '''for i in range(3):
             for song in song_matrix[i]:
                 if (i, song[5]) != pos:
-                    self.draw_a_song_name_unpressed(song[0], song[1], song[2], song[3], song[4])
-        for i in range(3):
-            for song in song_matrix[i]:
-                if (i, song[5]) == pos:
-                    self.draw_a_song_name_pressed(song[0], song[1], song[2], song[3], song[4])
+                    self.draw_a_song_name_unpressed(song[0], song[1], song[2], song[3], song[4])'''
+        for i in range(5):
+            if pos != song_tuple[i][5]:
+               self.draw_a_song_name_unpressed(song_tuple[i][0], song_tuple[i][1], song_tuple[i][2], song_tuple[i][3], song_tuple[i][4])
+            else:
+                self.draw_a_song_name_pressed(song_tuple[i][0], song_tuple[i][1], song_tuple[i][2], song_tuple[i][3], song_tuple[i][4])
 
-        if pos == (2, 1):
+        if pos == 6:
             self.draw_back_button_pressed()
         else:
             self.draw_back_button_unpressed()
         self.draw_easy_button()
         self.draw_medium_button()
         self.draw_hard_button()
-
-
-
-
-
