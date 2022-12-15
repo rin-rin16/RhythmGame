@@ -52,7 +52,7 @@ def arrow_mover(arrow_list, timer, bpm):
 
 def Event_Holder(event, arrow_list, bit_checker, time_list, start_time):       # bit_checker = Timer_Bull from Mouse_Mode
     i = bit_checker(time_list, start_time)
-    arrow_list[i].not_draw()
+    #arrow_list[i].not_draw()
     #if event.type == pg.KEYDOWN:
         #if event.key == pg.K_w or event.key == pg.K_UP and arrow_list[i].direction_getter() == "Up":
         #    arrow_list[i].not_draw()

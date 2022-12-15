@@ -34,7 +34,7 @@ class Keyboard_Mode_Track_1:
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                K_Eng.drawer(arrow_list)
+                K_Eng.Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer, sb.D_A[0])
                 pg.display.update()
                 #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
