@@ -57,7 +57,6 @@ class DrawableBall:
             font = pg.font.SysFont('comicsanse', 80)
             number = font.render('3', True, dark_grey)
             self.surface.blit(number, (self.x-15, self.y-25))
-        print(self.color)
 
     def color_getter(self):
         return self.color
@@ -92,12 +91,3 @@ class DisplayText:
 
     def live_down(self):
         self.lives -= 1
-
-class Counter:
-    font = pg.font.SysFont('geneva', 80)
-    def __init__(self, surface):
-        self.surface = surface
-
-    def draw_counter(self, count):
-        self.surface.blit(self.font.render(f'Score:{count}', 1, white), (20, 20))
-

@@ -12,6 +12,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Classes import timer_creator as tcr
 from source_code.Sound_Rhytm import Sound_Rhytm_Keyboard as KR
 
+pg.display.set_caption('RhytmGame')
 
 running = CL.BullVariables()
 pressing_start = CL.BullVariables(False)
@@ -25,9 +26,10 @@ ker_arr_list, lad_arr_list, pht_arr_list, wyn_arr_list, daa_arr_list = K_Eng.arr
                                                                         K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_W_N)),       \
                                                                         K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_D_A))
 mode_type = CL.NumVariables()
+mode_choise = CL.BullVariables(False)
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type)
+    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type,mode_choise)
 
     CL.start_time.setter(time.time())
 
