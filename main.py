@@ -20,11 +20,11 @@ pressing_quit = CL.BullVariables(False)
 pressing_song_name = CL.NumVariables(0)
 clock = pg.time.Clock()
 [balls, draw_balls] = M_Eng.ball_initializer()
-ker_arr_list, lad_arr_list, pht_arr_list, wyn_arr_list, daa_arr_list = K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_K_K)),        \
-                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_L_A_D)),     \
-                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_P_T)),       \
-                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_W_N)),       \
-                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_D_A))
+ker_arr_list, lad_arr_list, pht_arr_list, wyn_arr_list, daa_arr_list = K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_K_K), tcr.l_K_K),        \
+                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_L_A_D), tcr.l_L_A_D),     \
+                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_P_T), tcr.l_P_T),       \
+                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_W_N), tcr.l_W_N),       \
+                                                                        K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_D_A), tcr.l_D_A)
 mode_type = CL.NumVariables()
 mode_choise = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
@@ -46,14 +46,14 @@ while running.getter():
                                    start_menu.trek_number.getter())
 
     KR.Track_6_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, ker_arr_list, running,
-                                   start_menu.trek_number.getter())
+                                   start_menu.trek_number.getter(), tcr.l_K_K)
     KR.Track_7_Player.music_player(CL.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, lad_arr_list, running,
-                                   start_menu.trek_number.getter())
+                                   start_menu.trek_number.getter(), tcr.l_L_A_D)
     KR.Track_8_Player.music_player(CL.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, pht_arr_list, running,
-                                   start_menu.trek_number.getter())
+                                   start_menu.trek_number.getter(), tcr.l_P_T)
     KR.Track_9_Player.music_player(CL.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, wyn_arr_list, running,
-                                   start_menu.trek_number.getter())
+                                   start_menu.trek_number.getter(), tcr.l_W_N)
     KR.Track_10_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, daa_arr_list, running,
-                                   start_menu.trek_number.getter())
+                                   start_menu.trek_number.getter(), tcr.l_D_A)
 
 pg.mixer.music.stop()
