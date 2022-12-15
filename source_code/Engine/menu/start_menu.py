@@ -92,9 +92,9 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     running.setter(False)
                     pressing_quit.setter(False)
     if mode_choice.getter():  # MM/KM menu
-        mm_button = Button(495, 220, 284, 135, '')
-        km_button = Button(420, 450, 440, 134, '')
-        back_to_menu = Button(900, 50, 150, 78, '')
+        mm_button = Button(495, 210, 284, 135, '')
+        km_button = Button(420, 440, 440, 134, '')
+        back_to_menu = Button(1070, 600, 170, 95, '')
         back_to_menu.write_text_on_button(M_Eng.screen)
         choose_mode_menu.all_menu_drawer_pressed('none')
         pg.display.update()
@@ -108,7 +108,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                         mode_type.setter(2)
                         mode_choice.setter(False)
                     elif back_to_menu.is_click(event):
-                        pass
+                        mode_choice.setter(False)
                 elif event.type == pg.QUIT:
                     mode_choice.setter(False)
                     running.setter(False)
@@ -148,6 +148,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             choice_running = False
                             mode_choice.setter(False)
                     if back_to_menu.is_click(event):
+                        mode_choice.setter(True)
                         choice_running = False
                         trek_choice.setter(0)
                 elif event.type == pg.QUIT:
@@ -177,6 +178,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             trek_number.setter(i + 6)
                             choice_running = False
                     if back_to_menu.is_click(event):
+                        mode_choice.setter(True)
                         choice_running = False
                         trek_choice.setter(0)
                 elif event.type == pg.QUIT:
