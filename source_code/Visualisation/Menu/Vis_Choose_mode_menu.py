@@ -6,7 +6,7 @@ pink = (255, 150, 255)
 yellow = (255, 220, 6)
 dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
-
+cyan = (0,255,255)
 
 class DrawAMenuButton:
     """
@@ -43,9 +43,11 @@ class DrawAMenuButton:
         self.surface.blit(start, (400-10, 440))
 
     def draw_back_button_unpressed(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
-        start = font.render('Back', True, pink, dark_grey)
-        self.surface.blit(start, (400 - 10, 650))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(950 - 10, 550-10, 170, 95))
+        font = pg.font.Font(
+            os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
+        start = font.render('Back', True, cyan, light_grey)
+        self.surface.blit(start, (950, 550))
 
     def draw_choose_mode_word(self):
         bad_font = pg.font.SysFont('marion', 50)
