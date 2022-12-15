@@ -61,7 +61,7 @@ class DrawableArrowUp(DrawableArrow):
         super().__init__(*args)
         self.direction = 'Up'
 
-    def draw_up_arrow(self):
+    def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
         color_bar = None
@@ -77,6 +77,10 @@ class DrawableArrowUp(DrawableArrow):
             color_arrow_width = white
             color_arrow_fill = red
             color_bar = red
+        elif self.is_target == True:
+            color_arrow_width = white
+            color_arrow_fill = dark_grey
+            color_bar = dark_grey
         pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.5 * self.scale, self.y,
                                                  5 * self.scale, 8 * self.scale)) # fill rect
         pg.draw.rect(self.surface, color_arrow_width, (self.x-2.5*self.scale, self.y,
@@ -91,7 +95,7 @@ class DrawableArrowUp(DrawableArrow):
         pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.2*self.scale, self.y - self.scale,
                                                    4.4 * self.scale,        5*self.scale))  # colors white bar in fill color
         pg.draw.rect(self.surface, color_bar, (self.x-0.23*self.scale, self.y-(44/6)*self.scale,
-                                               0.6*self.scale,        (15.2)*self.scale))  # yellow bar
+                                               0.6*self.scale,        (15.1)*self.scale))  # yellow bar
 
 
 class DrawableArrowDown(DrawableArrow):
@@ -100,7 +104,7 @@ class DrawableArrowDown(DrawableArrow):
         super().__init__(*args)
         self.direction = 'Down'
 
-    def draw_down_arrow(self):
+    def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
         color_bar = None
@@ -116,6 +120,10 @@ class DrawableArrowDown(DrawableArrow):
             color_arrow_width = white
             color_arrow_fill = red
             color_bar = red
+        elif self.is_target == True:
+            color_arrow_width = white
+            color_arrow_fill = dark_grey
+            color_bar = dark_grey
         pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
                                                       5 * self.scale, 8 * self.scale))
         pg.draw.rect(self.surface, color_arrow_width, (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
@@ -139,7 +147,7 @@ class DrawableArrowRight(DrawableArrow):
         super().__init__(*args)
         self.direction = 'Right'
 
-    def draw_right_arrow(self):
+    def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
         color_bar = None
@@ -182,7 +190,7 @@ class DrawableArrowLeft(DrawableArrow):
         super().__init__(*args)
         self.direction = 'Left'
 
-    def draw_left_arrow(self):
+    def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
         color_bar = None
@@ -198,6 +206,10 @@ class DrawableArrowLeft(DrawableArrow):
             color_arrow_width = white
             color_arrow_fill = red
             color_bar = red
+        elif self.is_target == True:
+            color_arrow_width = white
+            color_arrow_fill = dark_grey
+            color_bar = dark_grey
         pg.draw.rect(self.surface, color_arrow_fill, (self.x,         self.y - 2.5 * self.scale,
                                                  8 * self.scale, 5 * self.scale))
         pg.draw.rect(self.surface, color_arrow_width, (self.x, self.y - 2.5 * self.scale,
@@ -213,14 +225,15 @@ class DrawableArrowLeft(DrawableArrow):
         pg.draw.rect(self.surface, color_bar, (self.x - (7.35) * self.scale, self.y - 0.3 * self.scale,
                                                (15.1) * self.scale,    0.6 * self.scale))
 
+
 class DrawableRightTarget(DrawableArrowRight):
     def __init__(self, *args):
         """ constructor of class "DrawableRightTarget" which the subclass of class "DrawableArrow" """
         super().__init__(*args)
         self.is_target = True
 
-    def draw_right_target(self):
-        self.draw_right_arrow()
+    def draw_target(self):
+        self.draw_arrow()
 
 
 class DrawableLeftTarget(DrawableArrowLeft):
@@ -229,8 +242,9 @@ class DrawableLeftTarget(DrawableArrowLeft):
         super().__init__(*args)
         self.is_target = True
 
-    def draw_left_target(self):
-        self.draw_left_arrow()
+    def draw_target(self):
+        self.draw_arrow()
+
 
 class DrawableUpTarget(DrawableArrowUp):
     def __init__(self, *args):
@@ -238,8 +252,9 @@ class DrawableUpTarget(DrawableArrowUp):
         super().__init__(*args)
         self.is_target = True
 
-    def draw_up_target(self):
-        self.draw_up_arrow()
+    def draw_target(self):
+        self.draw_arrow()
+
 
 class DrawableDownTarget(DrawableArrowDown):
     def __init__(self, *args):
@@ -247,5 +262,6 @@ class DrawableDownTarget(DrawableArrowDown):
         super().__init__(*args)
         self.is_target = True
 
-    def draw_down_target(self):
-        self.draw_down_arrow()
+    def draw_target(self):
+        self.draw_arrow()
+
