@@ -107,6 +107,8 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                     elif km_button.is_click(event):
                         mode_type.setter(2)
                         mode_choice = False
+                    elif back_to_menu.is_click(event):
+                        pass
                 elif event.type == pg.QUIT:
                     mode_choice = False
                     running.setter(False)

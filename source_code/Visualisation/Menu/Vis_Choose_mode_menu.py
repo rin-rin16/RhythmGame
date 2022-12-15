@@ -21,33 +21,33 @@ class DrawAMenuButton:
         self.surface = surface
 
     def draw_mouse_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(485, 210, 284, 135))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(485, 200, 284, 135))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Mouse', True, pink, light_grey)
-        self.surface.blit(start, (495, 220))
+        self.surface.blit(start, (495, 210))
 
     def draw_mouse_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Mouse', True, pink, dark_grey)
-        self.surface.blit(start, (485, 210))
+        self.surface.blit(start, (485, 200))
 
     def draw_keyboard_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(420-10, 440, 440, 134))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(420-10, 430, 440, 134))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Keyboard', True, pink, light_grey)
-        self.surface.blit(start, (420, 450))
+        self.surface.blit(start, (420, 440))
 
     def draw_keyboard_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Keyboard', True, pink, dark_grey)
-        self.surface.blit(start, (400-10, 440))
+        self.surface.blit(start, (400-10, 430))
 
     def draw_back_button_unpressed(self):
-        pg.draw.rect(self.surface, color=dark_grey, rect=(950 - 10, 550-10, 170, 95))
+        pg.draw.rect(self.surface, color=dark_grey, rect=(1070 - 10, 600-10, 170, 95))
         font = pg.font.Font(
             os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
         start = font.render('Back', True, cyan, light_grey)
-        self.surface.blit(start, (950, 550))
+        self.surface.blit(start, (1070, 600))
 
     def draw_choose_mode_word(self):
         bad_font = pg.font.SysFont('marion', 50)
