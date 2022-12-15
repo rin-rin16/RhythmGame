@@ -4,6 +4,7 @@ from source_code.Engine.menu import start_menu as start_menu
 from source_code.Classes import Classes as CL
 from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Engine import Mouse_Mode as M_Eng
+from source_code.Visualisation.Game import Vis_score as VSS
 
 
 class Mouse_Mode_Track_1:
@@ -34,6 +35,7 @@ class Mouse_Mode_Track_1:
                 M_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 #M_Eng.Event_Holder("q", balls, draw_balls, SR.TimerBull)        # Commented stuff is here for testing
                 for event in pg.event.get():
@@ -80,6 +82,7 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                 M_Eng.screen.fill((0, 0, 0))
                 CL.Ker_Kill_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Ker_Kill_Timer)
@@ -100,7 +103,9 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
             while game_running:
                 M_Eng.screen.fill((0, 0, 0))
                 CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Live_An_Day_Timer)
@@ -121,7 +126,9 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
             while game_running:
                 M_Eng.screen.fill((0, 0, 0))
                 CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
@@ -143,6 +150,7 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                 M_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
                 M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Why_Not_Timer)
@@ -150,6 +158,8 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                         running.setter(False)
                         game_running = False
 
+
+drawable_counter = VSS.DrawCounter(M_Eng.screen)
 
 Track_1_Player = Ker_Kill_Player("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_2_Player = Live_Another_Day_Player("Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")

@@ -5,6 +5,7 @@ import numpy as np
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
 from source_code.Visualisation.Background import Background as bg
 from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
+from source_code.Classes import Classes as CL
 
 class Ball:
     """Class, responding to calculations with balls"""
@@ -59,6 +60,8 @@ pg.display.flip()
 balls = ListVariables()         # Creating lists of balls
 draw_balls = ListVariables()
 
+counter = CL.NumVariables()
+
 def ball_initializer():
     """
     Creates initial balls
@@ -93,6 +96,7 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
     """
     if event.type == pg.MOUSEBUTTONDOWN:            # Commented stuff is here for testing reasons
         if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
+            counter.adder(1)
         #if balls.getter()[0].bit_check(TimerBull):
     #if TimerBull.getter():
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
