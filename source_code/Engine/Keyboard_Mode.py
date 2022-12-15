@@ -54,13 +54,13 @@ def arrow_mover(arrow_list, timer):
 def Event_Holder(event, arrow_list, bit_checker, time_list, fase, timer):       # bit_checker = Timer_Bull from Mouse_Mode
     i = bit_checker(time_list, fase, timer)
     if event.type == pg.KEYDOWN:
-        if event.key == pg.K_w or event.key == pg.K_UP and arrow_list[i].direction_getter() == "Up":
+        if (event.key == pg.K_w or event.key == pg.K_UP) and arrow_list[i].direction_getter() == "Up":
             arrow_list[i].not_draw()
-        if event.key == pg.K_a or event.key == pg.K_LEFT and arrow_list[i].direction_getter() == "Left":
+        if (event.key == pg.K_a or event.key == pg.K_LEFT) and arrow_list[i].direction_getter() == "Left":
             arrow_list[i].not_draw()
-        if event.key == pg.K_s or event.key == pg.K_DOWN and arrow_list[i].direction_getter() == "Down":
+        if (event.key == pg.K_s or event.key == pg.K_DOWN) and arrow_list[i].direction_getter() == "Down":
             arrow_list[i].not_draw()
-        if event.key == pg.K_d or event.key == pg.K_RIGHT and arrow_list[i].direction_getter() == "Right":
+        if (event.key == pg.K_d or event.key == pg.K_RIGHT) and arrow_list[i].direction_getter() == "Right":
             arrow_list[i].not_draw()
 
 def Drawer(arrow_list):
