@@ -119,12 +119,12 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                             M_Eng.screen.fill((0,0,0))
                             choose_mode_menu.all_menu_drawer_pressed('keyboard')
                             pg.display.update()
-                            pressing.setter('mouse')
+                            pressing.setter('keyboard')
                         if back_to_menu.is_click(event):
                             M_Eng.screen.fill((0,0,0))
                             choose_mode_menu.all_menu_drawer_pressed('back')
                             pg.display.update()
-                            pressing.setter('mouse')
+                            pressing.setter('back')
                     elif event.type == pg.QUIT:
                         mode_choice.setter(False)
                         running.setter(False)
