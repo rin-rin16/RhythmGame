@@ -30,6 +30,7 @@ class DrawableArrow:
         self.y = y
         self.scale = scale
         self.condition = condition
+        self.drawable = True
         self.is_target = False
         self.direction = None
 
@@ -46,6 +47,12 @@ class DrawableArrow:
         :return: self.x += deltax
         """
         self.x = self.x + deltax
+
+    def not_draw(self):
+        self.drawable = False
+
+    def drawable_getter(self):
+        return self.drawable
 
 
 class DrawableArrowUp(DrawableArrow):
