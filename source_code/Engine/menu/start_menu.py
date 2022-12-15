@@ -155,7 +155,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             trek_button[3] = TrekButton(540, 200, 668 - 540, 48, '')
             trek_button[4] = TrekButton(510, 400, 942 - 510, 48, '')
             choose_song_menu_screen.all_menu_drawer_unpressed()
-            back_to_menu = Button(900, 50, 150, 78, '')
+            back_to_menu = Button(1100-7, 600-7, 150, 78, '')
             back_to_menu.write_text_on_button(M_Eng.screen)
             pg.display.update()
             for event in pg.event.get():
