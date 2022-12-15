@@ -44,10 +44,14 @@ class DrawAMenuButton:
 
     def draw_back_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(1070 - 10, 600-10, 170, 95))
-        font = pg.font.Font(
-            os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
         start = font.render('Back', True, cyan, light_grey)
         self.surface.blit(start, (1070, 600))
+
+    def draw_back_button_pressed(self):
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 80)
+        start = font.render('Back', True, cyan, dark_grey)
+        self.surface.blit(start, (1070 - 10, 600-10))
 
     def draw_choose_mode_word(self):
         bad_font = pg.font.SysFont('marion', 50)
@@ -76,6 +80,11 @@ class DrawAMenuButton:
             self.draw_keyboard_button_pressed()
             self.draw_mouse_button_unpressed()
             self.draw_back_button_unpressed()
+        if button == 'back':
+            self.draw_keyboard_button_unpressed()
+            self.draw_mouse_button_unpressed()
+            self.draw_back_button_pressed()
+
 
 
 
