@@ -47,9 +47,10 @@ class DrawAMenuButton:
         self.surface.blit(quit, (530, 570))
 
     def draw_quit_button_pressed(self):
+        pg.draw.rect(self.surface, color=white, rect=(370, 550, 550, 130), width=7)
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
-        start = font.render('', True, pink, dark_grey)
-        self.surface.blit(start, (520, 470))
+        to_menu = font.render('Quit', True, purple)
+        self.surface.blit(to_menu, (520, 570))
 
     def draw_score(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 100)
