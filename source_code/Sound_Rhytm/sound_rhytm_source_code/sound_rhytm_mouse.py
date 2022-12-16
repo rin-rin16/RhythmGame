@@ -181,7 +181,7 @@ class DeltaAlphaPlayer(Mouse_Mode_Track_5):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
-                if CL.timer.time_getter(start_time) >= 0: #31.5:
+                if CL.timer.time_getter(start_time) >= 31.5:
                     game_running = False
                     final_running.setter(True)
                 for event in pg.event.get():
