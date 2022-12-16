@@ -120,7 +120,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
             trek_button[0] = CL.TrekButton(343, 145, 235, 48, '')
             trek_button[1] = CL.TrekButton(638, 145, 268, 48, '')
             trek_button[2] = CL.TrekButton(638, 345, 202, 48, '')
-            trek_button[3] = CL.TrekButton(540, 600, 130, 48, '')
+            trek_button[3] = CL.TrekButton(540, 540, 130, 48, '')
             trek_button[4] = CL.TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
@@ -173,7 +173,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
             trek_button[0] = CL.TrekButton(343, 145, 235, 48, '')
             trek_button[1] = CL.TrekButton(638, 145, 268, 48, '')
             trek_button[2] = CL.TrekButton(638, 345, 202, 48, '')
-            trek_button[3] = CL.TrekButton(540, 600, 130, 48, '')
+            trek_button[3] = CL.TrekButton(540, 540, 130, 48, '')
             trek_button[4] = CL.TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
