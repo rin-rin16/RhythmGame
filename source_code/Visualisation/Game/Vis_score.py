@@ -1,6 +1,5 @@
 import pygame as pg
-from source_code.Visualisation.Game import Vis_Mouse_Mode as VSM
-import os
+from source_code.Visualisation.Game import Vis_Mouse_Mode as vsm
 
 
 class DrawCounter:
@@ -11,4 +10,4 @@ class DrawCounter:
         self.surface = surface
 
     def draw_counter(self, count):
-        self.surface.blit(self.font.render(f'Score: {count}', 1, VSM.white), (20, 20))
+        self.surface.blit(self.font.render(f'Score: {count}', True, vsm.white), (20, 20))
