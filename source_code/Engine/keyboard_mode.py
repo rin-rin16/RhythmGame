@@ -13,8 +13,6 @@ screen = pg.display.set_mode((width, height))
 screen.fill(background_color)
 pg.display.flip()
 
-counter = CL.NumVariables()
-
 def bit_checker(time_list, fase, timer):
     for i in range(len(time_list)):
         if (time_list[i] - timer.time_getter(CL.start_time) >= -0.1 and
@@ -54,16 +52,16 @@ def Event_Holder(event, arrow_list, bit_checker, time_list, fase, timer):       
         if event.type == pg.KEYDOWN:
             if (event.key == pg.K_w or event.key == pg.K_UP) and arrow_list[i].direction_getter() == "Up":
                 arrow_list[i].not_draw()
-                counter.adder(1)
+                CL.counter.adder(1)
             if (event.key == pg.K_a or event.key == pg.K_LEFT) and arrow_list[i].direction_getter() == "Left":
                 arrow_list[i].not_draw()
-                counter.adder(1)
+                CL.counter.adder(1)
             if (event.key == pg.K_s or event.key == pg.K_DOWN) and arrow_list[i].direction_getter() == "Down":
                 arrow_list[i].not_draw()
-                counter.adder(1)
+                CL.counter.adder(1)
             if (event.key == pg.K_d or event.key == pg.K_RIGHT) and arrow_list[i].direction_getter() == "Right":
                 arrow_list[i].not_draw()
-                counter.adder(1)
+                CL.counter.adder(1)
 
 def Arr_Drawer(arrow_list):
     for i in range(1, len(arrow_list)):

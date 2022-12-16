@@ -312,6 +312,7 @@ class TrekButton(Button):
         return self.trek_number
 
 
+counter = NumVariables()
 timer = BullVariables()
 start_time = NumVariables()
 TimerBull = BullVariables()

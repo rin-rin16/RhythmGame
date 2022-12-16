@@ -31,7 +31,7 @@ class Keyboard_Mode_Track_1:
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.TimerBull.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -80,7 +80,7 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Ker_Kill_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -107,7 +107,7 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Live_An_Day_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -134,7 +134,7 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Phonky_Town_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -161,7 +161,7 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
@@ -189,7 +189,7 @@ class DeltaAlphaPlayer(Keyboard_Mode_Track_5):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(K_Eng.counter.getter())
+                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
