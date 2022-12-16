@@ -31,7 +31,7 @@ mode_type = CL.NumVariables()
 mode_choice = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
 ending = CL.NumVariables(True)
-trek_choice = CL.NumVariables(0)
+trek_choice = CL.NumVariables(0)    #
 while running.getter():
     menu_running = True
     playing = True
