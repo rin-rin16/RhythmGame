@@ -61,4 +61,4 @@ while running.getter():
                                    start_menu.trek_number.getter(), tcr.l_D_A)
     Final.logic(final_running.getter(), running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
 
-pg.mixer.music.stop()
+pg.mixer.music.stop()#
