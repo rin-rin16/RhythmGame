@@ -18,7 +18,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                           play_quit_menu, pressing, final_running):
     """ describes the logic of menu buttons """
 
-    if play_quit_menu.getter():
+    if play_quit_menu.getter():  # PLAY/QUIT menu
         final_running.setter(False)
         if pressing.getter() == 'none':
             menu_screen.all_menu_drawer_pressed('none')
@@ -30,7 +30,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
         for event in pg.event.get():
             if pressing.getter() == 'none':
                 if event.type == pg.MOUSEBUTTONDOWN:
-                    if play_button.is_click(event):  # PLAY/QUIT menu
+                    if play_button.is_click(event):
                         M_Eng.screen.fill((0, 0, 0))
                         menu_screen.all_menu_drawer_pressed('start')
                         pg.display.update()
@@ -112,7 +112,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         final_running.setter(False)
                     pressing.setter('none')
 
-    if trek_choice.getter() == 1:  # MM Trek Choicing menu
+    if trek_choice.getter() == 1:  # Mouse Mode Trek Choicing menu
         choice_running = True
         while choice_running:
             amount_of_buttons = 5
@@ -165,7 +165,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         final_running.setter(False)
                     pressing.setter('none')
 
-    if trek_choice.getter() == 2:  # KM Trek Choicing menu
+    if trek_choice.getter() == 2:  # Keyboard mode Trek Choicing menu
         choice_running = True
         while choice_running:
             amount_of_buttons = 5
