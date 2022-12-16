@@ -12,7 +12,7 @@ from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Classes import timer_creator as tcr
 from source_code.Sound_Rhytm import Sound_Rhytm_Keyboard as KR
 from source_code.Visualisation.Game import Vis_score as VS
-
+from source_code.Engine import Final
 pg.display.set_caption('RhytmGame')
 
 running = CL.BullVariables()
@@ -31,10 +31,11 @@ mode_type = CL.NumVariables()
 mode_choice = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
 ending = CL.NumVariables(True)
-trek_choice = CL.NumVariables(0)    #
+trek_choice = CL.NumVariables(0)
+final_running = CL.BullVariables(False)
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, ending, play_quit_menu,pressing)
+    start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, play_quit_menu,pressing)
     CL.start_time.setter(time.time())
 
     SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
@@ -58,5 +59,6 @@ while running.getter():
                                    start_menu.trek_number.getter(), tcr.l_W_N)
     KR.Track_10_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, daa_arr_list, running,
                                    start_menu.trek_number.getter(), tcr.l_D_A)
+    Final.logic(final_running.getter(), running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
 
 pg.mixer.music.stop()
