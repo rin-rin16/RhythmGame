@@ -25,24 +25,26 @@ class DrawAMenuButton:
         self.score = score
 
     def draw_to_menu_button_unpressed(self):
-        pg.draw.rect(self.surface, color=white, rect=(370, 420, 550, 130), width=7)
-        pg.draw.rect(self.surface, color=black, rect=(380-5, 430-5, 550, 130))
-        pg.draw.rect(self.surface, color=white, rect=(380, 430, 550, 130), width=7)
+        pg.draw.rect(self.surface, color=white, rect=(370, 380, 550, 130), width=7)
+        pg.draw.rect(self.surface, color=black, rect=(380-5, 390-5, 550, 130))
+        pg.draw.rect(self.surface, color=white, rect=(380, 390, 550, 130), width=7)
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         to_menu = font.render('Go to menu', True, purple)
-        self.surface.blit(to_menu, (390, 440))
+        self.surface.blit(to_menu, (390, 400))
 
     def draw_to_menu_button_pressed(self):
-        pg.draw.rect(self.surface, color=white, rect=(370, 420, 550, 130), width=7)
+        pg.draw.rect(self.surface, color=white, rect=(370, 380, 550, 130), width=7)
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         to_menu = font.render('Go to menu', True, purple)
-        self.surface.blit(to_menu, (380, 430))
+        self.surface.blit(to_menu, (380, 390))
 
     def draw_quit_button_unpressed(self):
-        # pg.draw.rect(self.surface, color=dark_grey, rect=(520, 470, 265, 138))
+        pg.draw.rect(self.surface, color=white, rect=(370, 550, 550, 130), width=7)
+        pg.draw.rect(self.surface, color=black, rect=(380 - 5, 560 - 5, 550, 130))
+        pg.draw.rect(self.surface, color=white, rect=(380, 560, 550, 130), width=7)
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
-        start = font.render('', True, pink, light_grey)
-        self.surface.blit(start, (530, 480))
+        quit = font.render('Quit', True, purple)
+        self.surface.blit(quit, (530, 570))
 
     def draw_quit_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
