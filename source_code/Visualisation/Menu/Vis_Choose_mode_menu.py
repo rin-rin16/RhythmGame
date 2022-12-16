@@ -6,7 +6,8 @@ pink = (255, 150, 255)
 yellow = (255, 220, 6)
 dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
-cyan = (0,255,255)
+cyan = (0, 255, 255)
+
 
 class DrawAMenuButton:
     """
@@ -84,7 +85,3 @@ class DrawAMenuButton:
             self.draw_keyboard_button_unpressed()
             self.draw_mouse_button_unpressed()
             self.draw_back_button_pressed()
-
-
-
-
