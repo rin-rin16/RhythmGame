@@ -10,13 +10,13 @@ screen = pg.display.set_mode((1280, 720))
 
 finished = False
 
-target = vkm.DrawableRightTarget(screen, 400, 400, 10, 'normal')
+target = vkm.DrawableLeftTarget(screen, 400, 400, 10, 'normal')
 score_draw = VS.DrawCounter(screen)
 
 while not finished:
 
     screen.fill((0, 0, 0))
-    target.draw_right_arrow()
+    target.draw_arrow()
     pg.display.update()
 
     for event in pg.event.get():
