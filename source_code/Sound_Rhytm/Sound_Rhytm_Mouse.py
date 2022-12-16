@@ -140,7 +140,7 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
                     if event.type == pg.QUIT:
                         running.setter(False)
-                        game_running = False #
+                        game_running = False ##
 
 
 class Why_Not_Player(Mouse_Mode_Track_4):
