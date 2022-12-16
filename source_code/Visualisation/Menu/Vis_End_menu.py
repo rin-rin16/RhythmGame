@@ -6,7 +6,7 @@ pink = (255, 150, 255)
 yellow = (255, 220, 6)
 dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
-orange = (255, 150, 0)
+orange = (255, 165, 0)
 purple = (121, 50, 169)
 white = (255, 255, 255)
 
@@ -25,15 +25,18 @@ class DrawAMenuButton:
         self.score = score
 
     def draw_to_menu_button_unpressed(self):
-        # pg.draw.rect(self.surface, color=dark_grey, rect=(380, 230, 550, 180))
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
-        continue_word = font.render('', True, pink, light_grey)
-        self.surface.blit(continue_word, (390, 240))
+        pg.draw.rect(self.surface, color=white, rect=(370, 420, 550, 130), width=7)
+        pg.draw.rect(self.surface, color=black, rect=(380-5, 430-5, 550, 130))
+        pg.draw.rect(self.surface, color=white, rect=(380, 430, 550, 130), width=7)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        to_menu = font.render('Go to menu', True, purple)
+        self.surface.blit(to_menu, (390, 440))
 
     def draw_to_menu_button_pressed(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
-        continue_word = font.render('', True, pink, dark_grey)
-        self.surface.blit(continue_word, (380, 230))
+        pg.draw.rect(self.surface, color=white, rect=(370, 420, 550, 130), width=7)
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
+        to_menu = font.render('Go to menu', True, purple)
+        self.surface.blit(to_menu, (380, 430))
 
     def draw_quit_button_unpressed(self):
         # pg.draw.rect(self.surface, color=dark_grey, rect=(520, 470, 265, 138))
@@ -48,11 +51,14 @@ class DrawAMenuButton:
 
     def draw_score(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 100)
-        font_double_dot = pg.font.SysFont('marion', 100)
+        font_double_dot = pg.font.SysFont('marion', 80)
         font_number = pg.font.SysFont('geneva', 100)
-        start = font.render('', True, pink, dark_grey)
-        double_dot = font.render('', True, pink, dark_grey)
-        self.surface.blit(start, (520, 470))
+        score = font.render('Your score', True, orange)
+        double_dot = font_double_dot.render(':', True, orange)
+        number = font_number.render(f'{self.score}', True, orange)
+        self.surface.blit(score, (50, 260))
+        self.surface.blit(double_dot, (445, 275))
+        self.surface.blit(number, (600, 240))
 
     def draw_congratulations_word(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 180)
@@ -70,7 +76,7 @@ class DrawAMenuButton:
         if button == 'none':
             self.draw_quit_button_unpressed()
             self.draw_to_menu_button_unpressed()
-        if button == 'to menu':
+        if button == 'to_menu':
             self.draw_quit_button_unpressed()
             self.draw_to_menu_button_pressed()
         if button == 'quit':
