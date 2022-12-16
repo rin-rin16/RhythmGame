@@ -1,9 +1,7 @@
 import time
 
 import pygame as pg
-import numpy as np
-from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
-from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
+
 
 class Ball:
     """Class, responding to calculations with balls"""

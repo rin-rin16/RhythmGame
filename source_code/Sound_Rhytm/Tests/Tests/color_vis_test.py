@@ -4,9 +4,9 @@ import pandas as pd
 from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
 from source_code.Sound_Rhytm.Tests.Test_source_code import SR_color as SR
 from source_code.Sound_Rhytm.Tests.Test_source_code import MM_color as M_Eng
-from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
+from source_code.Visualisation.Game import vis_mouse_mode as Ms_Vis
 from source_code.Sound_Rhytm.Tests.Test_source_code import Test_St_M as start_menu
-from source_code.Visualisation.Game import Text_Before_Game as TBG
+from source_code.Visualisation.Game import text_before_game as TBG
 
 # width, height = 1280, 720       # Screen's width and height        # Took this into engine file
 # background_color = (0, 0, 0)

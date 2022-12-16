@@ -1,6 +1,6 @@
 import pygame as pg
-from source_code.Engine import Final
-from source_code.Classes import Classes as CL
+from source_code.Engine import final
+from source_code.Classes import classes as CL
 
 pg.init()
 
