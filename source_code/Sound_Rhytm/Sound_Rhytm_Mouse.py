@@ -70,7 +70,7 @@ class Mouse_Mode_Track_5(Mouse_Mode_Track_1):
 
 
 class Ker_Kill_Player(Mouse_Mode_Track_1):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -86,6 +86,8 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 79:
                     game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Ker_Kill_Timer)
                     if event.type == pg.QUIT:
@@ -94,7 +96,7 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
 
 
 class Live_Another_Day_Player(Mouse_Mode_Track_2):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -111,6 +113,8 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 134:
                     game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Live_An_Day_Timer)
                     if event.type == pg.QUIT:
@@ -119,7 +123,7 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
 
 
 class Phonk_Town_Player(Mouse_Mode_Track_3):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -136,15 +140,17 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 143:
                     game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
                     if event.type == pg.QUIT:
                         running.setter(False)
-                        game_running = False #vggffggf
+                        game_running = False
 
 
 class Why_Not_Player(Mouse_Mode_Track_4):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -160,6 +166,8 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 165:
                     game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Why_Not_Timer)
                     if event.type == pg.QUIT:
@@ -168,7 +176,7 @@ class Why_Not_Player(Mouse_Mode_Track_4):
 
 
 class DeltaAlphaPlayer(Mouse_Mode_Track_5):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -184,6 +192,8 @@ class DeltaAlphaPlayer(Mouse_Mode_Track_5):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 31.5:
                     game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Delta_Alpha_Timer)
                     if event.type == pg.QUIT:
