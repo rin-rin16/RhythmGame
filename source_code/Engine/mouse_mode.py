@@ -121,4 +121,4 @@ def Drawer(draw_balls):
     """
     bg.background_fill(screen)
     for ball in draw_balls.getter():
-        ball.draw_a_ball()
+        ball.draw_a_ball()#
