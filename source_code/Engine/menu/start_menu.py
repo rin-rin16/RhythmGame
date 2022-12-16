@@ -58,7 +58,7 @@ surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu = VCSM.VisualisationInChooseSongMenu(surf)
 choose_mode_menu = VCMM.DrawAMenuButton(surf)
-
+#sfddgsdf
 
 def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choice,
                           play_quit_menu, pressing):
