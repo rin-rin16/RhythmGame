@@ -18,7 +18,7 @@ trek_choice = CL.NumVariables(0)
 trek_number = CL.NumVariables()
 
 
-def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choice,
+def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, ending,
                           play_quit_menu, pressing):
     """ describes the logic of menu buttons """
 
@@ -91,6 +91,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                         mode_type.setter(1)
                         mode_choice.setter(False)
                         play_quit_menu.setter(False)
+                        play_quit_menu.setter(False)
                         trek_choice.setter(1)
                         pressing.setter('none')
                     elif pressing.getter() == 'keyboard':
@@ -106,6 +107,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                         play_quit_menu.setter(True)
                         pressing.setter('none')
                     pressing.setter('none')
+
 
     if trek_choice.getter() == 1:  # MM Trek Choicing menu
         choice_running = True
@@ -206,6 +208,9 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
                         trek_choice.setter(0)
                         pressing.setter('none')
                     pressing.setter('none')
+
+    if ending.getter() == True:
+        print(1)
 
 def pause(event, clock, running):
     if event.type == pg.KEYDOWN:
