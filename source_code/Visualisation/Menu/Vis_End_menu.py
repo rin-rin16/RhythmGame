@@ -43,8 +43,8 @@ class DrawAMenuButton:
         pg.draw.rect(self.surface, color=black, rect=(380 - 5, 560 - 5, 550, 130))
         pg.draw.rect(self.surface, color=white, rect=(380, 560, 550, 130), width=7)
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
-        quit = font.render('Quit', True, purple)
-        self.surface.blit(quit, (530, 570))
+        exit_game = font.render('Quit', True, purple)
+        self.surface.blit(exit_game, (530, 570))
 
     def draw_quit_button_pressed(self):
         pg.draw.rect(self.surface, color=white, rect=(370, 550, 550, 130), width=7)
