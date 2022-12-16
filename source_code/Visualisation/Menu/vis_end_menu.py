@@ -66,7 +66,7 @@ class DrawAMenuButton:
         number = font_number.render(f'{self.score}', True, orange)
         self.surface.blit(score, (50, 260))
         self.surface.blit(double_dot, (445, 275))
-        self.surface.blit(number, (600, 240))
+        self.surface.blit(number, (500, 240))
 
     def draw_congratulations_word(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu",

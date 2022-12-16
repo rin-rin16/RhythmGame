@@ -23,7 +23,7 @@ pause_menu = pm.DrawAMenuButton(screen)
 
 chm_menu = vcm.DrawAMenuButton(screen)
 
-end_menu = vem.DrawAMenuButton(screen, 10)
+end_menu = vem.DrawAMenuButton(screen, 220)
 
 while not finished:
     for event in pg.event.get():
