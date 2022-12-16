@@ -154,11 +154,11 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         while choice_running:
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            trek_button[0] = TrekButton(343, 200, 235, 48, '')
-            trek_button[1] = TrekButton(638, 200, 268, 48, '')
-            trek_button[2] = TrekButton(638, 400, 202, 48, '')
+            trek_button[0] = TrekButton(343, 145, 235, 48, '')
+            trek_button[1] = TrekButton(638, 145, 268, 48, '')
+            trek_button[2] = TrekButton(638, 345, 202, 48, '')
             trek_button[3] = TrekButton(540, 600, 130, 48, '')
-            trek_button[4] = TrekButton(378, 400, 130, 48, '')
+            trek_button[4] = TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
                 choose_song_menu.all_menu_drawer_pressed('none')
@@ -204,11 +204,11 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         while choice_running:
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            trek_button[0] = TrekButton(343, 200, 235, 48, '')
-            trek_button[1] = TrekButton(638, 200, 268, 48, '')
-            trek_button[2] = TrekButton(638, 400, 202, 48, '')
+            trek_button[0] = TrekButton(343, 145, 235, 48, '')
+            trek_button[1] = TrekButton(638, 145, 268, 48, '')
+            trek_button[2] = TrekButton(638, 345, 202, 48, '')
             trek_button[3] = TrekButton(540, 600, 130, 48, '')
-            trek_button[4] = TrekButton(378, 400, 130, 48, '')
+            trek_button[4] = TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
                 choose_song_menu.all_menu_drawer_pressed('none')
