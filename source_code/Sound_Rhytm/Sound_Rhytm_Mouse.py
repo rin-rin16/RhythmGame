@@ -84,6 +84,8 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
+                if CL.timer.timer(start_time) >= 79:
+                    game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Ker_Kill_Timer)
                     if event.type == pg.QUIT:
@@ -107,6 +109,8 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
+                if CL.timer.timer(start_time) >= 134:
+                    game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Live_An_Day_Timer)
                     if event.type == pg.QUIT:
@@ -130,6 +134,8 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
+                if CL.timer.timer(start_time) >= 143:
+                    game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
                     if event.type == pg.QUIT:
@@ -152,8 +158,34 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
+                if CL.timer.timer(start_time) >= 165:
+                    game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Why_Not_Timer)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
+
+class DeltaAlphaPlayer(Mouse_Mode_Track_5):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, draw_balls, balls, running, trek_number):
+        """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load(self.track_name)
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                M_Eng.screen.fill((0, 0, 0))
+                CL.Delta_Alpha_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                M_Eng.Drawer(draw_balls)
+                drawable_counter.draw_counter(M_Eng.counter.getter())
+                pg.display.update()
+                if CL.timer.timer(start_time) >= 31.5:
+                    game_running = False
+                for event in pg.event.get():
+                    M_Eng.Event_Holder(event, balls, draw_balls, CL.Delta_Alpha_Timer)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
@@ -165,7 +197,7 @@ Track_1_Player = Ker_Kill_Player("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Spe
 Track_2_Player = Live_Another_Day_Player("Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
 Track_3_Player = Phonk_Town_Player("Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
 Track_4_Player = Why_Not_Player("Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
-Track_5_Player = Mouse_Mode_Track_5("Soundtracks/DeltaAlpha/Delta_Alpha.mp3")   #
+Track_5_Player = Mouse_Mode_Track_5("Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
 
 
 

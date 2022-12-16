@@ -259,6 +259,15 @@ class Why_Not(BullVariables):
             self._bul = False
 
 
+class DeltaAlpha(BullVariables):
+    def timer(self, start_time, bpm, fase, lower_bound, upper_bound):
+        if ((((time.time() - start_time.getter() + fase) % (bpm) <= upper_bound) or
+            ((time.time() - start_time.getter() + fase) % (bpm) >= bpm - lower_bound)) and
+            (time.time() - start_time.getter() + fase >= 1 and time.time() - start_time.getter() + fase <= 31.45)):
+            self._bul = True
+        else:
+            self._bul = False
+
 class Button:
 
     def __init__(self, x, y, xsize, ysize, text):
@@ -302,6 +311,7 @@ class TrekButton(Button):
         """ Return number of trek for which the element of TrekButton is responsible"""
         return self.trek_number
 
+
 timer = BullVariables()
 start_time = NumVariables()
 TimerBull = BullVariables()
@@ -309,3 +319,4 @@ Ker_Kill_Timer = Ker_Kill()
 Live_An_Day_Timer = Live_An_Day()
 Phonky_Town_Timer = Phonk_Town()
 Why_Not_Timer = Why_Not()
+Delta_Alpha_Timer = DeltaAlpha()
