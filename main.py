@@ -2,12 +2,11 @@ import pygame as pg
 import time as time
 from source_code.Sound_Rhytm.songs_bpm import songs_bpm as sb
 from source_code.Classes import Classes as Cl
-from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Engine import Keyboard_Mode as K_Eng
 from source_code.Engine.menu import Menu as start_menu
 from source_code.Classes import timer_creator as tcr
-from source_code.Sound_Rhytm import Sound_Rhytm_Keyboard as KR
+from source_code.Sound_Rhytm.sound_rhytm_source_code import Sound_Rhytm_Keyboard as KR, Sound_Rhytm_Mouse as SR
 from source_code.Engine import Final
 pg.display.set_caption('RhytmGame')
 
