@@ -217,4 +217,3 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         pressing.setter('none')
                         final_running.setter(False)
                     pressing.setter('none')
-

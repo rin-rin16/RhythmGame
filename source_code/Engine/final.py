@@ -5,7 +5,7 @@ from source_code.Engine import mouse_mode as m_eng
 
 surf = m_eng.screen
 
-#final_screen = vem.DrawAMenuButton(surf, CL.counter.getter())
+# final_screen = vem.DrawAMenuButton(surf, CL.counter.getter())
 
 
 def logic(final_running, running, pressing, screen, mode_type, mode_choice, trek_choice, play_quit_menu, trek_number):
