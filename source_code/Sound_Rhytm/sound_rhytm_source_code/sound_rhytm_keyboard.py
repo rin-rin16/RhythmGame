@@ -84,6 +84,7 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
+                drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 79:
                     game_running = False
@@ -111,6 +112,7 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
+                drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 134:
                     game_running = False
@@ -138,6 +140,7 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
+                drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 143:
                     game_running = False
@@ -161,10 +164,10 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
             while game_running:
                 K_Eng.screen.fill((0, 0, 0))
                 CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
-                drawable_counter.draw_counter(CL.counter.getter())
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
+                drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 165:
                     game_running = False
@@ -193,6 +196,7 @@ class DeltaAlphaPlayer(Keyboard_Mode_Track_5):
                 K_Eng.Targ_Drawer(K_Eng.Target_List)
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
+                drawable_counter.draw_counter(CL.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 31.5:
                     game_running = False
