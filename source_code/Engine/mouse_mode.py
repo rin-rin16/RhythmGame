@@ -1,8 +1,9 @@
 import pygame as pg
 import numpy as np
-from source_code.Visualisation.Game import vis_mouse_mode as Ms_Vis
+from source_code.Visualisation.Game import vis_mouse_mode as ms_vis
 from source_code.Visualisation.Background import background as bg
-from source_code.Classes import classes as CL
+from source_code.Classes import classes as cl
+
 
 class Ball:
     """Class, responding to calculations with balls"""
@@ -21,10 +22,11 @@ class Ball:
     def click_check(self, event):       # Checks, if click hits the only clickable ball, which is the first one in the balls list
         if (self._x - event.pos[0]) ** 2 + (self._y - event.pos[1]) ** 2 <= self._r ** 2:
             return True
-        else: return False
+        else:
+            return False
 
-    def bit_check(self, TimerBull):     # Checks, if click hits the bit
-        if TimerBull.getter():
+    def bit_check(self, timerbull):     # Checks, if click hits the bit
+        if timerbull.getter():
             return True
         else:
             return False
@@ -33,7 +35,7 @@ class Ball:
         return [self._x, self._y]
 
 
-class ListVariables():
+class ListVariables:
     """Class of list variables, used in this program"""
     def __init__(self):
         self.list = []
@@ -57,7 +59,8 @@ pg.display.flip()
 balls = ListVariables()         # Creating lists of balls
 draw_balls = ListVariables()
 
-counter = CL.NumVariables()
+counter = cl.NumVariables()
+
 
 def ball_initializer():
     """
@@ -74,13 +77,14 @@ def ball_initializer():
 
     balls.setter([ball_1, ball_2, ball_3])
 
-    draw_ball_1 = Ms_Vis.DrawableBall(ball_1.coord_getter()[0], ball_1.coord_getter()[1], screen, ball_1.pos_getter())
-    draw_ball_2 = Ms_Vis.DrawableBall(ball_2.coord_getter()[0], ball_2.coord_getter()[1], screen, ball_2.pos_getter())
-    draw_ball_3 = Ms_Vis.DrawableBall(ball_3.coord_getter()[0], ball_3.coord_getter()[1], screen, ball_3.pos_getter())
+    draw_ball_1 = ms_vis.DrawableBall(ball_1.coord_getter()[0], ball_1.coord_getter()[1], screen, ball_1.pos_getter())
+    draw_ball_2 = ms_vis.DrawableBall(ball_2.coord_getter()[0], ball_2.coord_getter()[1], screen, ball_2.pos_getter())
+    draw_ball_3 = ms_vis.DrawableBall(ball_3.coord_getter()[0], ball_3.coord_getter()[1], screen, ball_3.pos_getter())
 
     draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
 
     return balls, draw_balls
+
 
 def Event_Holder(event, balls, draw_balls, TimerBull):
     """
@@ -94,19 +98,19 @@ def Event_Holder(event, balls, draw_balls, TimerBull):
     if event.type == pg.MOUSEBUTTONDOWN:            # Commented stuff is here for testing reasons
         if balls.getter()[0].bit_check(TimerBull) and balls.getter()[0].click_check(event):
             counter.adder(1)
-        #if balls.getter()[0].bit_check(TimerBull):
-    #if TimerBull.getter():
+        # if balls.getter()[0].bit_check(TimerBull):
+    # if TimerBull.getter():
             balls.setter([balls.getter()[1], balls.getter()[2], Ball()])
 
             draw_ball_1 = draw_balls.getter()[1]
             draw_ball_1.color_setter("green")
             draw_ball_2 = draw_balls.getter()[2]
             draw_ball_2.color_setter("yellow")
-            draw_ball_3 = Ms_Vis.DrawableBall(balls.getter()[2].coord_getter()[0], balls.getter()[2].coord_getter()[1],
+            draw_ball_3 = ms_vis.DrawableBall(balls.getter()[2].coord_getter()[0], balls.getter()[2].coord_getter()[1],
                                               screen, balls.getter()[2].pos_getter()
-                                             )
+                                              )
             draw_balls.setter([draw_ball_1, draw_ball_2, draw_ball_3])
-            #time.sleep(0.3)
+            # time.sleep(0.3)
 
 
 def Drawer(draw_balls):
