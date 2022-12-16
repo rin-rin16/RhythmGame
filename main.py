@@ -30,6 +30,7 @@ ker_arr_list, lad_arr_list, pht_arr_list, wyn_arr_list, daa_arr_list = K_Eng.arr
 mode_type = CL.NumVariables()
 mode_choise = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
+playing = True
 while running.getter():
     menu_running = True
     start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choise, play_quit_menu,pressing)
