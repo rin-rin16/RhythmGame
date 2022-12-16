@@ -84,7 +84,7 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
-                if CL.timer.timer(start_time) >= 79:
+                if CL.timer.time_getter(start_time) >= 79:
                     game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Ker_Kill_Timer)
@@ -109,7 +109,7 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
-                if CL.timer.timer(start_time) >= 134:
+                if CL.timer.time_getter(start_time) >= 134:
                     game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Live_An_Day_Timer)
@@ -134,7 +134,7 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
-                if CL.timer.timer(start_time) >= 143:
+                if CL.timer.time_getter(start_time) >= 143:
                     game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
@@ -158,7 +158,7 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
-                if CL.timer.timer(start_time) >= 165:
+                if CL.timer.time_getter(start_time) >= 165:
                     game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Why_Not_Timer)
@@ -182,13 +182,14 @@ class DeltaAlphaPlayer(Mouse_Mode_Track_5):
                 M_Eng.Drawer(draw_balls)
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
-                if CL.timer.timer(start_time) >= 31.5:
+                if CL.timer.time_getter(start_time) >= 31.5:
                     game_running = False
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Delta_Alpha_Timer)
                     if event.type == pg.QUIT:
                         running.setter(False)
                         game_running = False
+
 
 
 drawable_counter = VSS.DrawCounter(M_Eng.screen)
