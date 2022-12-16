@@ -7,7 +7,7 @@ from source_code.Sound_Rhytm import Sound_Rhytm_Mouse as SR
 from source_code.Engine import Mouse_Mode as M_Eng
 from source_code.Engine import Keyboard_Mode as K_Eng
 from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
-from source_code.Engine.menu import start_menu as start_menu
+from source_code.Engine.menu import Menu as start_menu
 from source_code.Visualisation.Game import Text_Before_Game as TBG
 from source_code.Classes import timer_creator as tcr
 from source_code.Sound_Rhytm import Sound_Rhytm_Keyboard as KR

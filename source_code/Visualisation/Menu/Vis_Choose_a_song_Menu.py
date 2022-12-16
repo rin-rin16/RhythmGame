@@ -40,17 +40,17 @@ class VisualisationInChooseSongMenu:
     def draw_easy_button(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 40)
         easy = font.render('easy', 1, green)
-        self.surface.blit(easy, (570, 100))
+        self.surface.blit(easy, (570, 60))
 
     def draw_medium_button(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 40)
         medium = font.render('medium', 1, yellow)
-        self.surface.blit(medium, (535, 300))
+        self.surface.blit(medium, (535, 260))
 
     def draw_hard_button(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 40)
         hard = font.render('hard', 1, red)
-        self.surface.blit(hard, (560, 500))
+        self.surface.blit(hard, (560, 460))
 
     def draw_a_song_name_unpressed(self, x, y, name, length_name, height_name):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 40)
@@ -63,30 +63,17 @@ class VisualisationInChooseSongMenu:
         song_name = font.render(name, 1, white, dark_grey)
         self.surface.blit(song_name, (x-7, y-7))
 
-    def all_menu_drawer_unpressed(self):
-        self.draw_back_button_unpressed()
-        self.draw_easy_button()
-        self.draw_medium_button()
-        self.draw_hard_button()
-        self.draw_a_song_name_unpressed(257, 200, 'Keraunos killer', 235, 48)
-        self.draw_a_song_name_unpressed(710, 200, 'Live another day', 268, 48)
-        self.draw_a_song_name_unpressed(510, 400, 'Delta alpha', 198, 48)
-        self.draw_a_song_name_unpressed(740, 400, 'Phonky town', 202, 48)
-        self.draw_a_song_name_unpressed(347, 600, 'Why not', 107, 48)
-        self.draw_a_song_name_unpressed(560, 600, 'name2', 117, 48)
-        self.draw_a_song_name_unpressed(773, 600, 'name3', 115, 48)
-
     def all_menu_drawer_pressed(self, pos):
         """
 
         :param pos: number which shows position of song in song_tuple or back, if it is button back
         :return: draws a screen with drawn button pos pressed
         """
-        song_tuple = [(343, 200, 'Keraunos killer',  235, 48, 0),
-                      (638, 200, 'Live another day', 268, 48, 1),
-                      (378, 400, 'Delta alpha',      198, 48, 4),
-                      (638, 400, 'Phonky town',      202, 48, 2),
-                      (540, 600, 'Why not.',         130, 48, 3)]
+        song_tuple = [(343, 145, 'Keraunos killer',  235, 48, 0),
+                      (638, 145, 'Live another day', 268, 48, 1),
+                      (378, 345, 'Delta alpha',      198, 48, 4),
+                      (638, 345, 'Phonky town',      202, 48, 2),
+                      (540, 540, 'Why not.',         130, 48, 3)]
 
         '''for i in range(3):
             for song in song_matrix[i]:
