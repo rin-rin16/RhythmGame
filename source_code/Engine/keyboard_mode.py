@@ -1,7 +1,7 @@
 import pygame as pg
 import numpy as np
-from source_code.Classes import Classes as CL
-from source_code.Visualisation.Game import Vis_Keyboard_Mode as Arr_Vis
+from source_code.Classes import classes as CL
+from source_code.Visualisation.Game import vis_keyboard_mode as Arr_Vis
 
 
 width, height = 1280, 720       # Screen's width and height

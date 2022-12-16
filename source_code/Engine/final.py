@@ -1,4 +1,4 @@
-from source_code.Classes import Classes as CL
+from source_code.Classes import classes as CL
 import pygame as pg
 
 

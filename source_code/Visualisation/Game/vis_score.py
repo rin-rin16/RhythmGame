@@ -1,5 +1,5 @@
 import pygame as pg
-from source_code.Visualisation.Game import Vis_Mouse_Mode as VSM
+from source_code.Visualisation.Game import vis_mouse_mode as VSM
 import os
 
 

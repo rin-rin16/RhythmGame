@@ -1,6 +1,6 @@
 import pygame as pg
-import Vis_Keyboard_Mode as vkm
-import Vis_score as VS
+import vis_keyboard_mode as vkm
+import vis_score as VS
 import source_code.Engine.score as score
 
 

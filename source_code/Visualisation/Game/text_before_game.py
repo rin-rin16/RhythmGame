@@ -1,5 +1,5 @@
 import pygame as pg
-from source_code.Engine import Mouse_Mode as M_Eng
+from source_code.Engine import mouse_mode as M_Eng
 import os
 
 black = (0, 0, 0)

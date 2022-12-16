@@ -1,12 +1,12 @@
 import pygame as pg
-from source_code.Visualisation.Background import Background as bg
+from source_code.Visualisation.Background import background as bg
 
-from source_code.Visualisation.Menu import Vis_Choose_a_song_Menu as csm
-from source_code.Visualisation.Menu import Vis_Pause_Menu as pm
-from source_code.Visualisation.Menu import Vis_Start_Menu as sm
-from source_code.Visualisation.Game import Vis_Mouse_Mode as vmm
-from source_code.Visualisation.Menu import Vis_Choose_mode_menu as vcm
-from source_code.Visualisation.Menu import Vis_End_menu as vem
+from source_code.Visualisation.Menu import vis_choose_a_song_menu as csm
+from source_code.Visualisation.Menu import vis_pause_menu as pm
+from source_code.Visualisation.Menu import vis_start_menu as sm
+from source_code.Visualisation.Game import vis_mouse_mode as vmm
+from source_code.Visualisation.Menu import vis_choose_mode_menu as vcm
+from source_code.Visualisation.Menu import vis_end_menu as vem
 
 pg.init()
 
