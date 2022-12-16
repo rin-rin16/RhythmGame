@@ -2,6 +2,8 @@ import pygame as pg
 import numpy as np
 from source_code.Classes import classes as CL
 from source_code.Visualisation.Game import vis_keyboard_mode as Arr_Vis
+from source_code.Visualisation.Background import background as bg
+from source_code.Engine import mouse_mode as M_Eng
 
 
 width, height = 1280, 720       # Screen's width and height
@@ -14,7 +16,7 @@ screen.fill(background_color)
 pg.display.flip()
 
 
-def bit_checker(time_list, timer):
+def bit_checker(time_list, fase, timer):
     for i in range(len(time_list)):
         if (0.15 >= time_list[i] - timer.time_getter(CL.start_time) >= -0.1 and
             time_list[i] - timer.time_getter(CL.start_time) <= 0.15):
@@ -80,5 +82,6 @@ Target_List = [Arr_Vis.DrawableUpTarget(screen, 250, 225, 4), Arr_Vis.DrawableLe
 
 
 def Targ_Drawer(Target_List):
+    bg.background_fill(M_Eng.screen)
     for el in Target_List:
         el.draw_target()
