@@ -201,7 +201,7 @@ class DeltaAlphaPlayer(Mouse_Mode_Track_5):
                         game_running = False
 
 
-drawable_counter = VSS.DrawCounter(M_Eng.screen)
+drawable_counter = VSS.DrawCounter(M_Eng.screen)    #
 
 Track_1_Player = Ker_Kill_Player("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_2_Player = Live_Another_Day_Player("Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
