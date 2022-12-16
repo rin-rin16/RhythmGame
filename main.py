@@ -30,7 +30,7 @@ trek_choice = Cl.NumVariables(0)
 final_running = Cl.BullVariables(False)
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, play_quit_menu,pressing)
+    start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, play_quit_menu,pressing,final_running)
     Cl.start_time.setter(time.time())
 
     SR.Track_1_Player.music_player(Cl.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
@@ -56,6 +56,6 @@ while running.getter():
                                    start_menu.trek_number.getter(), tcr.l_D_A, final_running)
 
 
-    final.logic(final_running, running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
+    final.logic(final_running, running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu, start_menu.trek_number)
 
 pg.mixer.music.stop()
