@@ -6,6 +6,7 @@ from source_code.Visualisation.Menu import Vis_Pause_Menu as pm
 from source_code.Visualisation.Menu import Vis_Start_Menu as sm
 from source_code.Visualisation.Game import Vis_Mouse_Mode as vmm
 from source_code.Visualisation.Menu import Vis_Choose_mode_menu as vcm
+from source_code.Visualisation.Menu import Vis_End_menu as vem
 
 pg.init()
 
@@ -22,15 +23,17 @@ pause_menu = pm.DrawAMenuButton(screen)
 
 chm_menu = vcm.DrawAMenuButton(screen)
 
+end_menu = vem.DrawAMenuButton(screen, 10)
+
 while not finished:
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             screen.fill((0, 0, 0))
-            cs_menu.all_menu_drawer_pressed('none')
+            end_menu.all_menu_drawer_pressed('none')
             pg.display.update()
         else:
             screen.fill((0, 0, 0))
-            cs_menu.all_menu_drawer_pressed('none')
+            end_menu.all_menu_drawer_pressed('none')
             pg.display.update()
 
     for event in pg.event.get():
