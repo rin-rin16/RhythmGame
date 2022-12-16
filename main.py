@@ -28,13 +28,13 @@ ker_arr_list, lad_arr_list, pht_arr_list, wyn_arr_list, daa_arr_list = K_Eng.arr
                                                                         K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_W_N), tcr.l_W_N),       \
                                                                         K_Eng.arrow_initializer(K_Eng.rand_generator(tcr.l_D_A), tcr.l_D_A)
 mode_type = CL.NumVariables()
-mode_choise = CL.BullVariables(False)
+mode_choice = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
 ending = CL.NumVariables(True)
 
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, mode_type, mode_choise, ending, play_quit_menu,pressing)
+    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, mode_type, mode_choice, ending, play_quit_menu,pressing)
     CL.start_time.setter(time.time())
 
     SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,
