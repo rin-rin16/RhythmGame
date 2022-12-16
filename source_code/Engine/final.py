@@ -4,11 +4,13 @@ from source_code.Visualisation.Menu import vis_end_menu as vem
 from source_code.Engine import mouse_mode as m_eng
 
 surf = m_eng.screen
-score = 0
-final_screen = vem.DrawAMenuButton(surf, score)
+
+#final_screen = vem.DrawAMenuButton(surf, CL.counter.getter())
 
 
 def logic(final_running, running, pressing, screen, mode_type, mode_choice, trek_choice, play_quit_menu, trek_number):
+    final_screen = vem.DrawAMenuButton(surf, CL.counter.getter())
+
     if final_running.getter():
         screen.fill((0, 0, 0))
         go_to_menu = CL.Button(380, 390, 550, 130, 'Go_to_menu')
