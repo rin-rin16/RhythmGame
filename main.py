@@ -50,16 +50,16 @@ while running.getter():
                                    start_menu.trek_number.getter(), final_running)
 
     KR.Track_6_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, ker_arr_list, running,
-                                   start_menu.trek_number.getter(), tcr.l_K_K)
+                                   start_menu.trek_number.getter(), tcr.l_K_K, final_running)
     KR.Track_7_Player.music_player(CL.start_time, 60 / sb.L_A_D[0], sb.L_A_D[1], 0.1, 0.15, lad_arr_list, running,
-                                   start_menu.trek_number.getter(), tcr.l_L_A_D)
+                                   start_menu.trek_number.getter(), tcr.l_L_A_D, final_running)
     KR.Track_8_Player.music_player(CL.start_time, 60 / sb.P_T[0], sb.P_T[1], 0.1, 0.15, pht_arr_list, running,
-                                   start_menu.trek_number.getter(), tcr.l_P_T)
+                                   start_menu.trek_number.getter(), tcr.l_P_T, final_running)
     KR.Track_9_Player.music_player(CL.start_time, 60 / sb.Y_N[0], sb.Y_N[1], 0.1, 0.15, wyn_arr_list, running,
-                                   start_menu.trek_number.getter(), tcr.l_W_N)
+                                   start_menu.trek_number.getter(), tcr.l_W_N, final_running)
     KR.Track_10_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, daa_arr_list, running,
-                                   start_menu.trek_number.getter(), tcr.l_D_A)
+                                   start_menu.trek_number.getter(), tcr.l_D_A, final_running)
 
-    Final.logic(final_running.getter(), running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
+    Final.logic(final_running, running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
 
 pg.mixer.music.stop()
