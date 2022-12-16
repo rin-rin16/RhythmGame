@@ -31,10 +31,10 @@ mode_type = CL.NumVariables()
 mode_choice = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
 ending = CL.NumVariables(True)
-
+trek_choice = CL.NumVariables(0)
 while running.getter():
     menu_running = True
-    start_menu.logic_of_menu_buttons(running, start_menu.trek_choice, clock, mode_type, mode_choice, ending, play_quit_menu,pressing)
+    start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, ending, play_quit_menu,pressing)
     CL.start_time.setter(time.time())
 
     SR.Track_1_Player.music_player(CL.start_time, 60 / sb.K_K[0], sb.K_K[1], 0.1, 0.15, draw_balls, balls, running,

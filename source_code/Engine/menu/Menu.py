@@ -14,7 +14,6 @@ menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu = VCSM.VisualisationInChooseSongMenu(surf)
 choose_mode_menu = VCMM.DrawAMenuButton(surf)
 menu = True
-trek_choice = CL.NumVariables(0)
 trek_number = CL.NumVariables()
 
 
@@ -209,8 +208,6 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, e
                         pressing.setter('none')
                     pressing.setter('none')
 
-    if ending.getter() == True:
-        print(1)
 
 def pause(event, clock, running):
     if event.type == pg.KEYDOWN:
