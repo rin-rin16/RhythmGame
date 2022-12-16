@@ -73,7 +73,7 @@ class Keyboard_Mode_Track_5(Keyboard_Mode_Track_1):
 
 
 class Ker_Kill_Player(Keyboard_Mode_Track_1):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -91,7 +91,6 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 79:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
@@ -101,7 +100,7 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
 
 
 class Live_Another_Day_Player(Keyboard_Mode_Track_2):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -119,7 +118,6 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 134:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
@@ -129,7 +127,7 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
 
 
 class Phonk_Town_Player(Keyboard_Mode_Track_3):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -147,7 +145,6 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 143:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
@@ -157,7 +154,7 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
 
 
 class Why_Not_Player(Keyboard_Mode_Track_4):
-    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number, time_list, final_running):
         """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
         pg.mixer.init()  # Initializing audio player
         pg.mixer.music.set_volume(0.5)
@@ -175,7 +172,6 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 165:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
@@ -184,10 +180,37 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
                         game_running = False
 
 
+class DeltaAlphaPlayer(Keyboard_Mode_Track_5):
+    def music_player(self, start_time, bpm, fase, lower_bound, upper_bound, arrow_list, running, trek_number,
+                     time_list, final_running):
+        """Mother of all the music players. Plays music with certain name and does bit check with certain bpm"""
+        pg.mixer.init()  # Initializing audio player
+        pg.mixer.music.set_volume(0.5)
+        if self.number_checker(trek_number):
+            pg.mixer.music.load(self.track_name)
+            pg.mixer.music.play()
+            game_running = True
+            while game_running:
+                K_Eng.screen.fill((0, 0, 0))
+                CL.Why_Not_Timer.timer(start_time, bpm, fase, lower_bound, upper_bound)
+                drawable_counter.draw_counter(K_Eng.counter.getter())
+                K_Eng.Targ_Drawer(K_Eng.Target_List)
+                K_Eng.Arr_Drawer(arrow_list)
+                K_Eng.arrow_mover(arrow_list, CL.timer)
+                pg.display.update()
+                if CL.timer.time_getter(start_time) >= 31.5:
+                    game_running = False
+                    final_running.setter(True)
+                for event in pg.event.get():
+                    K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
+                    if event.type == pg.QUIT:
+                        running.setter(False)
+                        game_running = False
+
 drawable_counter = VSS.DrawCounter(K_Eng.screen)
 
 Track_6_Player = Ker_Kill_Player("Soundtracks/Phonk/4WHEEL_-_KERAUNOS_KILLER_Speed_Up_73991451.mp3")
 Track_7_Player = Live_Another_Day_Player("Soundtracks/Phonk/KORDHELL_-_Live_Another_Day_73349846.mp3")
 Track_8_Player = Phonk_Town_Player("Soundtracks/Phonk/PlayaPhonk_-_Phonky_Town_72969550.mp3")
 Track_9_Player = Why_Not_Player("Soundtracks/Phonk/GHOSTFACE_PLAYA_-_Why_Not_74017956.mp3")
-Track_10_Player = Keyboard_Mode_Track_5("Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
+Track_10_Player = DeltaAlphaPlayer("Soundtracks/DeltaAlpha/Delta_Alpha.mp3")
