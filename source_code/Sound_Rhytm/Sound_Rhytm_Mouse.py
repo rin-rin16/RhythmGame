@@ -86,7 +86,6 @@ class Ker_Kill_Player(Mouse_Mode_Track_1):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 79:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Ker_Kill_Timer)
@@ -113,7 +112,6 @@ class Live_Another_Day_Player(Mouse_Mode_Track_2):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 134:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Live_An_Day_Timer)
@@ -140,7 +138,6 @@ class Phonk_Town_Player(Mouse_Mode_Track_3):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 143:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Phonky_Town_Timer)
@@ -166,7 +163,6 @@ class Why_Not_Player(Mouse_Mode_Track_4):
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 165:
                     game_running = False
-                    running.setter(False)
                     final_running.setter(True)
                 for event in pg.event.get():
                     M_Eng.Event_Holder(event, balls, draw_balls, CL.Why_Not_Timer)
@@ -191,7 +187,6 @@ class DeltaAlphaPlayer(Mouse_Mode_Track_5):
                 drawable_counter.draw_counter(M_Eng.counter.getter())
                 pg.display.update()
                 if CL.timer.time_getter(start_time) >= 0: #31.5:
-                    running.setter(False)
                     game_running = False
                     final_running.setter(True)
                 for event in pg.event.get():
