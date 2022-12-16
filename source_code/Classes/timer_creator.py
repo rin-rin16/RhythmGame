@@ -74,7 +74,7 @@ for i in arr_L_A_D:
         l_L_A_D.append(i)
 
 
-arr_P_T = np.arange(0, 142, 60 / 1250)
+arr_P_T = np.arange(0.7, 142, 60 / 1250)
 l_P_T = []
 for i in arr_P_T:
     if (not (((i + sb.P_T[1]) <= 15.7 and
@@ -118,7 +118,7 @@ for i in arr_P_T:
         l_P_T.append(i)
 
 
-arr_W_N = np.linspace(0, 166, 166000)
+arr_W_N = np.linspace(0, 164.9, 164900)     # Done
 l_W_N = []
 for i in arr_W_N:
     if (
@@ -186,7 +186,7 @@ for i in arr_W_N:
         l_W_N.append(i)
 
 
-arr_D_A = np.linspace(0, 35, 35000)
+arr_D_A = np.linspace(1.2, 31.4, 30200)
 l_D_A = []
 for i in arr_D_A:
     if (((i + sb.D_A[1]) % (60 / sb.D_A[0]) <= 0.0005) or
