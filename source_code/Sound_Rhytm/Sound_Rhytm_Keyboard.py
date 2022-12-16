@@ -89,6 +89,10 @@ class Ker_Kill_Player(Keyboard_Mode_Track_1):
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
+                if CL.timer.time_getter(start_time) >= 79:
+                    game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
                     if event.type == pg.QUIT:
@@ -113,6 +117,10 @@ class Live_Another_Day_Player(Keyboard_Mode_Track_2):
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
+                if CL.timer.time_getter(start_time) >= 134:
+                    game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
                     if event.type == pg.QUIT:
@@ -137,6 +145,10 @@ class Phonk_Town_Player(Keyboard_Mode_Track_3):
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
+                if CL.timer.time_getter(start_time) >= 143:
+                    game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
                     if event.type == pg.QUIT:
@@ -161,6 +173,10 @@ class Why_Not_Player(Keyboard_Mode_Track_4):
                 K_Eng.Arr_Drawer(arrow_list)
                 K_Eng.arrow_mover(arrow_list, CL.timer)
                 pg.display.update()
+                if CL.timer.time_getter(start_time) >= 165:
+                    game_running = False
+                    running.setter(False)
+                    final_running.setter(True)
                 for event in pg.event.get():
                     K_Eng.Event_Holder(event, arrow_list, K_Eng.bit_checker, time_list, fase, CL.timer)
                     if event.type == pg.QUIT:
