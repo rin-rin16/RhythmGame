@@ -10,7 +10,7 @@ orange = (255, 180, 0)
 dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
 pink = (255, 150, 255)
-cyan = (0,255,255)
+cyan = (0, 255, 255)
 
 
 class DrawableArrow:
@@ -70,37 +70,31 @@ class DrawableArrowUp(DrawableArrow):
     def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
-        color_bar = None
         if self.condition == 'normal' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = cyan
-            color_bar = cyan
         elif self.condition == 'ok' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = green
-            color_bar = green
         elif self.condition == 'bad' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = red
-            color_bar = red
-        elif self.is_target == True:
+        elif self.is_target:
             color_arrow_width = white
             color_arrow_fill = dark_grey
-            color_bar = dark_grey
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.5 * self.scale, self.y,
-                                                 5 * self.scale, 8 * self.scale)) # fill rect
-        pg.draw.rect(self.surface, color_arrow_width, (self.x-2.5*self.scale, self.y,
-                                                 5*self.scale,          8*self.scale), self.scale//2)# white around rect
-        pg.draw.polygon(self.surface, color_arrow_fill, ((self.x - 6 * self.scale, self.y),
-                                                    (self.x, self.y - 8 * self.scale),
-                                                    (self.x + 6 * self.scale, self.y))) # fill triangle
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 2.5 * self.scale, self.y,
+                                                           5 * self.scale, 8 * self.scale))  # fill rect
+        pg.draw.rect(self.surface, color_arrow_width,     (self.x-2.5*self.scale, self.y,
+                                                           5*self.scale,          8*self.scale), self.scale//2)  # white around rect
+        pg.draw.polygon(self.surface, color_arrow_fill,  ((self.x - 6 * self.scale, self.y),
+                                                          (self.x, self.y - 8 * self.scale),
+                                                          (self.x + 6 * self.scale, self.y)))  # fill triangle
         pg.draw.polygon(self.surface, color_arrow_width, ((self.x-6*self.scale, self.y),
-                                                    (self.x, self.y-8*self.scale),
-                                                    (self.x+6*self.scale, self.y)), self.scale//2)  # white arround triangle
+                                                          (self.x, self.y-8*self.scale),
+                                                          (self.x+6*self.scale, self.y)), self.scale//2)  # white arround triangle
 
         pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.0*self.scale, self.y - self.scale,
-                                                   4.0 * self.scale,        4.5*self.scale))  # colors white bar in fill color
-
+                                                      4.0 * self.scale,        4.5*self.scale))  # colors white bar in fill color
 
 
 class DrawableArrowDown(DrawableArrow):
@@ -112,37 +106,30 @@ class DrawableArrowDown(DrawableArrow):
     def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
-        color_bar = None
         if self.condition == 'normal' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = cyan
-            color_bar = cyan
         elif self.condition == 'ok' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = green
-            color_bar = green
         elif self.condition == 'bad' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = red
-            color_bar = red
-        elif self.is_target == True:
+        elif self.is_target:
             color_arrow_width = white
             color_arrow_fill = dark_grey
-            color_bar = dark_grey
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
-                                                      5 * self.scale, 8 * self.scale))
-        pg.draw.rect(self.surface, color_arrow_width, (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
-                                                 5 * self.scale,            8 * self.scale), self.scale // 2)
-        pg.draw.polygon(self.surface, color_arrow_fill, ((self.x - 6 * self.scale, self.y),
-                                                    (self.x, self.y + 8 * self.scale),
-                                                    (self.x + 6 * self.scale, self.y)))
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
+                                                           5 * self.scale, 8 * self.scale))
+        pg.draw.rect(self.surface, color_arrow_width,     (self.x - 2.5 * self.scale, self.y - 8 * self.scale,
+                                                           5 * self.scale,            8 * self.scale), self.scale // 2)
+        pg.draw.polygon(self.surface, color_arrow_fill,  ((self.x - 6 * self.scale, self.y),
+                                                          (self.x, self.y + 8 * self.scale),
+                                                          (self.x + 6 * self.scale, self.y)))
         pg.draw.polygon(self.surface, color_arrow_width, ((self.x - 6 * self.scale, self.y),
-                                                         (self.x, self.y + 8 * self.scale),
-                                                         (self.x + 6 * self.scale, self.y)), self.scale // 2)
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 2.0 * self.scale, self.y - 1 * self.scale,
-                                                      4.0 * self.scale, 5 * self.scale))
-
-
+                                                          (self.x, self.y + 8 * self.scale),
+                                                          (self.x + 6 * self.scale, self.y)), self.scale // 2)
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 2.0 * self.scale, self.y - 1 * self.scale,
+                                                           4.0 * self.scale, 5 * self.scale))
 
 
 class DrawableArrowRight(DrawableArrow):
@@ -154,36 +141,31 @@ class DrawableArrowRight(DrawableArrow):
     def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
-        color_bar = None
         if self.condition == 'normal' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = pink
-            color_bar = pink
         elif self.condition == 'ok' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = green
-            color_bar = green
         elif self.condition == 'bad' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = red
-            color_bar = red
-        elif self.is_target == True:
+        elif self.is_target:
             color_arrow_width = white
             color_arrow_fill = dark_grey
-            color_bar = dark_grey
 
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 8 * self.scale, self.y - 2.5 * self.scale,
-                                                 8 * self.scale,          5 * self.scale))
-        pg.draw.rect(self.surface, color_arrow_width, (self.x - 8 * self.scale, self.y - 2.5 * self.scale,
-                                                      8 * self.scale, 5 * self.scale), self.scale // 2)
-        pg.draw.polygon(self.surface, color_arrow_fill, ((self.x, self.y - 6 * self.scale),
-                                                    (self.x + 8 * self.scale, self.y),
-                                                    (self.x, self.y + 6 * self.scale)))
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 8 * self.scale, self.y - 2.5 * self.scale,
+                                                           8 * self.scale,          5 * self.scale))
+        pg.draw.rect(self.surface, color_arrow_width,     (self.x - 8 * self.scale, self.y - 2.5 * self.scale,
+                                                           8 * self.scale, 5 * self.scale), self.scale // 2)
+        pg.draw.polygon(self.surface, color_arrow_fill,  ((self.x, self.y - 6 * self.scale),
+                                                          (self.x + 8 * self.scale, self.y),
+                                                          (self.x, self.y + 6 * self.scale)))
         pg.draw.polygon(self.surface, color_arrow_width, ((self.x, self.y - 6 * self.scale),
-                                                         (self.x + 8 * self.scale, self.y),
-                                                         (self.x, self.y + 6 * self.scale)), self.scale // 2)
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 1 * self.scale, self.y - 2.0 * self.scale,
-                                                      2 * self.scale, 4.0 * self.scale))
+                                                          (self.x + 8 * self.scale, self.y),
+                                                          (self.x, self.y + 6 * self.scale)), self.scale // 2)
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 1 * self.scale, self.y - 2.0 * self.scale,
+                                                           2 * self.scale, 4.0 * self.scale))
 
 
 class DrawableArrowLeft(DrawableArrow):
@@ -195,35 +177,30 @@ class DrawableArrowLeft(DrawableArrow):
     def draw_arrow(self):
         color_arrow_width = None
         color_arrow_fill = None
-        color_bar = None
         if self.condition == 'normal' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = pink
-            color_bar = pink
         elif self.condition == 'ok' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = green
-            color_bar = green
         elif self.condition == 'bad' and not self.is_target:
             color_arrow_width = white
             color_arrow_fill = red
-            color_bar = red
-        elif self.is_target == True:
+        elif self.is_target:
             color_arrow_width = white
             color_arrow_fill = dark_grey
-            color_bar = dark_grey
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x,         self.y - 2.5 * self.scale,
-                                                 8 * self.scale, 5 * self.scale))
-        pg.draw.rect(self.surface, color_arrow_width, (self.x, self.y - 2.5 * self.scale,
-                                                      8 * self.scale, 5 * self.scale), self.scale // 2)
-        pg.draw.polygon(self.surface, color_arrow_fill, ((self.x, self.y - 6 * self.scale),
-                                                    (self.x - 8 * self.scale, self.y),
-                                                    (self.x, self.y + 6 * self.scale)))
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x,         self.y - 2.5 * self.scale,
+                                                           8 * self.scale, 5 * self.scale))
+        pg.draw.rect(self.surface, color_arrow_width,     (self.x, self.y - 2.5 * self.scale,
+                                                           8 * self.scale, 5 * self.scale), self.scale // 2)
+        pg.draw.polygon(self.surface, color_arrow_fill,  ((self.x, self.y - 6 * self.scale),
+                                                          (self.x - 8 * self.scale, self.y),
+                                                          (self.x, self.y + 6 * self.scale)))
         pg.draw.polygon(self.surface, color_arrow_width, ((self.x, self.y - 6 * self.scale),
-                                                         (self.x - 8 * self.scale, self.y),
-                                                         (self.x, self.y + 6 * self.scale)), self.scale // 2)
-        pg.draw.rect(self.surface, color_arrow_fill, (self.x - 1 * self.scale, self.y - 2.0 * self.scale,
-                                                      2 * self.scale, 4.0 * self.scale))
+                                                          (self.x - 8 * self.scale, self.y),
+                                                          (self.x, self.y + 6 * self.scale)), self.scale // 2)
+        pg.draw.rect(self.surface, color_arrow_fill,      (self.x - 1 * self.scale, self.y - 2.0 * self.scale,
+                                                           2 * self.scale, 4.0 * self.scale))
 
 
 class DrawableRightTarget(DrawableArrowRight):
@@ -264,5 +241,3 @@ class DrawableDownTarget(DrawableArrowDown):
 
     def draw_target(self):
         self.draw_arrow()
-
-
