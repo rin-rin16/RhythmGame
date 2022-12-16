@@ -29,3 +29,4 @@ def logic(final_running,running,pressing,screen,mode_type,mode_choice,trek_choic
                 elif event.type == pg.QUIT:
                     running.setter(False)
                     final_running.setter(False)
+##
