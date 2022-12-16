@@ -1,8 +1,8 @@
 import pygame as pg
-from source_code.Engine import Mouse_Mode as M_Eng
-from source_code.Visualisation.Game import Text_Before_Game as TBG
+from source_code.Engine import mouse_mode as M_Eng
+from source_code.Visualisation.Game import text_before_game as TBG
 from source_code.Sound_Rhytm.Tests.Test_source_code import Vis_Start_Menu_Test as VSM
-from source_code.Classes import Classes as CL
+from source_code.Classes import classes as CL
 
 class Button:
 

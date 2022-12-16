@@ -1,10 +1,10 @@
 import pygame as pg
-from source_code.Engine import Mouse_Mode as M_Eng
-from source_code.Visualisation.Game import Text_Before_Game as TBG
-from source_code.Visualisation.Menu import Vis_Start_Menu as VSM
-from source_code.Classes import Classes as CL
-from source_code.Visualisation.Menu import Vis_Choose_a_song_Menu as VCSM
-from source_code.Visualisation.Menu import Vis_Choose_mode_menu as VCMM
+from source_code.Engine import mouse_mode as M_Eng
+from source_code.Visualisation.Game import text_before_game as TBG
+from source_code.Visualisation.Menu import vis_start_menu as VSM
+from source_code.Classes import classes as CL
+from source_code.Visualisation.Menu import vis_choose_a_song_menu as VCSM
+from source_code.Visualisation.Menu import vis_choose_mode_menu as VCMM
 
 
 

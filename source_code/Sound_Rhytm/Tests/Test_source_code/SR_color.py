@@ -1,7 +1,7 @@
 import time as time
 import pygame as pg
 from source_code.Sound_Rhytm.Tests.Test_source_code import MM_color as M_Eng
-from source_code.Classes import Classes as CL
+from source_code.Classes import classes as CL
 
 class NumVariables:
     """Class of numeric variables"""

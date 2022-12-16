@@ -1,6 +1,6 @@
 import time as time
 import pygame as pg
-from source_code.Classes import Classes as CL
+from source_code.Classes import classes as CL
 from source_code.Sound_Rhytm.Tests.Test_source_code import MM_click_test as M_Eng
 
 class NumVariables:

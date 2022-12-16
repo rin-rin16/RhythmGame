@@ -1,8 +1,8 @@
 import pygame as pg
 import numpy as np
-from source_code.Visualisation.Game import Vis_Mouse_Mode as Ms_Vis
-from source_code.Visualisation.Background import Background as bg
-from source_code.Classes import Classes as CL
+from source_code.Visualisation.Game import vis_mouse_mode as Ms_Vis
+from source_code.Visualisation.Background import background as bg
+from source_code.Classes import classes as CL
 
 class Ball:
     """Class, responding to calculations with balls"""
