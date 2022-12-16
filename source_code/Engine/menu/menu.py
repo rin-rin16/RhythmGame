@@ -6,9 +6,6 @@ from source_code.Classes import classes as CL
 from source_code.Visualisation.Menu import vis_choose_a_song_menu as VCSM
 from source_code.Visualisation.Menu import vis_choose_mode_menu as VCMM
 
-
-
-
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu = VCSM.VisualisationInChooseSongMenu(surf)
@@ -18,7 +15,7 @@ trek_number = CL.NumVariables()
 
 
 def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
-                          play_quit_menu, pressing,final_running):
+                          play_quit_menu, pressing, final_running):
     """ describes the logic of menu buttons """
 
     if play_quit_menu.getter():
@@ -71,17 +68,17 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                 if pressing.getter() == 'none':
                     if event.type == pg.MOUSEBUTTONDOWN:
                         if mm_button.is_click(event):
-                            M_Eng.screen.fill((0,0,0))
+                            M_Eng.screen.fill((0, 0, 0))
                             choose_mode_menu.all_menu_drawer_pressed('mouse')
                             pg.display.update()
                             pressing.setter('mouse')
                         if km_button.is_click(event):
-                            M_Eng.screen.fill((0,0,0))
+                            M_Eng.screen.fill((0, 0, 0))
                             choose_mode_menu.all_menu_drawer_pressed('keyboard')
                             pg.display.update()
                             pressing.setter('keyboard')
                         if back_to_menu.is_click(event):
-                            M_Eng.screen.fill((0,0,0))
+                            M_Eng.screen.fill((0, 0, 0))
                             choose_mode_menu.all_menu_drawer_pressed('back')
                             pg.display.update()
                             pressing.setter('back')
@@ -114,7 +111,6 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         pressing.setter('none')
                         final_running.setter(False)
                     pressing.setter('none')
-
 
     if trek_choice.getter() == 1:  # MM Trek Choicing menu
         choice_running = True
@@ -222,31 +218,3 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         final_running.setter(False)
                     pressing.setter('none')
 
-
-def pause(event, clock, running):
-    if event.type == pg.KEYDOWN:
-        if event.key == pg.K_ESCAPE:
-            run_pause = True
-            while run_pause:
-                M_Eng.screen.fill((0, 0, 0))
-                resume = CL.Button(390, 240, 550, 180, '')
-                resume.write_text_on_button(M_Eng.screen)
-                to_menu = CL.Button(530, 480, 265, 138, '')
-                to_menu.write_text_on_button(M_Eng.screen)
-                pg.display.update()
-                clock.tick(100)
-                for action in pg.event.get():
-                    if action.type == pg.QUIT:
-                        running.setter(False)
-                        # FIXME не закрывается при нажатии на крестик :(
-                    elif action.type == pg.MOUSEBUTTONDOWN:
-                        if resume.is_click(action):
-                            run_pause = False
-                            # FIXME должна продолжаться игра ( по идее если сунуть эту функцию туда куда надо,
-                            # то все должно быть окей: меню паузы закроется и продолжится игра,
-                            # но как это будет на практике хз если честно)
-
-                        if to_menu.is_click(action):
-                            run_pause = False
-                            # FIXME должно открываться меню выбора трека (возможно стоит заново вызывать функцию отображения меню выбора,
-                            # либо как-то выходить из этого цикла и запуска меню выбора, путем деланья trek_choice трушным

@@ -1,8 +1,8 @@
-from source_code.Classes import classes as CL
+from source_code.Classes import classes as cl
 
-counter = CL.NumVariables(0)
+counter = cl.NumVariables(0)
 
 
-def up(counter):
+def up(count):
     """ make score counter bigger on 1 point """
-    counter.adder(1)
+    count.adder(1)
