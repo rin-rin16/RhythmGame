@@ -29,11 +29,11 @@ while not finished:
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             screen.fill((0, 0, 0))
-            end_menu.all_menu_drawer_pressed('to_menu')
+            end_menu.all_menu_drawer_pressed('quit')
             pg.display.update()
         else:
             screen.fill((0, 0, 0))
-            end_menu.all_menu_drawer_pressed('to_menu')
+            end_menu.all_menu_drawer_pressed('quit')
             pg.display.update()
 
     for event in pg.event.get():
