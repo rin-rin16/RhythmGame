@@ -23,5 +23,5 @@ while not finished:
         if event.type == pg.QUIT:
             finished = True
 
-
+#
 pg.quit()
