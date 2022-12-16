@@ -12,7 +12,7 @@ pressing = CL.NumVariables('none')
 mode_type = CL.NumVariables()
 mode_choice = CL.BullVariables(False)
 play_quit_menu = CL.BullVariables(True)
-
+trek_choice = CL.NumVariables(0)
 while running.getter():
     Final.logic(running,pressing,screen,mode_type,mode_choice,trek_choice,play_quit_menu)
 

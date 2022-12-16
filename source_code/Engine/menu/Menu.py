@@ -18,10 +18,11 @@ trek_number = CL.NumVariables()
 
 
 def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
-                          play_quit_menu, pressing):
+                          play_quit_menu, pressing,final_running):
     """ describes the logic of menu buttons """
 
     if play_quit_menu.getter():
+        final_running.setter(False)
         if pressing.getter() == 'none':
             menu_screen.all_menu_drawer_pressed('none')
             pg.display.update()
@@ -51,12 +52,14 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                     play_quit_menu.setter(False)
                     trek_choice.setter(0)
                     pressing.setter('none')
+                    final_running.setter(False)
                 else:
                     running.setter(False)
                     pressing.setter('none')
+                    final_running.setter(False)
                 pressing.setter('none')
 
-    if mode_choice.getter():  # MM/KM menu
+    if mode_choice.getter() and not play_quit_menu.getter():  # MM/KM menu
         M_Eng.screen.fill((0, 0, 0))
         mm_button = CL.Button(495, 210, 284, 135, '')
         km_button = CL.Button(420, 440, 440, 134, '')
@@ -82,6 +85,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                             choose_mode_menu.all_menu_drawer_pressed('back')
                             pg.display.update()
                             pressing.setter('back')
+                            final_running.setter(False)
                     elif event.type == pg.QUIT:
                         mode_choice.setter(False)
                         running.setter(False)
@@ -93,18 +97,22 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                         play_quit_menu.setter(False)
                         trek_choice.setter(1)
                         pressing.setter('none')
+                        final_running.setter(False)
                     elif pressing.getter() == 'keyboard':
                         mode_type.setter(2)
                         mode_choice.setter(False)
                         play_quit_menu.setter(False)
                         trek_choice.setter(2)
                         pressing.setter('none')
+                        final_running.setter(False)
                     elif pressing.getter() == 'back':
+                        print(2)
                         mode_type.setter(0)
                         mode_choice.setter(False)
                         trek_choice.setter(0)
                         play_quit_menu.setter(True)
                         pressing.setter('none')
+                        final_running.setter(False)
                     pressing.setter('none')
 
 
@@ -138,6 +146,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                             choose_song_menu.all_menu_drawer_pressed('back')
                             pg.display.update()
                             pressing.setter('back')
+                            final_running.setter(False)
                     elif event.type == pg.QUIT:
                         choice_running = False
                         running.setter(False)
@@ -151,11 +160,13 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                             choice_running = False
                             mode_choice.setter(False)
                             pressing.setter('none')
+                            final_running.setter(False)
                     if pressing.getter() == 'back':
                         mode_choice.setter(True)
                         choice_running = False
                         trek_choice.setter(0)
                         pressing.setter('none')
+                        final_running.setter(False)
                     pressing.setter('none')
 
     if trek_choice.getter() == 2:  # KM Trek Choicing menu
@@ -188,6 +199,7 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                             choose_song_menu.all_menu_drawer_pressed('back')
                             pg.display.update()
                             pressing.setter('back')
+                            final_running.setter(False)
                     elif event.type == pg.QUIT:
                         choice_running = False
                         running.setter(False)
@@ -201,11 +213,13 @@ def logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice,
                             choice_running = False
                             mode_choice.setter(False)
                             pressing.setter('none')
+                            final_running.setter(False)
                     if pressing.getter() == 'back':
                         mode_choice.setter(True)
                         choice_running = False
                         trek_choice.setter(0)
                         pressing.setter('none')
+                        final_running.setter(False)
                     pressing.setter('none')
 
 
