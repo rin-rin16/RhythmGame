@@ -23,29 +23,32 @@ class DrawAMenuButton:
         self.surface = surface
         self.score = score
 
-    def draw_continue_button_unpressed(self):
+    def draw_to_menu_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(380, 230, 550, 180))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         continue_word = font.render('Continue', True, pink, light_grey)
         self.surface.blit(continue_word, (390, 240))
 
-    def draw_continue_button_pressed(self):
+    def draw_to_menu_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 160)
         continue_word = font.render('Continue', True, pink, dark_grey)
         self.surface.blit(continue_word, (380, 230))
 
-    def draw_menu_button_unpressed(self):
+    def draw_quuit_button_unpressed(self):
         pg.draw.rect(self.surface, color=dark_grey, rect=(520, 470, 265, 138))
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Menu', True, pink, light_grey)
         self.surface.blit(start, (530, 480))
 
-    def draw_menu_button_pressed(self):
+    def draw_quit_button_pressed(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 120)
         start = font.render('Menu', True, pink, dark_grey)
         self.surface.blit(start, (520, 470))
 
-    def draw_pause_word(self):
+    def draw_score(self):
+        pass
+
+    def draw_congratulations_word(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 60)
         menu = font.render('Pause', True, yellow, black)
         self.surface.blit(menu, (580, 100))
@@ -56,11 +59,12 @@ class DrawAMenuButton:
         :param button: which button is pressed ['none', 'continue', 'menu']
         :return: draws given button pressed, other unpressed
         """
-        self.draw_pause_word()
+        self.draw_congratulations_word()
+        self.draw_score()
         if button == 'none':
             self.draw_menu_button_unpressed()
             self.draw_continue_button_unpressed()
-        if button == 'continue':
+        if button == 'to menu':
             self.draw_menu_button_unpressed()
             self.draw_continue_button_pressed()
         if button == 'quit':
