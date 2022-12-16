@@ -59,6 +59,7 @@ while running.getter():
                                    start_menu.trek_number.getter(), tcr.l_W_N)
     KR.Track_10_Player.music_player(CL.start_time, 60 / sb.D_A[0], sb.D_A[1], 0.1, 0.15, daa_arr_list, running,
                                    start_menu.trek_number.getter(), tcr.l_D_A)
+
     Final.logic(final_running.getter(), running,pressing,M_Eng.screen,mode_type,mode_choice,trek_choice,play_quit_menu)
 
-pg.mixer.music.stop()#
+pg.mixer.music.stop()
