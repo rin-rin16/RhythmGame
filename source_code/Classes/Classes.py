@@ -268,6 +268,49 @@ class DeltaAlpha(BullVariables):
         else:
             self._bul = False
 
+class Button:
+
+    def __init__(self, x, y, xsize, ysize, text):
+        """ constructor of class "Button" """
+        self.x = x
+        self.y = y
+        self.text = text
+        self.xsize = xsize
+        self.ysize = ysize
+
+    def is_click(self, event):
+        """ return True if you click on the Button """
+        if self.x < event.pos[0] < self.x + self.xsize and self.y < event.pos[1] < self.y + self.ysize:
+            return True
+
+    def write_text_on_button(self, screen):
+        """ writing text on the element of class "Button" """
+        myfont = pg.font.SysFont("monospace", 30)
+        text = myfont.render(str(self.text), 1, (255, 255, 255))
+        screen.blit(text, (self.x, self.y))
+
+
+
+
+class PlayButton(Button):
+    def __init__(self, *args):
+        """ constructor of class "PlayButton" which the subclass of class "Button" """
+        super().__init__(*args)
+
+    def start_game(self, mode):
+        """ Using for run game if player click on the element of PlayButton """
+        trek_choice.setter(mode)
+
+
+class TrekButton(Button):
+    def __init__(self, *args):
+        """ constructor of class "TrekButton" which the subclass of class "Button" """
+        super().__init__(*args)
+
+    def get_trek_number(self):
+        """ Return number of trek for which the element of TrekButton is responsible"""
+        return self.trek_number
+
 
 timer = BullVariables()
 start_time = NumVariables()

@@ -34,6 +34,7 @@ ending = CL.NumVariables(True)
 trek_choice = CL.NumVariables(0)
 while running.getter():
     menu_running = True
+    playing = True
     start_menu.logic_of_menu_buttons(running, trek_choice, clock, mode_type, mode_choice, ending, play_quit_menu,pressing)
     CL.start_time.setter(time.time())
 
