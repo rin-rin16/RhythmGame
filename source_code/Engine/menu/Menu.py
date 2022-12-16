@@ -7,58 +7,16 @@ from source_code.Visualisation.Menu import Vis_Choose_a_song_Menu as VCSM
 from source_code.Visualisation.Menu import Vis_Choose_mode_menu as VCMM
 
 
-class Button:
-
-    def __init__(self, x, y, xsize, ysize, text):
-        """ constructor of class "Button" """
-        self.x = x
-        self.y = y
-        self.text = text
-        self.xsize = xsize
-        self.ysize = ysize
-
-    def is_click(self, event):
-        """ return True if you click on the Button """
-        if self.x < event.pos[0] < self.x + self.xsize and self.y < event.pos[1] < self.y + self.ysize:
-            return True
-
-    def write_text_on_button(self, screen):
-        """ writing text on the element of class "Button" """
-        myfont = pg.font.SysFont("monospace", 30)
-        text = myfont.render(str(self.text), 1, (255, 255, 255))
-        screen.blit(text, (self.x, self.y))
-
-
-menu = True
-trek_choice = CL.NumVariables(0)
-trek_number = CL.NumVariables()
-
-
-class PlayButton(Button):
-    def __init__(self, *args):
-        """ constructor of class "PlayButton" which the subclass of class "Button" """
-        super().__init__(*args)
-
-    def start_game(self, mode):
-        """ Using for run game if player click on the element of PlayButton """
-        trek_choice.setter(mode)
-
-
-class TrekButton(Button):
-    def __init__(self, *args):
-        """ constructor of class "TrekButton" which the subclass of class "Button" """
-        super().__init__(*args)
-
-    def get_trek_number(self):
-        """ Return number of trek for which the element of TrekButton is responsible"""
-        return self.trek_number
 
 
 surf = M_Eng.screen
 menu_screen = VSM.DrawAMenuButton(surf)
 choose_song_menu = VCSM.VisualisationInChooseSongMenu(surf)
 choose_mode_menu = VCMM.DrawAMenuButton(surf)
-#sfddgsdf
+menu = True
+trek_choice = CL.NumVariables(0)
+trek_number = CL.NumVariables()
+
 
 def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_quit, mode_type, mode_choice,
                           play_quit_menu, pressing):
@@ -69,8 +27,8 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
             menu_screen.all_menu_drawer_pressed('none')
             pg.display.update()
         M_Eng.screen.fill((0, 0, 0))
-        play_button = PlayButton(480, 200, 320, 180, 'play_button')
-        quit_button = Button(540, 450, 200, 138, 'quit_button')
+        play_button = CL.PlayButton(480, 200, 320, 180, 'play_button')
+        quit_button = CL.Button(540, 450, 200, 138, 'quit_button')
 
         for event in pg.event.get():
             if pressing.getter() == 'none':
@@ -101,9 +59,9 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
 
     if mode_choice.getter():  # MM/KM menu
         M_Eng.screen.fill((0, 0, 0))
-        mm_button = Button(495, 210, 284, 135, '')
-        km_button = Button(420, 440, 440, 134, '')
-        back_to_menu = Button(1070, 600, 170, 95, '')
+        mm_button = CL.Button(495, 210, 284, 135, '')
+        km_button = CL.Button(420, 440, 440, 134, '')
+        back_to_menu = CL.Button(1070, 600, 170, 95, '')
         choose_mode_menu.all_menu_drawer_pressed('none')
         pg.display.update()
         while mode_choice.getter():
@@ -154,16 +112,16 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         while choice_running:
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            trek_button[0] = TrekButton(343, 200, 235, 48, '')
-            trek_button[1] = TrekButton(638, 200, 268, 48, '')
-            trek_button[2] = TrekButton(638, 400, 202, 48, '')
-            trek_button[3] = TrekButton(540, 600, 130, 48, '')
-            trek_button[4] = TrekButton(378, 400, 130, 48, '')
+            trek_button[0] = CL.TrekButton(343, 145, 235, 48, '')
+            trek_button[1] = CL.TrekButton(638, 145, 268, 48, '')
+            trek_button[2] = CL.TrekButton(638, 345, 202, 48, '')
+            trek_button[3] = CL.TrekButton(540, 600, 130, 48, '')
+            trek_button[4] = CL.TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
                 choose_song_menu.all_menu_drawer_pressed('none')
                 pg.display.update()
-            back_to_menu = Button(1100 - 7, 600 - 7, 150, 78, '')
+            back_to_menu = CL.Button(1100 - 7, 600 - 7, 150, 78, '')
             pg.display.update()
             for event in pg.event.get():
                 if pressing.getter() == 'none':
@@ -204,16 +162,16 @@ def logic_of_menu_buttons(running, trek_choice, clock, pressing_start, pressing_
         while choice_running:
             amount_of_buttons = 5
             trek_button = [0] * amount_of_buttons
-            trek_button[0] = TrekButton(343, 200, 235, 48, '')
-            trek_button[1] = TrekButton(638, 200, 268, 48, '')
-            trek_button[2] = TrekButton(638, 400, 202, 48, '')
-            trek_button[3] = TrekButton(540, 600, 130, 48, '')
-            trek_button[4] = TrekButton(378, 400, 130, 48, '')
+            trek_button[0] = CL.TrekButton(343, 145, 235, 48, '')
+            trek_button[1] = CL.TrekButton(638, 145, 268, 48, '')
+            trek_button[2] = CL.TrekButton(638, 345, 202, 48, '')
+            trek_button[3] = CL.TrekButton(540, 600, 130, 48, '')
+            trek_button[4] = CL.TrekButton(378, 345, 130, 48, '')
             if pressing.getter() == 'none':
                 M_Eng.screen.fill((0, 0, 0))
                 choose_song_menu.all_menu_drawer_pressed('none')
                 pg.display.update()
-            back_to_menu = Button(1100 - 7, 600 - 7, 150, 78, '')
+            back_to_menu = CL.Button(1100 - 7, 600 - 7, 150, 78, '')
             pg.display.update()
             for event in pg.event.get():
                 if pressing.getter() == 'none':
@@ -255,9 +213,9 @@ def pause(event, clock, running):
             run_pause = True
             while run_pause:
                 M_Eng.screen.fill((0, 0, 0))
-                resume = Button(390, 240, 550, 180, '')
+                resume = CL.Button(390, 240, 550, 180, '')
                 resume.write_text_on_button(M_Eng.screen)
-                to_menu = Button(530, 480, 265, 138, '')
+                to_menu = CL.Button(530, 480, 265, 138, '')
                 to_menu.write_text_on_button(M_Eng.screen)
                 pg.display.update()
                 clock.tick(100)
