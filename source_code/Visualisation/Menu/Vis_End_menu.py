@@ -8,6 +8,7 @@ dark_grey = (50, 50, 50)
 light_grey = (90, 90, 90)
 orange = (255, 150, 0)
 purple = (121, 50, 169)
+white = (255, 255, 255)
 
 
 class DrawAMenuButton:
@@ -49,9 +50,9 @@ class DrawAMenuButton:
         pass
 
     def draw_congratulations_word(self):
-        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 60)
-        menu = font.render('Pause', True, yellow, black)
-        self.surface.blit(menu, (580, 100))
+        font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu", 'Sunset Club Free Trial.ttf'), 180)
+        menu = font.render('Congratulations!', True, white, black)
+        self.surface.blit(menu, (50, 50))
 
     def all_menu_drawer_pressed(self, button: str):
         """
