@@ -59,13 +59,13 @@ class DrawAMenuButton:
     def draw_score(self):
         font = pg.font.Font(os.path.join(os.getcwd(), "source_code", "Visualisation", "Menu",
                                          'Sunset Club Free Trial.ttf'), 100)
-        font_double_dot = pg.font.SysFont('marion', 80)
-        font_number = pg.font.SysFont('geneva', 100)
+        font_double_dot = pg.font.SysFont('Calibri', 100)
+        font_number = pg.font.SysFont('ebrima', 100)
         score = font.render('Your score', True, orange)
         double_dot = font_double_dot.render(':', True, orange)
         number = font_number.render(f'{self.score}', True, orange)
         self.surface.blit(score, (50, 260))
-        self.surface.blit(double_dot, (445, 275))
+        self.surface.blit(double_dot, (445, 260))
         self.surface.blit(number, (500, 240))
 
     def draw_congratulations_word(self):

@@ -39,6 +39,7 @@ while not finished:
     for event in pg.event.get():
         if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
             finished = True
+            print(pg.font.get_fonts())
 
 
 pg.quit()
