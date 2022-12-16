@@ -1,9 +1,9 @@
 from source_code.Classes import classes as CL
 import pygame as pg
 from source_code.Visualisation.Menu import vis_end_menu as vem
-from source_code.Engine import mouse_mode as M_Eng
+from source_code.Engine import mouse_mode as m_eng
 
-surf = M_Eng.screen
+surf = m_eng.screen
 score = 0
 final_screen = vem.DrawAMenuButton(surf, score)
 
@@ -25,12 +25,12 @@ def logic(final_running, running, pressing, screen, mode_type, mode_choice, trek
                 if pressing.getter() == 'none':
                     if event.type == pg.MOUSEBUTTONDOWN:
                         if quit_from_game.is_click(event):
-                            M_Eng.screen.fill((0, 0, 0))
+                            m_eng.screen.fill((0, 0, 0))
                             final_screen.all_menu_drawer_pressed('quit')
                             pg.display.update()
                             pressing.setter('quit')
                         elif go_to_menu.is_click(event):
-                            M_Eng.screen.fill((0, 0, 0))
+                            m_eng.screen.fill((0, 0, 0))
                             final_screen.all_menu_drawer_pressed('to_menu')
                             pg.display.update()
                             pressing.setter('to_menu')
