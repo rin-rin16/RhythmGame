@@ -2,8 +2,7 @@ from source_code.Classes import Classes as CL
 import pygame as pg
 
 
-def logic(running,pressing,screen,mode_type,mode_choice,trek_choice,play_quit_menu):
-    final_running = True
+def logic(final_running,running,pressing,screen,mode_type,mode_choice,trek_choice,play_quit_menu):
     if final_running:
         screen.fill((0, 0, 0))
         go_to_menu = CL.Button(480, 200, 320, 180, 'Go_to_menu')
